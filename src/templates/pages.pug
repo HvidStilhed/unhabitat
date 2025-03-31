@@ -1,0 +1,15 @@
+extends common/header.pug
+
+block content
+	- var pages = require('../data/pages.json')
+	.container(style="margin-bottom: 50px")
+		each section in pages.sections
+			p
+				strong= section.title
+
+			ol(style="margin: 0 0 30px")
+				each item in section.items
+					li
+						if item.checked
+							| ✔ 
+						a(target="_blank" href="item.url")=item.name

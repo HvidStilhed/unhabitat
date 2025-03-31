@@ -1,0 +1,5526 @@
+// Colors
+$black: #000000
+
+$eerie_black: #17191B
+$eerie_black_80: #454749
+$eerie_black_60: #747576
+$eerie_black_40: #A2A3A4
+
+$platinum: #DFDFDF
+
+$seasalt: #F8F8F8
+
+$white: #FFFFFF
+
+$process_cyan: #00B2E3
+$process_cyan_80: #43D1F9
+$process_cyan_60: #72DDFA
+
+$light_sea_green: #00B2A9
+
+$mantis: #6DBE4B
+
+$bice_blue: #00689D
+
+$tag_language: #FFF7DA
+
+$transparent: rgba(0, 0, 0, 0)
+
+// Project card
+@mixin project
+    min-height: 460px
+    display: flex
+    
+    padding: 32px
+    margin-bottom: 32px
+
+    overflow: hidden
+    position: relative
+    
+    color: $eerie_black
+    background: $seasalt
+    text-decoration: none
+    transition-duration: .3s
+    height: calc(100% - 32px)
+    &:hover
+        color: $white
+        &:before
+            left: 0
+        .projects__item-link,
+        .updates__article-link
+            &:before
+                width: 24px
+                margin-left: 0
+    &:before
+        content: ''
+        position: absolute
+
+        width: 100%
+        height: 100%
+        
+        top: 0
+        left: -100%
+
+        background: $process_cyan
+        transition-duration: .3s
+    &-category
+        font-size: 14px
+        font-weight: 600
+        text-transform: uppercase
+
+        margin-bottom: 48px
+        & + .projects__item-title
+            font-size: 22px
+            font-weight: 600
+            line-height: 28px
+    &-wrap
+        position: relative
+
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+    &-content
+        margin-bottom: 24px
+    &-title
+        margin-bottom: 16px
+    &-link
+        font-weight: 500
+
+        display: flex
+        align-items: center
+        &:before
+            content: ''
+            display: block
+            transition-duration: .3s
+
+            margin-right: 16px
+            margin-left: -16px
+
+            width: 0
+            height: 9px
+
+            background-size: cover
+            background-position: right center
+            background-image: url('../../img/icons/arrow_white.svg')
+    &-date
+        font-size: 14px
+        font-weight: 500
+    &-header
+        margin-bottom: 48px
+        display: flex
+        justify-content: space-between
+        > *
+            margin-bottom: 0
+
+@mixin link
+    width: 320px
+    max-width: 100%
+
+    text-decoration: none
+    color: $eerie_black_60
+    transition-duration: .3s
+
+    display: flex
+    align-items: center
+    @media (max-width: 991px)
+        margin-top: 48px
+    &:hover
+        color: $process_cyan
+    &:before
+        content: ''
+
+        height: 48px
+        min-width: 48px
+
+        margin-right: 12px
+        transition-duration: .3s
+
+        background-size: 48px !important
+        background-position: center
+        background-repeat: no-repeat
+
+@mixin container
+    width: 1440px
+    max-width: 100%
+
+    margin-left: auto
+    margin-right: auto
+
+    padding-left: 32px
+    padding-right: 32px
+    @media (max-width: 767px)
+        padding-left: 16px
+        padding-right: 16px
+    .container
+        padding-left: 0
+        padding-right: 0
+
+// Fonts
+@font-face
+    font-family: Inter
+    src: url("../../fonts/Inter/Inter-Medium.woff2") format("woff2"), url("../../fonts/Inter/Inter-Medium.woff") format("woff")
+    font-weight: 500
+    font-style: normal
+    font-display: swap
+
+@font-face
+    font-family: Inter
+    src: url("../../fonts/Inter/Inter-SemiBold.woff2") format("woff2"), url("../../fonts/Inter/Inter-SemiBold.woff") format("woff")
+    font-weight: 600
+    font-style: normal
+    font-display: swap
+
+@font-face
+    font-family: Inter
+    src: url("../../fonts/Inter/Inter-Bold.woff2") format("woff2"), url("../../fonts/Inter/Inter-Bold.woff") format("woff")
+    font-weight: bold
+    font-style: normal
+    font-display: swap
+
+@font-face
+    font-family: Inter
+    src: url("../../fonts/Inter/Inter-Regular.woff2") format("woff2"), url("../../fonts/Inter/Inter-Regular.woff") format("woff")
+    font-weight: normal
+    font-style: normal
+    font-display: swap
+
+// Animations
+@keyframes fade_move_down
+    0%
+        opacity: 1
+        transform: translate(0, -20px)
+    50%
+        opacity: 1
+    100%
+        opacity: .5
+        transform: translate(0, 15px)
+
+
+// Reset
+*
+    box-sizing: border-box
+h1,
+h2,
+h3,
+h4,
+h5,
+body,
+figure
+    margin: 0
+
+input,
+button
+    padding: 0
+
+input
+    outline: none
+
+input,
+button
+    border: none
+    background: transparent
+
+button
+    cursor: pointer
+
+p
+    margin-top: 0
+    &:last-child
+        margin-bottom: 0
+
+img
+    height: auto
+    max-width: 100%
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration
+  -webkit-appearance: none
+
+html, body
+    overflow-x: hidden
+
+body
+    &:before
+        content: ''
+        position: fixed
+        width: 100vw
+        height: 100vh
+        left: 0
+        top: 0
+        background: $eerie_black
+        opacity: 0
+        visibility: hidden
+        transition-duration: .3s
+        z-index: 5
+    &.overlay:before
+        opacity: .2
+        visibility: visible
+
+// Container
+.container
+    @include container
+
+// Row
+.row
+    display: flex
+    flex-wrap: wrap
+
+    margin-left: -16px
+    margin-right: -16px
+    > *
+        padding-left: 16px
+        padding-right: 16px
+
+.flex-column
+    flex-direction: column
+
+// Columns
+.col-12
+    width: 100%
+    
+.col-11
+    width: 91.6666666667%
+
+.col-10
+    width: 83.3333333333%
+    @media (max-width: 991px)
+        width: 100%
+
+.col-9
+    width: 75%
+
+.col-8
+    width: 66.6666666667%
+
+.col-7
+    width: 58.3333333333%
+    @media (max-width: 991px)
+        width: 100%
+    
+.col-6
+    width: 50%
+    @media (max-width: 767px)
+        width: 100%
+
+.col-5
+    width: 41.6666666667%
+
+.col-4
+    width: 33.3333333333%
+    @media (max-width: 991px)
+        width: 50%
+    @media (max-width: 767px)
+        width: 100%
+
+.col-3
+    width: 25%
+
+.col-2
+    width: 16.6666666667%
+
+.col-1
+    width: 8.3333333333%
+    @media (max-width: 991px)
+        display: none
+
+.col
+    flex: 1 0 0%
+
+// Page sections
+.page
+    line-height: 22px
+    position: relative
+    color: $eerie_black
+    font-family: "Inter", sans-serif
+    &.toolbar-horizontal
+        #page
+            min-height: calc(100vh - 113px)
+    &.shifted-header
+        &.toolbar-horizontal
+            .breadcrumbs
+                top: calc(105px + 113px)
+            // .header:not(.header_moved)
+            //     top: 113px !important
+            .page__header
+                &_large
+                    top: 0
+                    padding-top: 203px
+        .header,
+        .breadcrumbs
+            width: 100%
+        .header .lang-toggle
+            a, span
+                color: $white
+            .lang-toggle__list
+                a, span
+                    color: $eerie_black
+                    &:hover
+                        color: $white
+        .header
+            position: fixed
+            &:not(.header_white)
+                background: transparent
+                .header__menu
+                    &-link
+                        color: $white
+                        &_mouseover:before
+                            background-image: linear-gradient(to right, $white 50%, $transparent 50%)
+                        &_mouseout:after
+                            background-image: linear-gradient(to right, $transparent 50%, $white 50%)
+                .header__logo
+                    background-image: url('../../img/logos/logo_white.svg')
+                .header__search
+                    background-image: url('../../img/icons/search_white.svg')
+                .header__button
+                    background-image: url('../../img/icons/menu_white.svg')
+        .breadcrumbs
+            z-index: 3
+            top: 105px
+            position: absolute
+            &__item
+                &:first-child
+                    .breadcrumbs__item-link
+                        &:hover:after
+                            background-image: url('../../img/icons/home_white.svg')
+                        &:after
+                            background-image: url('../../img/icons/home_white.svg')
+                &-text,
+                &-link
+                    color: $white
+                    &:hover
+                        color: $white
+        .page__header,
+        .authorize-success-notice
+            color: $white
+            padding-top: 200px
+    &__header
+        z-index: 2
+        position: relative
+        margin-bottom: 32px
+        &-row,
+        &_row
+            display: flex
+            flex-wrap: wrap
+            align-items: flex-start
+            justify-content: space-between
+            @media (max-width: 991px)
+                flex-direction: column
+            @media (max-width: 767px)
+                flex-wrap: nowrap
+                flex-direction: row
+                align-items: center
+        &_no-picture
+            padding-bottom: 64px
+            .page__background
+                height: 100%
+            .page__header-thumbnail
+                flex-direction: column-reverse
+        &_background
+            min-height: 660px
+            margin-bottom: 64px
+            padding-bottom: 48px
+            @media (max-width: 767px)
+                margin-bottom: 48px
+            .button
+                color: $white
+                border-color: $white
+                &:hover
+                    color: $process_cyan
+                    background: $white
+            .page__inserted
+                a
+                    color: $white
+        &_thumbnail
+            @media (min-width: 1200px)
+                padding-bottom: 0
+            .page__background
+                height: calc(100% - 40px)
+                @media (max-width: 1199px)
+                    height: 100%
+        &_slim
+            min-height: 540px
+        &_thumbnail,
+        &_no-picture
+            height: auto
+            max-height: none
+            .page__title
+                width: 100%
+                margin-bottom: 64px
+        &-tag
+            @media (min-width: 1200px)
+                margin-right: 100px
+            @media (max-width: 991px)
+                margin-top: 16px
+        &-info
+            display: flex
+            flex-wrap: wrap
+            align-items: flex-start
+            &-date
+                width: 100%
+                margin-top: 8px
+                margin-bottom: 4px
+            &-country
+                margin: 0 8px 8px 0
+            &-tag
+                margin: 0 16px 16px 0
+        &-description
+            width: 790px
+            max-width: 100%
+            margin-top: 100px
+        &-link
+            margin-top: 32px
+            min-width: 120px
+            display: inline-flex
+            justify-content: center
+            &:not(:last-child)
+                margin-right: 32px
+        &-thumbnail
+            &:not(.page__header-thumbnail_vertical-caption)
+                figcaption
+                    margin-top: 4px
+            &_vertical-caption
+                figure
+                    position: relative
+                    figcaption
+                        top: 0
+                        left: 0
+                        margin: 0
+                        position: absolute
+                        transform-origin: 0
+                        transform: rotate(-90deg) translate(-100%, -16px)
+            figcaption
+                color: $black
+                position: absolute
+                @media (max-width: 1199px)
+                    position: static
+                    color: $white
+            figure
+                width: 580px
+                max-width: 100%
+                position: relative
+                img
+                    width: 100%
+                    height: auto
+            .col-5,
+            .col-6
+                @media (max-width: 767px)
+                    width: 100%
+            .col-5
+                @media (max-width: 767px)
+                    margin-bottom: 40px
+        &-content
+            display: flex
+            align-items: flex-start
+            flex-direction: column
+        &-date
+            margin-top: 24px
+            margin-bottom: 4px
+        &-nav
+            display: flex
+            align-items: flex-end
+
+            margin-top: 90px
+            &-thumbnail
+                width: 135px
+                height: 98px
+            &-link
+                width: 185px
+                position: relative
+                background: $white
+                text-decoration: none
+                color: $eerie_black_80
+                padding: 16px 16px 32px
+                transition-duration: .3s
+                &:hover
+                    color: $process_cyan
+                &:after
+                    left: 16px
+                    bottom: 16px
+
+                    content: ''
+                    width: 32px
+                    height: 6px
+                    position: absolute
+                    background-image: url('../../img/icons/arrow_right_short_blue.svg')
+        .page__info
+            margin-bottom: 0
+            &-item
+                margin-left: -16px
+                margin-right: -16px
+                &:last-child
+                    padding-bottom: 0
+                    border: none
+            &-button
+                border-color: $white
+                color: $white
+                &:hover
+                    color: $process_cyan
+                    background: $white
+        .page__description
+            .button
+                margin-top: 32px
+                display: inline-flex
+    &__subtitle
+        margin-top: 16px
+    &__description
+        margin-top: 80px
+        @media (max-width: 767px)
+            margin-top: 10px
+        &-text
+            &_bold
+                font-weight: 600
+        .col-5
+            @media (max-width: 991px)
+                width: 100%
+                margin-bottom: 24px
+    &__video,
+    &__background
+        top: 0
+        left: 0
+
+        width: 100%
+    &__background
+        width: 100%
+        height: 100%
+
+        z-index: -1
+        overflow: hidden
+        position: absolute
+
+        top: 0
+        left: 0
+
+        background-size: cover
+        background-position: center
+        &:before
+            content: ''
+
+            width: 100%
+            height: 100%
+
+            top: 0
+            left: 0
+            z-index: 1
+            position: absolute
+
+            opacity: .65
+            background: $black
+        &_bice-blue
+            background: $bice_blue
+            &:before
+                content: none
+        &_process-cyan
+            background: $process_cyan
+            &:before
+                content: none
+    &__video
+        position: absolute
+        width: auto
+        max-width: 100%
+        min-width: 100%
+        min-height: 100%
+        video
+            top: 0
+            left: 0
+            width: 100%
+            position: absolute
+    &__info
+        &_single
+            .page__info-item
+                border: none
+                padding-bottom: 0
+        &-item
+            padding-bottom: 64px
+
+            border-bottom: 1px solid $platinum
+
+            display: flex
+            flex-wrap: wrap
+            @media (max-width: 767px)
+                padding-bottom: 0
+                border-bottom: none
+                margin-bottom: 48px
+            &:not(:last-child)
+                @media (min-width: 768px)
+                    margin-bottom: 64px
+            strong
+                color: $process_cyan
+            ol, ul
+                padding-left: 18px
+                li:not(:last-child)
+                    margin-bottom: 10px
+            ul:not(.colored-list)
+                list-style-type: disc
+            .h5:not(:first-child)
+                margin-top: 32px
+                margin-bottom: 16px
+            .col-4
+                @media (max-width: 991px)
+                    width: 100%
+                    margin-bottom: 24px
+            .col-5
+                padding-right: 16px
+            .col-7
+                @media (min-width: 992px)
+                    padding-left: 16px
+            .pdf-link,
+            .button
+                margin-top: 32px
+            p + .button
+                margin-top: 24px
+            .button
+                display: inline-flex
+                &:not(:last-child)
+                    margin-right: 32px
+            a:not(.pdf-link):not(.button)
+                color: $process_cyan
+            .h4
+                margin-bottom: 32px
+                margin-top: 40px
+        &-button
+            margin-top: 24px
+            display: inline-flex
+            min-width: 120px
+            justify-content: center
+            &:not(:last-child)
+                margin-right: 28px
+        &-thumbnail
+            margin-top: 56px
+        &-challenges
+            display: flex
+            flex-wrap: wrap
+
+            // margin-top: 32px
+            margin-left: -12px
+            margin-right: -12px
+            &-item
+                display: flex
+
+                padding-left: 12px
+                padding-right: 12px
+                margin-bottom: 24px
+                @media (max-width: 767px)
+                    width: 50%
+        &-carousel-wrap
+            padding-bottom: 0
+            border-bottom: none
+        &-carousel
+            width: calc(100% + 32px)
+
+            padding-left: 0
+            padding-right: 0
+            margin-top: 64px
+            margin-right: -32px
+            @media (max-width: 767px)
+                margin-right: 0
+                display: flex
+                flex-wrap: wrap
+            &-item
+                padding: 24px
+
+                width: 486px
+                min-height: 100%
+
+                border: 1px solid $platinum
+                border-left: 8px solid $light_sea_green
+
+                display: flex
+                flex-direction: column
+                @media (max-width: 767px)
+                    width: 100%
+                    height: auto
+                    min-height: 0
+                &:not(:last-child)
+                    @media (min-width: 768px)
+                        margin-right: 32px
+                    @media (max-width: 767px)
+                        margin-bottom: 32px
+                &-title
+                    margin-bottom: 24px
+
+        @media (max-width: 1199px)
+            &-item
+                .col-7,
+                .col-4
+                    width: 100%
+
+                .col-4
+                    margin-bottom: 24px
+
+                .col-1
+                    display: none
+            
+    &__stats
+        &-row
+            display: flex
+            flex-wrap: nowrap
+
+            border: 1px solid $platinum
+
+            margin-left: 0
+            margin-right: 0
+            &:not(:last-child)
+                border-bottom: none
+        &-column:not(:last-child)
+            border-right: 1px solid $platinum
+        &-title
+            margin-bottom: 24px
+    &__title
+        width: 900px
+        max-width: 100%
+        @media (max-width: 1199px) and (min-width: 992px)
+            max-width: 80%
+
+// Related
+.related
+    margin-bottom: 40px
+    &__title
+        margin-bottom: 24px
+    &__items
+        display: flex
+        flex-wrap: wrap
+
+        margin-left: -12px
+        margin-right: -12px
+    &__item
+        margin: 0 12px 24px
+        @media (max-width: 767px)
+            width: calc(50% - 24px)
+            display: flex
+
+// Section
+.section
+    margin-bottom: 64px
+    
+    &_background,
+    &_video
+        padding: 48px
+        color: $white
+        position: relative
+        overflow: hidden
+        @media (max-width: 767px)
+            padding: 32px
+        &_light-sea-green
+            background: $light_sea_green
+        .button
+            color: $white
+            border-color: $white
+            &:hover
+                background: $white
+                color: $process_cyan
+    &_background-image
+        &:before
+            content: ''
+
+            width: 100%
+            height: 100%
+
+            top: 0
+            left: 0
+            z-index: 1
+            position: absolute
+
+            opacity: .65
+            background: $black
+        .row
+            position: relative
+            z-index: 1
+    &_video
+        &:before
+            content: ''
+            opacity: .2
+
+            width: 100%
+            height: 100%
+
+            top: 0
+            left: 0
+            z-index: 1
+            position: absolute
+
+            background: $black
+        .row
+            position: relative
+            z-index: 2
+        .col-5
+            @media (max-width: 1199px)
+                width: 100%
+        .button
+            display: inline-flex
+    &_search
+        .section__header
+            margin-bottom: 24px
+    &__video
+        position: absolute
+        min-width: 100%
+        min-height: 100%
+        left: 0
+        top: 0
+    &__title
+        margin-bottom: 32px
+    &__header
+        display: flex
+        align-items: center
+        justify-content: space-between
+
+        margin-bottom: 32px
+        @media (max-width: 767px)
+            align-items: flex-start
+        .section__title
+            margin-bottom: 0
+    &__link
+        font-weight: 500
+        color: $eerie_black
+        text-decoration: none
+        transition-duration: .3s
+
+        display: flex
+        align-items: center
+
+        margin-right: 40px
+        @media (max-width: 767px)
+            margin-right: 0
+            margin-left: 24px
+            white-space: nowrap
+        &:hover
+            margin-right: 0
+            &:before
+                width: 24px
+        &:before
+            content: ''
+            display: block
+            transition-duration: .3s
+
+            margin-top: 2px
+            margin-right: 16px
+
+            width: 0
+            height: 9px
+
+            background-size: cover
+            background-position: right center
+            background-image: url('../../img/icons/arrow.svg')
+            @media (max-width: 767px)
+                content: none
+    &__calendar
+        width: 32px
+        height: 32px
+        
+        background-position: center
+        background-repeat: no-repeat
+        background-image: url('../../img/icons/calendar.svg')
+    .col-4,
+    .col-5,
+    .col-7
+        @media (max-width: 991px)
+            width: 100%
+        img
+            @media (max-width: 991px)
+                display: block
+                margin: auto
+    .col-4,
+    .col-5
+        &:not(:last-child)
+            @media (max-width: 991px)
+                margin-bottom: 24px
+    .col-5
+        &:last-child
+            figure
+                @media (max-width: 61.9375rem)
+                    margin-top: 2rem
+
+    @media (max-width: 1199px)
+        &_background
+            .col-5,
+            .col-6
+                width: 100%
+
+    @media (max-width: 991px)
+        &_background
+            padding: 32px
+
+    @media (max-width: 767px)
+        margin-bottom: 32px
+
+        &_background
+            margin-left: -16px
+            margin-right: -16px
+
+// Typography
+.hero
+    font-size: 64px
+    font-weight: 600
+    line-height: 70px
+    @media (max-width: 767px)
+        font-size: 48px
+        line-height: 62px
+
+.h1
+    font-size: 48px
+    font-weight: 600
+    line-height: 62px
+
+.h2
+    font-size: 36px
+    font-weight: 600
+    line-height: 47px
+
+.h3
+    font-size: 28px
+    font-weight: 600
+    line-height: 36px
+
+.h4
+    font-size: 22px
+    font-weight: 600
+    line-height: 28px
+
+.h5
+    font-size: 20px
+    font-weight: 500
+    line-height: 28px
+
+.small
+    font-size: 12px
+    line-height: 16px
+
+.quote
+    font-size: 24px
+    line-height: 34px
+
+figcaption
+    margin-top: 16px
+
+    font-size: 12px
+    line-height: 16px
+
+// Header
+.header
+    display: flex
+    align-items: center
+    justify-content: space-between
+    
+    top: 0
+    z-index: 4
+    position: sticky
+    background: $white
+
+    margin-left: auto
+    margin-right: auto
+    transition-duration: .3s
+    padding: 8px 32px 8px 16px
+    &_white
+        background: $white
+    &__logo
+        width: 89px
+        height: 89px
+
+        display: flex
+        background-image: url('../../img/logos/logo_blue.svg')
+    &__menu
+        display: flex
+
+        margin: 0
+        padding: 0
+        list-style-type: none
+        @media (max-width: 1199px)
+            display: none
+        &-item
+            &:not(:last-child)
+                margin-right: 56px
+        &-link
+            display: block
+            overflow: hidden
+            position: relative
+            padding-bottom: 4px
+
+            font-weight: 500
+            color: $eerie_black
+            text-decoration: none
+            &:before,
+            &:after
+                left: 0
+                bottom: 0
+                position: absolute
+
+                content: ''
+                display: block
+
+                width: 100%
+                height: 2px
+
+                background-size: 200% 100%
+                background-position: bottom right
+
+                transition: all .3s ease-out
+            &_mouseover:before
+                z-index: 1
+                background-position: bottom left
+                background-image: linear-gradient(to right, $eerie_black 50%, $white 50%)
+            &_mouseout
+                &:after
+                    z-index: 1
+                    background-position: bottom left
+                    background-image: linear-gradient(to right, $white 50%, $eerie_black 50%)
+                
+    &__search
+        width: 24px
+        height: 24px
+
+        background-image: url('../../img/icons/search.svg')
+        @media (max-width: 1199px)
+            margin-right: 20px
+    &__button
+        width: 24px
+        height: 24px
+
+        // right: 32px
+        // position: absolute
+
+        background-image: url('../../img/icons/menu.svg')
+        @media (min-width: 1200px)
+            display: none
+    &__right
+        align-items: center
+    .lang-toggle
+        list-style-type: none
+        padding: 0
+        margin: 0
+        height: 32px
+        &:hover
+            .lang-toggle__list
+                opacity: 1
+                visibility: visible
+        > li
+            text-align: center
+        a, span
+            font-weight: 500
+            text-decoration: none
+            text-transform: capitalize
+            width: 24px
+            height: 24px
+            padding: 4px
+            border-radius: 4px
+            box-sizing: content-box
+            display: block
+            color: $eerie_black
+            transition-duration: .3s
+        .lang-toggle__list
+            list-style-type: none
+            padding: 4px 6px
+            border-radius: 4px
+            border: 1px solid #DFDFDF
+            background: $white
+            opacity: 0
+            visibility: hidden
+            transition-duration: .3s
+            &:empty
+                display: none
+            a, span
+                &:hover
+                    background: $process_cyan_80
+                    color: $white
+
+// Breadcrumbs
+.breadcrumbs
+    display: flex
+
+    margin: 0
+    padding: 0
+    list-style-type: none
+
+    margin-left: auto
+    margin-right: auto
+    margin-bottom: 48px
+
+    border-top: 1px solid $platinum
+    border-bottom: 1px solid $platinum
+
+    overflow: hidden
+    &__item
+        display: flex
+        border-right: 1px solid $platinum
+        &:first-child
+            .breadcrumbs__item-link
+                color: $white
+                width: 48px
+                height: 48px
+                overflow: hidden
+                position: relative
+                text-indent: 10000px
+                &:after
+                    content: ''
+                    display: block
+
+                    width: 16px
+                    height: 16px
+
+                    background-size: contain
+                    background-position: center
+                    background-repeat: no-repeat
+                    background-image: url('../../img/icons/home.svg')
+
+                    transition-duration: .3s
+
+                    top: 16px
+                    left: 16px
+                    position: absolute
+                &:hover:after
+                    background-image: url('../../img/icons/home_blue.svg')
+    &__item-link,
+    &__item-text
+        padding: 16px
+
+        font-size: 12px
+        line-height: 16px
+        color: $eerie_black
+        text-decoration: none
+        white-space: nowrap
+    &__item-link
+        transition-duration: .3s
+        &:hover
+            color: $process_cyan
+    span.breadcrumbs__item-link:hover
+        color: $eerie_black
+
+// Buttons
+.button
+    font-size: 18px
+    font-weight: 500
+    line-height: 22px
+    text-align: center
+    text-decoration: none
+    
+    padding: 8px 12px
+    border-radius: 4px
+    transition-duration: .3s
+
+    color: $eerie_black
+    border: 1px solid $process_cyan
+    &:hover
+        color: $white
+        background: $process_cyan
+    &_small
+        font-size: 14px
+        line-height: 15px
+    &_black
+        border-color: $eerie_black
+        &:hover
+            background: $eerie_black
+    &_white
+        color: $white
+        border-color: $white
+        &:hover
+            background: $white
+            color: $process_cyan
+    &_submit
+        border: none
+        color: $white
+        background: $eerie_black
+        &:hover
+            background: $process_cyan
+    &_download
+        overflow: hidden
+        position: relative
+
+        display: flex
+        align-items: center
+        justify-content: center
+        &:hover
+            color: $transparent
+            border-color: $process_cyan
+            background-color: $process_cyan
+            &:before
+                opacity: 1
+                animation: fade_move_down .6s linear infinite
+        &:before
+            opacity: 0
+            content: ''
+            width: 24px
+            height: 24px
+            position: absolute
+            transition-duration: .3s
+            background-image: url('../../img/icons/download.svg')
+
+// Inputs
+.text-input
+    width: 100%
+    height: 48px
+    padding: 0 16px
+    font-size: 16px
+    font-family: Inter
+    border-radius: 4px
+    background: $seasalt
+    transition-duration: .3s
+    border: 1px solid transparent
+    &:hover
+        background: #F1F1F1
+    &:focus
+        background: $white
+        border-color: $eerie_black_60
+        &::-webkit-input-placeholder
+            color: $eerie_black_40
+        &::-moz-placeholder
+            color: $eerie_black_40
+        &:-ms-input-placeholder
+            color: $eerie_black_40
+        &:-moz-placeholder
+            color: $eerie_black_40
+    &::-webkit-input-placeholder
+        color: $eerie_black_60
+    &::-moz-placeholder
+        color: $eerie_black_60
+    &:-ms-input-placeholder
+        color: $eerie_black_60
+    &:-moz-placeholder
+        color: $eerie_black_60
+
+// Subscription form
+.subscription
+    margin-bottom: 64px
+    &__form
+        padding: 24px
+        border-radius: 4px
+        background: rgb(220, 202, 198)
+        background: linear-gradient(180deg, rgba(220, 202, 198, 1) 0%, rgba(227, 202, 208, 1) 50%, rgba(211, 187, 209, 1) 100%)
+        .js-form-type-checkbox
+            input
+                position: absolute !important
+                overflow: hidden
+                clip: rect(1px, 1px, 1px, 1px)
+                width: 1px
+                height: 1px
+                word-wrap: normal
+                top: 0
+                &:checked + label
+                    &:before
+                        background: $black
+                    &:after
+                        opacity: 1
+            label
+                display: flex
+                position: relative
+                align-items: center
+                &:before
+                    content: ''
+                    height: 16px
+                    min-width: 16px
+                    margin-right: 10px
+                    border-radius: 2px
+                    transition-duration: .3s
+                    border: 1px solid $black
+                &:after
+                    left: 1px
+                    content: ''
+                    opacity: 0
+                    width: 16px
+                    height: 16px
+                    position: absolute
+                    transition-duration: .3s
+                    background-position: center
+                    background-repeat: no-repeat
+                    background-image: url('../../img/icons/checkbox.svg')
+    &__input
+        &:not(:last-child)
+            margin-bottom: 16px
+    &__select-wrap
+        .select2-container--default
+            width: 100% !important
+            &.select2-container--open.select2-container--below
+                .select2-selection--single
+                    border-radius: 4px
+            .select2-selection--single
+                border: none
+                height: 48px
+                background: $seasalt
+                .select2-selection__rendered
+                    padding: 10px 0 0 16px
+                .select2-selection__arrow
+                    top: 15px
+                    right: 16px
+
+                    width: 18px
+                    height: 18px
+
+                    background-position: center
+                    background-image: url('../../img/icons/caret_down.svg')
+                    b
+                        display: none
+            .select2-search--inline
+                .select2-search__field
+                    margin: 15px 0px 0px 16px
+    &__description
+        margin: 16px 0
+        color: $eerie_black_60
+    &__submit
+        width: 100%
+        cursor: pointer
+    &__checkbox
+        cursor: pointer
+        &-input
+            &:checked + .subscription__checkbox-description
+                &:before
+                    background: $black
+                &:after
+                    opacity: 1
+        &-description
+            display: flex
+            position: relative
+            align-items: center
+            &:before
+                content: ''
+                height: 16px
+                min-width: 16px
+                margin-right: 10px
+                border-radius: 2px
+                transition-duration: .3s
+                border: 1px solid $black
+            &:after
+                left: 1px
+                content: ''
+                opacity: 0
+                width: 16px
+                height: 16px
+                position: absolute
+                transition-duration: .3s
+                background-position: center
+                background-repeat: no-repeat
+                background-image: url('../../img/icons/checkbox.svg')
+    &__footer
+        align-items: center
+
+// Statements
+.statements
+    &_accordion
+        position: relative
+    &__toggler
+        content: ''
+        width: 40px
+        height: 40px
+        position: absolute
+        top: 0
+        right: 0
+        background: url('../../img/icons/caret_down_large.svg')
+        background-position: center
+        background-repeat: no-repeat
+        transition-duration: .3s
+        transform: rotate(180deg)
+        outline: none
+        &.active
+            transform: rotate(0)
+    &__accordion:not(.active)
+        display: none
+    &__item
+        padding: 16px 0 16px
+        display: flex
+        align-items: flex-start
+        position: relative
+
+        text-decoration: none
+        color: $eerie_black_60
+        border-bottom: 1px solid $platinum
+        &:hover
+            .statements__item-title
+                color: $eerie_black
+        &-thumbnail
+            min-width: 85px
+            min-height: 120px
+
+            margin-right: 32px
+
+            background-size: cover
+            background-position: center
+        &-content
+            display: flex
+            flex-direction: column
+            justify-content: center
+        &-title
+            text-decoration: none
+            color: $eerie_black_60
+            transition-duration: .3s
+            @media (max-width: 767px)
+                overflow: hidden
+                display: -webkit-box
+                -webkit-line-clamp: 4
+                -webkit-box-orient: vertical
+        &-date
+            margin-bottom: 8px
+        &-download
+            display: flex
+            margin-top: 16px
+            flex-wrap: wrap
+        &-button
+            min-width: 96px
+            margin-bottom: 8px
+            &:not(:last-child)
+                margin-right: 8px
+        &-header
+            display: flex
+            margin-bottom: 8px
+            align-items: center
+            .statements__item-date
+                margin-bottom: 0
+    &__tag
+        margin-left: 16px
+    &__button
+        margin-top: 32px
+
+// Contacts
+.contacts
+    margin-top: 48px
+    margin-bottom: 64px
+    padding: 32px 32px 0
+
+    background: $seasalt
+    @media (max-width: 767px)
+        margin-bottom: 0
+    & + .shorts
+        margin-top: 48px
+    &__section
+        @media (max-width: 991px)
+            flex-direction: column
+        &:not(:last-child)
+            margin-bottom: 16px
+        &-title
+            width: 100%
+            margin-bottom: 24px
+            color: $eerie_black_60
+    &__title
+        margin-bottom: 8px
+        &.small
+            color: $eerie_black_60
+    &__column
+        display: flex
+        margin-bottom: 32px
+        flex-direction: column
+        align-items: flex-start
+        @media (max-width: 991px)
+            width: 100%
+            &:not(:last-child)
+                margin-bottom: 56px
+    &__post
+        color: $eerie_black_60
+        &:not(:last-child)
+            margin-bottom: 16px
+    &__email
+        text-decoration: none
+        color: $eerie_black_80
+        transition-duration: .3s
+        &:hover
+            color: $process_cyan
+        &:not(:last-child)
+            margin-bottom: 24px
+            & + .button
+                margin-top: 0
+    &__social
+        display: flex
+
+        padding: 0
+        margin: 0
+
+        list-style-type: none
+        &-item:not(:last-child)
+            margin-right: 24px
+        &-link
+            display: flex
+            filter: grayscale(1)
+            transition-duration: .3s
+            &:hover
+                filter: grayscale(0)
+    &__subscribe
+        margin: 24px 0
+    .h5,
+    .quote
+        margin-bottom: 24px
+    .quote + .subscribe
+        margin-top: 0
+    .button
+        margin-top: 24px
+
+// Show more
+.pager
+    margin: 0
+    padding: 0
+    list-style-type: none
+.show-more,
+.pager
+    display: flex
+    justify-content: center
+
+    position: relative
+    color: $eerie_black
+    text-decoration: none
+
+    margin-top: 32px
+    margin-bottom: 48px
+    @media (max-width: 767px)
+        margin-bottom: 0
+    &:hover
+        &:before,
+        &:after
+            background: $eerie_black
+        .show-more__button,
+        .button
+            &:before,
+            &:after
+                opacity: 1
+    &:before,
+    &:after
+        top: 20px
+        content: ''
+        position: absolute
+        transition-duration: .3s
+        background: $eerie_black_60
+
+        height: 1px
+        width: calc(50% - ((120px / 2) + 64px + 48px))
+        @media (max-width: 767px)
+            content: none
+    &:before
+        left: 48px
+    &:after
+        right: 48px
+    &__button,
+    .button
+        @media (max-width: 767px)
+            width: 100%
+            justify-content: center
+        &:before,
+        &:after
+            content: ''
+            opacity: .6
+            width: 24px
+            height: 24px
+            position: absolute
+            transition-duration: .3s
+            background-image: url('../../img/icons/caret_down.svg')
+            @media (max-width: 767px)
+                content: none
+        &:before
+            left: 0
+        &:after
+            right: 0
+    .button
+        display: flex
+
+// Tag
+.tag
+    border-radius: 4px
+    color: $eerie_black
+    &_language,
+    &_small
+        font-size: 12px
+        line-height: 16px
+    &_language
+        color: $eerie_black
+        
+        padding: 4px 8px
+        background: $tag_language
+    &_small,
+    &_large
+        font-weight: 500
+    &_small
+        padding: 8px
+    &_large
+        color: $white
+        padding: 4px 8px
+    &_arena
+        background: #B5CAFD
+    &_ceremony
+        background: #E5D8FB
+    &_sessions
+        background: #FFEAAB
+    &_network
+        background: #00BC70
+    &_project
+        background: #FF8C42
+    &_initiative
+        background: #F7BE00
+    &_tools
+        background: #457DAB
+    &_guidance
+        background: #5D9DA4
+    &_event
+        background: #2ED9C3
+    &_programme
+        background: #2A7DE1
+    &_white
+        color: $white
+        border: 1px solid $white
+    &_unday
+        background: #B5D4F7
+        color: $white
+    &_physical
+        background: #79155D
+        color: $white
+
+// Footer
+.footer
+    color: $white
+    padding-top: 32px
+    background: $eerie_black
+    @media (max-width: 991px)
+        padding-bottom: 90px
+    @media (max-width: 767px)
+        margin-top: 48px
+        overflow-x: hidden
+        position: relative
+    &__row
+        margin-left: -32px
+        margin-right: -32px
+        @media (max-width: 991px)
+            flex-direction: column
+        @media (max-width: 767px)
+            margin-left: -16px
+            margin-right: -16px
+    &__column
+        padding-left: 32px
+        padding-right: 32px
+        @media (max-width: 991px)
+            width: 100%
+        @media (max-width: 767px)
+            padding-left: 16px
+            padding-right: 16px
+    &__logo
+        display: inline-flex
+        margin-bottom: 64px
+    &__address
+        margin-bottom: 40px
+        &-link
+            color: $white
+            text-decoration: none
+            transition-duration: .3s
+            &:hover
+                color: $process_cyan
+    &__social
+        display: flex
+
+        margin: 0
+        padding: 0
+        list-style-type: none
+        @media (max-width: 991px)
+            margin-bottom: 40px
+        &-item:not(:last-child)
+            margin-right: 16px
+        &-link
+            width: 32px
+            height: 32px
+
+            display: flex
+            transition-duration: .3s
+
+            background-position: center
+            background-repeat: no-repeat
+        &-facebook
+            background-image: url('../../img/icons/facebook_white.svg')
+            &:hover
+                background-image: url('../../img/icons/facebook.svg')
+        &-linkedin
+            background-image: url('../../img/icons/linkedin_white.svg')
+            &:hover
+                background-image: url('../../img/icons/linkedin.svg')
+        &-twitter
+            background-image: url('../../img/icons/twitter_white.svg')
+            &:hover
+                background-image: url('../../img/icons/twitter.svg')
+        &-instagram
+            background-image: url('../../img/icons/instagram_white.svg')
+            &:hover
+                background-image: url('../../img/icons/instagram.svg')
+        &-youtube
+            background-image: url('../../img/icons/youtube_white.svg')
+            &:hover
+                background-image: url('../../img/icons/youtube.svg')
+    &__link
+        color: $white
+        font-size: 12px
+        font-weight: 500
+        text-decoration: none
+        transition-duration: .3s
+        &:hover
+            color: $process_cyan
+    &__bottom
+        padding: 24px 0
+        margin-top: 32px
+        border-top: 1px solid $platinum
+        @media (max-width: 991px)
+            display: none
+        &-nav
+            display: flex
+
+            margin: 0
+            padding: 0
+            list-style-type: none
+        &-item:not(:last-child)
+            margin-right: 64px
+        &-link
+            color: $white
+            font-size: 12px
+            font-weight: 500
+            line-height: 16px
+            text-decoration: none
+
+            transition-duration: .3s
+            &:hover
+                color: $process_cyan
+    &__copyright-wrap
+        @media (max-width: 991px)
+            bottom: 32px
+            position: absolute
+            flex-direction: row
+            align-items: center
+            .footer__column
+                width: auto
+                &:last-child
+                    flex: 1
+                    text-align: center
+                    @media (max-width: 767px)
+                        display: none
+    .subscribe-wrap
+        @media (max-width: 991px)
+            flex-direction: row
+        @media (max-width: 767px)
+            flex-direction: column
+    .subscribe
+        @media (max-width: 991px)
+            min-width: 320px
+            margin-left: 64px
+        @media (max-width: 767px)
+            margin-left: 0
+        &__title
+            @media (max-width: 991px)
+                font-size: 22px
+                line-height: 28px
+            @media (max-width: 767px)
+                margin-bottom: 32px
+                font-size: 28px
+                line-height: 36px
+
+// Subscribe form
+.subscribe-wrap
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+.subscribe
+    width: 320px
+    max-width: 100%
+    position: relative
+    &_footer
+        .subscribe__email
+            color: $platinum
+            border-bottom: 1px solid $platinum
+            &::-webkit-input-placeholder
+                color: $platinum
+            &::-moz-placeholder
+                color: $platinum
+            &:-ms-input-placeholder
+                color: $platinum
+            &:-moz-placeholder
+                color: $platinum
+            &:focus
+                &::-webkit-input-placeholder
+                    color: $eerie_black_60
+                &::-moz-placeholder
+                    color: $eerie_black_60
+                &:-ms-input-placeholder
+                    color: $eerie_black_60
+                &:-moz-placeholder
+                    color: $eerie_black_60
+        .subscribe__submit
+            background-color: transparent
+            background-image: url('../../img/icons/arrow_right.svg')
+
+            border: none
+            color: transparent
+    &__email
+        width: 100%
+        font-size: 18px
+        color: $eerie_black
+        padding-right: 32px
+        padding-bottom: 16px
+        font-family: "Inter", sans-serif
+        border-bottom: 1px solid $eerie_black_80
+        &::-webkit-input-placeholder
+            color: $eerie_black
+        &::-moz-placeholder
+            color: $eerie_black
+        &:-ms-input-placeholder
+            color: $eerie_black
+        &:-moz-placeholder
+            color: $eerie_black
+        &:focus
+            &::-webkit-input-placeholder
+                color: $eerie_black_60
+            &::-moz-placeholder
+                color: $eerie_black_60
+            &:-ms-input-placeholder
+                color: $eerie_black_60
+            &:-moz-placeholder
+                color: $eerie_black_60
+    &__submit
+        top: 0
+        right: 0
+        width: 24px
+        height: 24px
+        cursor: pointer
+        position: absolute
+        background-image: url('../../img/icons/arrow_right_black.svg')
+    &__description
+        margin-top: 8px
+    > a
+        text-decoration: none
+
+// Recommendation
+.recommendation
+    position: relative
+    &__items
+        .recommendation__item
+            margin: 0
+            width: calc(33.3333333333% - 22px)
+            &:not(:last-child)
+                margin-right: 32px
+    &__item
+        border: 1px solid $platinum
+        padding: 24px
+        min-height: 100%
+        width: calc(33.3333333333% - 32px)
+        margin: 0 16px
+        &-header
+            display: flex
+            justify-content: flex-end
+            margin-bottom: 48px
+        &-number
+            flex: 1
+            font-size: 14px
+            font-weight: 500
+            color: $eerie_black_40
+    .flickity-button
+        width: 101px
+        height: 16px
+        top: -65px
+        transform: none
+        &.next
+            right: 0
+            background-image: url('../../img/icons/arrow_right_long_black.svg')
+        &.previous
+            right: 117px
+            left: auto
+            background-image: url('../../img/icons/arrow_left_long_black.svg')
+        svg
+            display: none
+
+    @media (max-width: 991px)
+        &__items
+            .recommendation__item
+                width: calc(50% - 22px)
+
+    @media (max-width: 767px)
+        &__items
+            .recommendation__item
+                width: 100%
+
+        .section__title
+            width: 360px
+            max-width: 100%
+
+        .flickity-button
+            top: -110px
+
+// Cards
+.cards
+    &_small
+        .cards__item-content
+            min-height: 320px
+    &__item
+        color: $white
+        margin-bottom: 32px
+        position: relative
+        background-size: cover
+        background-position: center
+        display: flex
+        text-decoration: none
+        &:before
+            content: ''
+            position: absolute
+            width: 100%
+            height: 100%
+            left: 0
+            top: 0
+            background: $black
+            opacity: .4
+        &-content
+            padding: 32px
+            min-height: 450px
+            position: relative
+            display: flex
+            height: 100%
+            width: 100%
+            flex-direction: column
+            justify-content: space-between
+            @media (max-width: 767px)
+                padding: 24px
+            .quote
+                @media (max-width: 767px)
+                    font-size: 16px
+                    line-height: 22px
+            .h3
+                @media (max-width: 767px)
+                    margin-bottom: 4px
+        &-header
+            display: flex
+            justify-content: space-between
+    .show-more,
+    .pager
+        margin-top: 0
+    .col-6
+        @media (max-width: 991px)
+            width: 100%
+
+// Grid icons
+.grid-icons
+    border: 1px solid $platinum
+    &__item
+        padding: 32px
+        min-height: 344px
+        border-right: 1px solid $platinum
+        &:nth-child(1n + 4)
+            border-top: 1px solid $platinum
+        &_image
+            display: flex
+            align-items: center
+            justify-content: center
+        &_blue
+            border-right: none
+            background: $process_cyan_80
+            color: $white
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+        &_background
+            background-size: cover
+            background-position: center
+        &-title
+            margin-bottom: 24px
+        &-icon
+            margin-bottom: 48px
+    .row
+        margin: 0
+    .col-9
+        padding: 0
+
+    @media (max-width: 1199px)
+        &__item:nth-child(3n + 3)
+            border-right: none
+
+        .col-9,
+        &__item_blue
+            width: 100%
+
+        &__item_blue
+            min-height: 0
+            align-items: flex-start
+            
+            .button
+                margin-top: 32px
+
+    @media (max-width: 991px)
+        .col-4
+            width: 50%
+
+            &:not(:last-child)
+                margin-bottom: 0
+
+            &:nth-child(2n + 2)
+                border-right: none
+
+            &:first-child
+                border-bottom: 1px solid $platinum
+
+            .grid-icons__item-icon
+                margin: 0 0 48px
+
+// Our Work
+.work
+    margin-bottom: 32px
+    &__row
+        display: flex
+        flex-wrap: wrap
+        @media (min-width: 768px)
+            margin-left: -16px
+            margin-right: -16px
+        @media (min-width: 992px)
+            margin-left: -7px
+            margin-right: -7px
+        & + .show-more
+            margin-top: 0
+    &__item
+        padding: 24px
+        margin-left: 7px
+        margin-right: 7px
+        margin-bottom: 32px
+
+        color: $eerie_black
+        text-decoration: none
+        transition-duration: .3s
+        border: 1px solid $platinum
+        
+        min-height: 246px
+        width: calc(33.3333333333% - 14px)
+        @media (max-width: 991px)
+            width: calc(50% - 32px)
+            margin-left: 16px
+            margin-right: 16px
+        @media (max-width: 767px)
+            width: 100%
+        &:hover
+            color: $white
+            background: $bice_blue
+            .work__item-info
+                color: $white
+        &-header
+            margin-bottom: 49px
+
+            display: flex
+            justify-content: flex-end
+            align-items: flex-start
+            .tag:not(:last-child)
+                margin-right: 12px
+        &-info
+            flex: 1
+            color: $eerie_black_40
+            font-size: 14px
+            font-weight: 500
+            line-height: 20px
+            margin-right: 8px
+            p
+                margin-bottom: 5px
+        &-title
+            margin-bottom: 24px
+
+// Search
+.search
+    display: flex
+    align-items: center
+
+    position: relative
+    margin-bottom: 24px
+    padding-right: 16px
+    transition-duration: .3s
+    border: 1px solid $platinum
+    @media (max-width: 767px)
+        display: none
+    &:before
+        content: ''
+
+        background-repeat: no-repeat
+        background-position: center
+        background-image: url('../../img/icons/search.svg')
+
+        opacity: .7
+        right: 16px
+        width: 28px
+        height: 28px
+        position: absolute
+        transition-duration: .3s
+    &:hover
+        border-color: $eerie_black_40
+        .search__settings
+            border-color: $eerie_black_40
+    &_active
+        background-image: none
+        &:before
+            opacity: 0
+            svisibility: hidden
+        .search__filter
+            opacity: 0
+            visibility: hidden
+            width: 0
+        .search__clear
+            opacity: .5
+            visibility: visible
+            &:hover
+                opacity: 1
+        .search__submit
+            opacity: 1
+            visibility: visible
+            &:hover
+                color: $white
+                background: $eerie_black
+    &_filter
+        padding-right: 24px
+        &:before
+            right: 72px
+    &_calendar
+        padding-right: 0
+        &:before
+            right: 80px
+        &:after
+            width: 1px
+            height: 100%
+
+            content: ''
+            right: 64px
+            position: absolute
+            background: $platinum
+            transition-duration: .3s
+        &:hover:after
+            background: $eerie_black_40
+        .search__submit
+            margin-right: 16px
+    &_settings
+        &:before
+            right: 145px
+        &:after
+            right: 128px
+    &__submit
+        opacity: 0
+        visibility: hidden
+
+        border-radius: 4px
+        border: 1px solid $eerie_black_60
+
+        padding: 8px 12px
+        color: $eerie_black_60
+        transition-duration: .3s
+
+        font-size: 14px
+        font-weight: 500
+        font-family: "Inter", sans-serif
+    &__settings
+        height: 28px
+        min-width: 28px
+        box-sizing: content-box
+        padding: 18px
+        border-left: 1px solid $platinum
+
+        background-position: center
+        background-repeat: no-repeat
+        background-image: url('../../img/icons/settings.svg')
+
+        opacity: .6
+        transition-duration: .3s
+        &:hover
+            opacity: 1
+    &__filter
+        height: 24px
+        width: 24px
+
+        background-image: url('../../img/icons/search-filter.svg')
+
+        opacity: .6
+        transition-duration: .3s
+        &:hover
+            opacity: 1
+    &__field
+        width: 100%
+
+        font-size: 20px
+        font-weight: 500
+        line-height: 28px
+        font-family: "Inter", sans-serif
+
+        padding: 18px 16px
+        color: $eerie_black_60
+        width: calc(100% - (28px + (16px * 2)))
+        &::-webkit-input-placeholder
+            color: $eerie_black_60
+        &::-moz-placeholder
+            color: $eerie_black_60
+        &:-ms-input-placeholder
+            color: $eerie_black_60
+        &:-moz-placeholder
+            color: $eerie_black_60
+    &__clear
+        opacity: 0
+        width: 24px
+        height: 24px
+        margin-right: 8px
+        visibility: hidden
+        transition-duration: .3s
+
+        background-position: center
+        background-repeat: no-repeat
+        background-image: url('../../img/icons/clear.svg')
+    &__calendar
+        height: 28px
+        min-width: 28px
+
+        opacity: .6
+        padding: 18px
+        box-sizing: content-box
+        transition-duration: .2s
+
+        background-position: center
+        background-repeat: no-repeat
+        background-image: url('../../img/icons/calendar.svg')
+        &:hover
+            opacity: 1
+
+// Search modal
+.search-modal
+    position: fixed
+    width: 100%
+    left: 0
+    z-index: 10
+    top: -113px
+    background: $white
+    transition-duration: .5s
+    @media (max-width: 767px)
+        height: 100vh
+        top: -100vh
+        display: flex
+        flex-direction: column
+        justify-content: center
+    &.active
+        top: 0
+    .search-container
+        .form-actions
+            display: none
+        input.form-text
+            height: 49px
+            background-image: url('../../img/icons/search.svg')
+            background-position: left 8px center
+            padding-left: 42px
+            background-repeat: no-repeat
+            border: none
+            font-size: 16px
+            width: 100%
+            color: $eerie_black
+            &::placeholder
+                color: #A6A5A5
+            &:-ms-input-placeholder
+                color: #A6A5A5
+            &::-ms-input-placeholder
+                color: #A6A5A5
+    .search__form
+        width: 100%
+        display: flex
+        align-items: center
+        padding: 32px 48px
+        form,
+        div
+            width: 100%
+        @media (max-width: 767px)
+            justify-content: center
+            width: 100%
+            padding-top: 0
+            padding-bottom: 0
+            padding-left: 32px
+            padding-right: 32px
+        .close
+            margin-left: 24px
+            width: 2.5rem
+            height: 2.5rem
+            background-image: url(../../img/icons/close.svg)
+            background-repeat: no-repeat
+            background-position: center
+            transition-duration: 0.5s
+            &:hover
+                transform: rotate(90deg)
+            @media (max-width: 767px)
+                margin-left: 0
+                position: absolute
+                top: 48px
+                background-image: url('../../img/icons/search_arrow.svg')
+        label
+            width: 100%
+            display: block
+    .search__result
+        display: none
+        border-top: 1px solid #CECDCD
+        border-bottom: 1px solid #CECDCD
+        padding-left: 16px
+        padding-right: 16px
+        @media (min-width: 375px)
+            padding-left: 24px
+            padding-right: 24px
+        @media (min-width: 390px) and (max-width: 767px)
+            padding-left: 32px
+            padding-right: 32px
+        @media (max-width: 767px)
+            border: none
+        @media (min-width: 768px)
+            padding-left: 0
+            padding-right: 0
+        .search__result__items
+            list-style-type: none
+            margin: 0
+            padding: 0
+            .search__result__item
+                border-bottom: 1px solid #CECDCD
+                padding: 24px 24px 24px 90px
+                @media (max-width: 767px)
+                    padding-left: 24px
+                    &:last-child
+                        border-bottom: none
+                a
+                    color: $eerie_black
+                    text-decoration: none
+                    line-height: 24px
+        .search__link
+            padding: 24px 90px
+            @media (max-width: 767px)
+                text-align: center
+                padding-left: 0
+                padding-right: 0
+                .button
+                    &:after
+                        content: none
+
+// Links
+.links
+    display: inline-flex
+    flex-direction: column
+    align-items: flex-start
+    &__item
+        text-decoration: none
+        color: $eerie_black
+        transition-duration: .3s
+        display: flex
+        align-items: center
+        justify-content: space-between
+        width: 100%
+        &:hover
+            color: $process_cyan
+            &:after
+                background-image: url('../../img/icons/link_hover.svg')
+        &:after
+            content: ''
+            min-width: 14px
+            height: 14px
+            background-image: url('../../img/icons/link.svg')
+            margin-left: 8px
+            transition-duration: .3s
+        &:not(:last-child)
+            border-bottom: 1px solid $platinum
+            padding-bottom: 16px
+            margin-bottom: 16px
+
+// Lectures
+.lectures
+    &__item
+        // height: 246px
+        display: flex
+        background-size: cover
+        background-position: center
+        margin-bottom: 32px
+    .show-more,
+    .pager
+        margin-top: 0
+
+// Filter
+.filter
+    display: flex
+    padding-top: 8px
+    @media (max-width: 991px)
+        padding-top: 12px
+    @media (max-width: 767px)
+        padding: 0
+        height: 32px
+        min-width: 32px
+        margin-left: 24px
+        background-image: url('../../img/icons/filter.svg')
+    & + .search
+        margin-top: 32px
+    &__item,
+    .form-item
+        @media (max-width: 767px)
+            display: none
+        &:not(:last-child)
+            margin-right: 24px
+        // &_sdgs
+        //     width: 76px
+        // &_year
+        //     width: 78px
+        // &_type
+        //     width: 80px
+        // &_topic
+        //     width: 84px
+        // &_theme
+        //     width: 95px
+        // &_country
+        //     width: 104px
+        // &_season
+        //     width: 120px
+        // &_office
+        //     width: 140px
+    .select2-container--default
+        width: auto !important
+        &.select2-container--open.select2-container--below
+            .select2-selection
+                border-radius: 24px
+        .select2-selection
+            border: none
+            padding-left: 10px
+            padding-right: 4px
+            border-radius: 24px
+            background: $seasalt
+            height: 32px
+            .select2-selection__arrow
+                display: none
+        .select2-search--inline .select2-search__field,
+        .select2-selection .select2-selection__rendered
+                line-height: 32px
+                padding-left: 0
+                margin-left: 0
+                padding-right: 24px
+
+                background-repeat: no-repeat
+                background-position: right center
+                background-image: url('../../img/icons/caret_down.svg')
+
+                font-weight: 500
+                font-family: "Inter", sans-serif
+                &::-webkit-input-placeholder
+                    color: $eerie_black
+                &::-moz-placeholder
+                    color: $eerie_black
+                &:-ms-input-placeholder
+                    color: $eerie_black
+                &:-moz-placeholder
+                    color: $eerie_black
+
+// News
+.news-section
+    margin-bottom: 64px
+    &__title
+        margin-bottom: 32px
+    &__item
+        margin-bottom: 32px
+        text-decoration: none
+        color: $eerie_black_80
+        @media (max-width: 1199px)
+            width: 33.3333333333%
+        @media (max-width: 991px)
+            width: 50%
+        @media (max-width: 767px)
+            width: 100%
+        &:hover
+            .news-section__item-title
+                color: $process_cyan
+        &:last-child
+            @media (max-width: 1199px) and (min-width: 992px)
+                display: none
+        &-title
+            transition-duration: .3s
+        &-thumbnail
+            height: 180px
+            margin-bottom: 16px
+
+            background-size: cover
+            background-position: center
+        &-date
+            margin-bottom: 8px
+
+// Highlighted publications
+.highlighted
+    margin-bottom: 32px
+    &__title
+        margin-bottom: 32px
+    &__row
+        display: flex
+        flex-wrap: wrap
+
+        margin-left: -16px
+        margin-right: -16px
+        & + .show-more,
+        & + .pager
+            margin-top: 0
+    &__item
+        padding: 16px
+        margin: 0 16px
+        position: relative
+        border: 1px solid $platinum
+
+        min-height: 382px
+        width: calc(25% - 32px)
+        margin-bottom: 32px
+        @media (max-width: 1199px)
+            width: calc(33.3333333333% - 32px)
+        @media (max-width: 991px)
+            width: calc(50% - 32px)
+        @media (max-width: 767px)
+            width: 100%
+            margin-bottom: 24px
+        &:last-child
+            @media (max-width: 1199px) and (min-width: 992px)
+                display: none
+        &:hover
+            .highlighted__item-links
+                opacity: 1
+        &-thumbnail
+            width: 96px
+            height: 130px
+
+            background-size: cover
+            background-position: center
+        &-header
+            margin-bottom: 48px
+
+            display: flex
+            justify-content: flex-end
+        &-category
+            flex: 1
+
+            font-size: 14px
+            font-weight: 600
+            line-height: 20px
+            text-transform: uppercase
+
+            padding-right: 10px
+        &-links
+            top: 0
+            left: 0
+
+            display: flex
+            align-items: center
+            flex-direction: column
+            justify-content: center
+
+            width: 100%
+            height: 100%
+
+            opacity: 0
+            position: absolute
+            transition-duration: .3s
+            background-color: rgba(255, 255, 255, 0.9)
+        &-link
+            background: $white
+            &:not(:last-child)
+                margin-bottom: 24px
+        &-date
+            margin-bottom: 8px
+            font-size: 14px
+            font-weight: 500
+            margin-top: -24px
+        .tag
+            position: absolute
+            top: 72px
+            left: 16px
+
+// Side Events
+.side-events
+    margin-bottom: 64px
+    &__title
+        margin-bottom: 24px
+    &__wrap
+        margin-top: 24px
+    &__items
+        display: flex
+        flex-wrap: wrap
+    &__item
+        width: 320px
+        height: 320px
+        padding: 16px
+        border: 1px solid $platinum
+        margin: -1px 0 0 -1px
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        &-footer
+            display: flex
+            flex-direction: column
+            align-items: flex-start
+        &-description
+            margin-bottom: 24px
+        &-title
+            margin-bottom: 8px
+        &-time
+            font-size: 14px
+            font-weight: 500
+            position: relative
+            padding-left: 24px
+            &:before
+                content: ''
+                display: block
+                height: 20px
+                width: 20px
+                background-size: cover
+                position: absolute
+                left: 0
+                background-image: url('../../img/icons/calendar.svg')
+    &__row:not(:last-child)
+        margin-bottom: 48px
+    &__info
+        padding: 16px
+    &__day
+        margin-bottom: 24px
+    &__description
+        margin-bottom: 24px
+    &__date
+        font-size: 14px
+        font-weight: 500
+        position: relative
+        padding-left: 24px
+        &:before
+            content: ''
+            display: block
+            height: 20px
+            width: 20px
+            background-size: cover
+            position: absolute
+            left: 0
+            background-image: url('../../img/icons/calendar.svg')
+
+// Member form
+.member-form
+    border-radius: 0
+    background: transparent
+    border: 1px solid $platinum
+    .form-submit
+        border: 1px solid $process_cyan
+        color: $eerie_black
+        background: transparent
+        &:hover
+            background: $process_cyan
+            color: $white
+    .subscription__footer
+        align-items: flex-start
+    .col-6,
+    .col-7    
+        &:first-child
+            padding-right: 8px
+    .col-6,
+    .col-5
+        &:last-child
+            padding-left: 8px
+
+// Events
+.events
+    color: $white
+    &_banner,
+    &_banner-small
+        .events__item-title
+            width: auto
+            flex: 1
+            padding-right: 24px
+        .button
+            min-width: 120px
+    &_banner-small
+        .events__item 
+            height: auto
+            padding: 24px
+        .events__item-title
+            width: 50%
+            max-width: 100%
+            @media (max-width: 767px)
+                width: 100%
+                padding-right: 0
+                margin-bottom: 24px
+        .events__item-footer
+            align-items: center
+            @media (max-width: 767px)
+                flex-direction: column
+                align-items: flex-start
+    &__item
+        width: 100%
+        height: 533px
+
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+
+        padding: 32px
+        overflow: hidden
+        position: relative
+        @media (max-width: 767px)
+            padding: 16px 16px 32px
+        &-background
+            top: 0
+            left: 0
+
+            width: 100%
+            height: 100%
+
+            position: absolute
+
+            background-size: cover
+            background-position: center
+            &_process-cyan
+                background: $process_cyan
+                &:before
+                    content: none
+            &:before
+                content: ''
+                opacity: .2
+
+                width: 100%
+                height: 100%
+
+                top: 0
+                left: 0
+                z-index: 1
+                position: absolute
+
+                background: $black
+
+        &-video
+            min-width: 100%
+            min-height: 100%
+            position: absolute
+        &-category,
+        &-content
+            z-index: 2
+            position: relative
+        &-header
+            display: flex
+            align-items: center
+
+            margin-bottom: 24px
+            @media (max-width: 767px)
+                flex-direction: column
+                align-items: flex-start
+        &-footer
+            display: flex
+            align-items: flex-end
+            justify-content: space-between
+            @media (max-width: 767px)
+                flex-direction: column
+                align-items: flex-start
+        &-date
+            margin-right: 16px
+            @media (max-width: 767px)
+                margin-right: 0
+                margin-bottom: 16px
+        &-title
+            width: 405px
+            max-width: 100%
+            a
+                color: $white
+        .button
+            @media (max-width: 767px)
+                margin-top: 24px
+    .flickity-button
+        top: 32px
+        transform: none
+        border-radius: 0
+        transition-duration: .3s
+
+        width: 101px
+        height: 16px
+
+        background-position: center
+        background-repeat: no-repeat
+        background-color: transparent
+        @media (max-width: 767px)
+            top: 27px
+        &.next
+            right: 32px
+            background-image: url('../../img/icons/arrow_right_long.svg')
+            @media (max-width: 767px)
+                right: 16px
+            &:hover
+                background-image: url('../../img/icons/arrow_right_long_blue.svg')
+        &.previous
+            left: unset
+            right: 149px
+            background-image: url('../../img/icons/arrow_left_long.svg')
+            @media (max-width: 767px)
+                right: 120px
+            &:hover
+                background-image: url('../../img/icons/arrow_left_long_blue.svg')
+        &-icon
+            display: none
+        &:disabled
+            opacity: 0
+
+    @media (max-width: 991px)
+        &_banner-small
+            .events__item-footer
+                flex-direction: column
+                align-items: flex-start
+
+                .events__item-title
+                    width: 100%
+                    margin-bottom: 24px
+
+    @media (max-width: 767px)
+        &_banner-small
+            .events__item-footer
+                .events__item-title
+                    margin-bottom: 0
+
+        & + .show-more,
+        & + .pager
+            margin-bottom: 48px
+
+// Session tabs
+.session-tabs
+    margin-bottom: 64px
+
+// Partners
+.partners
+    &__title
+        margin-bottom: 24px
+    &__row
+        display: flex
+        flex-wrap: wrap
+
+        margin-bottom: 32px
+    &__item
+        color: $eerie_black
+        text-decoration: none
+        transition-duration: .3s
+        @media (max-width: 767px)
+            border: 1px solid $platinum
+        &:hover
+            background: $seasalt
+        &:first-child,
+        &:nth-child(2),
+        &:nth-child(3)
+            border-top: 1px solid $platinum
+            border-bottom: 1px solid $platinum
+        &:nth-child(3)
+            @media (max-width: 991px) and (min-width: 768px)
+                border-top: none
+        &:nth-child(3n + 1)
+            @media (min-width: 992px)
+                border-left: 1px solid $platinum
+                border-right: 1px solid $platinum
+        &:not(:nth-child(3n + 1))
+            @media (min-width: 992px)
+                border-right: 1px solid $platinum
+        &:nth-child(1n + 4)
+            border-bottom: 1px solid $platinum
+        &:nth-child(2n + 1)
+            @media (max-width: 991px) and (min-width: 768px)
+                border-left: 1px solid $platinum
+                border-right: 1px solid $platinum
+        &:nth-child(2n + 2)
+            @media (max-width: 991px) and (min-width: 768px)
+                border-right: 1px solid $platinum
+        &:not(:last-child)
+            @media (max-width: 767px)
+                border-bottom: none
+        &.col-6 + .col-6
+            @media (min-width: 992px)
+                border-left: none
+            & + .col-4
+                @media (min-width: 768px)
+                    border-top: none
+                @media (min-width: 992px)
+                    border-right: none
+                    border-left: 1px solid $platinum
+        &.col-4 + .col-6
+            @media (min-width: 992px)
+                border-left: 1px solid $platinum
+        &-content
+            padding: 32px
+            min-height: 214px
+
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+        &-wrap
+            display: flex
+            justify-content: space-between
+            align-items: flex-start
+            margin-bottom: 48px
+            @media (max-width: 991px)
+                flex-direction: column
+        &-thumbnail
+            @media (min-width: 992px)
+                max-width: 50%
+                margin-left: 24px
+            @media (max-width: 991px)
+                margin-top: 48px
+                width: 100%
+                text-align: center
+        &-title
+            flex: 1
+
+// Shorts
+.shorts
+    margin-bottom: 32px
+    @media (max-width: 767px)
+        margin-bottom: 0
+    &__item
+        height: 400px
+        width: calc(20% - 32px)
+
+        padding: 16px
+        margin-left: 16px
+        margin-right: 16px
+        margin-bottom: 32px
+
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+
+        color: $white
+        position: relative
+        @media (max-width: 1199px)
+            width: calc(33% - 32px)
+        @media (max-width: 991px)
+            width: calc(33% - 16px)
+            margin-left: 8px
+            margin-right: 8px
+        @media (max-width: 767px)
+            width: calc(100% - 32px)
+            margin-left: 16px
+            margin-right: 16px
+            height: 500px
+        &-thumbnail,
+        &-background
+            background-size: cover
+            background-position: center
+        &-thumbnail
+            width: 48px
+            height: 48px
+            
+            overflow: hidden
+            border-radius: 100%
+        &-content,
+        &-thumbnail
+            z-index: 2
+            position: relative
+        &-background
+            top: 0
+            left: 0
+            position: absolute
+
+            width: 100%
+            height: 100%
+
+            overflow: hidden
+            &:before
+                z-index: 1
+                content: ''
+                position: absolute
+
+                width: 100%
+                height: 100%
+
+                top: 0
+                left: 0
+
+                opacity: .2
+                background: $black
+            &_bice-blue
+                background: $bice_blue
+            &_mantis
+                background: $mantis
+            &_overlay-off:before
+                content: none
+        &-video
+            width: auto
+            height: auto
+
+            min-width: 100%
+            min-height: 100%
+
+            top: 50%
+            left: 50%
+
+            position: absolute
+            transform: translate(-50%, -50%)
+        &-category
+            font-size: 14px
+            font-weight: 600
+            text-transform: uppercase
+
+            margin-bottom: 16px
+    .show-more
+        margin-top: 0
+
+// Quote section
+.quote-section
+    margin-bottom: 80px
+    .col-6
+        @media (max-width: 1199px) and (min-width: 768px)
+            width: 80%
+
+// Areas section
+.areas
+    &__title
+        margin-bottom: 32px
+    &__item
+        @media (min-width: 768px)
+            padding: 24px 24px 0
+            border: 1px solid $platinum
+        @media (max-width: 767px)
+            margin-bottom: 40px
+        &:not(:last-child)
+            border-bottom: none
+        &-title
+            @media (max-width: 767px)
+                margin-bottom: 24px
+        &-row
+            justify-content: space-between
+            align-items: flex-start
+            @media (max-width: 991px) and (min-width: 768px)
+                flex-wrap: nowrap
+            .col-7,
+            .col-5
+                @media (max-width: 991px)
+                    width: auto
+            .col-5
+                @media (max-width: 991px)
+                    white-space: nowrap
+        &-link
+            display: flex
+            justify-content: flex-end
+        &-description
+            margin-top: 32px
+            .col-9
+                @media (max-width: 767px)
+                    width: 100%
+    &__cards
+        display: flex
+        flex-wrap: wrap
+
+        margin-top: 48px
+        margin-left: -12px
+        margin-right: -12px
+        &-item
+            display: flex
+            padding: 0 12px
+            margin-bottom: 24px
+            @media (max-width: 767px)
+                width: 50%
+
+    &__carousel
+
+        &-item
+            margin-right: 16px
+            padding: 32px 0
+            cursor: pointer
+
+            &:hover
+                img
+                    transform: scale(1.1)
+
+            img
+                transition-duration: .3s
+
+        .flickity-button
+            width: 48px
+            height: 48px
+            background-color: #FFFFFF99
+            backdrop-filter: blur(4px)
+            background-repeat: no-repeat
+            background-position: center
+            bottom: 48px
+            top: auto
+
+            &:not([disabled])
+                opacity: 1
+
+            &.previous
+                background-image: url('../../img/icons/arrow_left_small_black.svg')
+                left: 24px
+
+            &.next
+                background-image: url('../../img/icons/arrow_right_small_black.svg')
+                right: 24px
+
+            svg
+                display: none
+
+        .flickity-viewport
+            overflow: visible
+
+    &__carousel-text
+        margin-bottom: 32px
+
+// Services
+.services
+    margin-bottom: 32px
+    &__item
+        color: $white
+        text-decoration: none
+
+        padding: 24px
+        margin-bottom: 32px
+
+        background-size: cover
+        background-position: center
+
+        height: 246px
+        width: calc(33.3333333333% - ((32px * 2) / 3))
+        @media (max-width: 1199px)
+            width: calc(50% - 16px)
+        @media (max-width: 767px)
+            width: 100%
+        &_tall
+            height: calc(246px * 2 + 32px)
+            @media (max-width: 1199px)
+                height: 444px
+        &:before
+            content: ''
+            opacity: .4
+            background: $black
+
+            top: 0
+            left: 0
+            position: absolute
+
+            width: 100%
+            height: 100%
+        &:hover
+            .services__item-title
+                opacity: 0
+                visibility: hidden
+            .services__item-description
+                opacity: 1
+                visibility: visible
+        &-content
+            height: 100%
+            position: relative
+            
+            display: flex
+            align-items: flex-end
+        &-description
+            opacity: 0
+            visibility: hidden
+
+            top: 0
+            position: absolute
+
+            height: 100%
+
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+        &-title,
+        &-description
+            transition-duration: .3s
+        &-tags
+            display: flex
+        &-tag
+            padding: 4px 8px
+            border-radius: 4px
+            color: $eerie_black
+            background: $seasalt
+            &:not(:last-child)
+                margin-right: 8px
+
+// Offer
+.offer
+    padding-bottom: 48px
+    border-bottom: 1px solid $platinum
+    @media (max-width: 767px)
+        border-bottom: none
+        margin-bottom: 0
+    &__row:not(:last-child)
+        margin-bottom: 32px
+    .col-6
+        @media (max-width: 991px)
+            width: 100%
+
+// Projects
+.projects
+    margin-bottom: 64px
+    @media (max-width: 767px)
+        margin-bottom: 0
+    &__items
+        margin-top: 32px
+    &__item
+        @include project
+        &_green:before
+            background: $light_sea_green
+    .col-4
+        @media (max-width: 991px)
+            width: 50%
+        @media (max-width: 767px)
+            width: 100%
+        &:not(:last-child)
+            @media (max-width: 767px)
+                margin-bottom: 0
+    .section__header
+        @media (max-width: 767px)
+            align-items: center
+    .show-more
+        @media (max-width: 767px)
+            margin-top: 0
+
+// Impact
+.impact
+    position: relative
+    &_small
+        .impact__item
+            padding-top: 24px
+            padding-left: 24px
+            padding-right: 24px
+            padding-bottom: 32px
+        .impact__item-title
+            font-size: 20px
+            font-weight: 500
+            line-height: 28px
+            margin-bottom: 16px
+            &.h3
+                font-size: 28px
+                font-weight: 600
+                line-height: 36px
+                margin-bottom: 32px
+                color: $process_cyan
+    &__title
+        margin-bottom: 24px
+    &__item
+        border: 1px solid $platinum
+
+        padding-top: 40px
+        padding-bottom: 32px
+        margin: -1px 0 0 -1px
+        @media (max-width: 767px)
+            min-height: 300px
+        &-title
+            margin-bottom: 40px
+    &__row
+        margin-left: 0
+        margin-right: 0
+    &__carousel
+        display: block
+        .flickity-button
+            width: 101px
+            height: 16px
+            top: -55px
+            transform: none
+            &.next
+                right: 0
+                background-image: url('../../img/icons/arrow_right_long_black.svg')
+            &.previous
+                right: 117px
+                left: auto
+                background-image: url('../../img/icons/arrow_left_long_black.svg')
+            svg
+                display: none
+        .flickity-viewport
+            padding: 0
+        .flickity-button
+            padding: 0
+        .impact__item
+            padding-left: 16px
+            padding-right: 16px
+            margin: 0
+            &:not(:last-child)
+                border-right: none
+    .col-3
+        @media (max-width: 1299px)
+            width: 50%
+        @media (max-width: 767px)
+            width: 100%
+
+// Publications filter
+.publications-filter
+    display: flex
+    margin-bottom: 32px
+    &__item
+        flex: 1
+        &:not(:last-child)
+            margin-right: 48px
+        .select2
+            width: 100% !important
+            .select2-selection
+                border-color: $platinum
+                min-height: 36px
+                padding-bottom: 0
+            .select2-search--inline
+                textarea.select2-search__field
+                    height: 36px
+                    margin-top: 0px
+                    line-height: 36px
+                .select2-search__field
+                    margin-top: 9px
+                    margin-left: 8px
+                    color: $eerie_black_60
+                    &::-webkit-input-placeholder
+                        color: $eerie_black_60
+                    &::-moz-placeholder
+                        color: $eerie_black_60
+                    &:-ms-input-placeholder
+                        color: $eerie_black_60
+                    &:-moz-placeholder
+                        color: $eerie_black_60
+
+    @media (max-width: 1199px)
+        flex-wrap: wrap
+        margin-bottom: 8px
+
+        &__item
+            flex: auto
+            width: calc(33% - 24px)
+            margin-bottom: 24px
+
+            &:not(:last-child)
+                margin-right: 24px
+
+            &:nth-child(3)
+                margin-right: 0
+
+    @media (max-width: 767px)
+        &__item
+            width: calc(50% - 16px)
+            margin-bottom: 16px
+
+            &:not(:last-child)
+                margin-right: 0
+
+            &:nth-child(2n + 1)
+                margin-right: 16px
+
+// Person
+.quote-carousel
+    .section
+        margin-bottom: 0
+    .flickity-button
+        width: 24px
+        height: 48px
+        background-size: cover
+        background-position: center
+        background-color: transparent
+        top: auto
+        bottom: 48px
+        transform: none
+        box-shadow: none
+        @media (max-width: 991px)
+            bottom: auto
+            top: 48px
+        @media (max-width: 767px)
+            top: 26px
+            width: 16px
+            height: 32px
+        &.next
+            left: 136px
+            background-image: url('../../img/icons/arrow_right_big.svg')
+            @media (max-width: 991px)
+                left: auto
+                right: 48px
+            @media (max-width: 767px)
+                right: 16px
+        &.previous
+            left: 48px
+            background-image: url('../../img/icons/arrow_left_big.svg')
+            @media (max-width: 991px)
+                left: auto
+                right: 124px
+            @media (max-width: 767px)
+                right: 64px
+        svg
+            display: none
+    .quote-2cols
+        min-height: 400px
+        width: 100%
+        @media (max-width: 767px)
+            margin-left: 0
+            margin-right: 0
+        &__title,
+        .h5
+            @media (max-width: 991px)
+                max-width: calc(100% - 130px)
+            @media (max-width: 767px)
+                max-width: calc(100% - 80px)
+.quote-2cols
+    padding: 48px
+    background: $seasalt
+    @media (max-width: 767px)
+        margin-left: -16px
+        margin-right: -16px
+        padding: 24px 16px
+    @media (max-width: 360px)
+        padding: 24px
+    &__title
+        margin-bottom: 12px
+    &__thumbnail
+        width: 90px
+        height: 90px
+        margin-bottom: 32px
+        border-radius: 100%
+        background-size: cover
+        background-position: center
+    .col-4
+        @media (max-width: 991px)
+            width: 100%
+            margin-bottom: 48px
+
+    .col-9
+        @media (max-width: 991px)
+            width: 100%
+
+// Colored list
+.colored-list
+    margin: 0
+    padding: 0
+    list-style-type: none
+
+    padding-left: 18px
+    margin-bottom: 16px
+    &__process-cyan
+        display: inline
+        position: relative
+        color: $process_cyan
+
+        padding-left: 17px
+        margin-left: -17px
+        &:before
+            content: ''
+            background: $process_cyan
+            border-radius: 100%
+
+            width: 5px
+            height: 5px
+
+            top: 8px
+            left: 0
+            position: absolute
+    li:not(:last-child)
+        margin-bottom: 10px
+
+// Image
+.image
+    &__wrap
+        display: flex
+        align-items: center
+        justify-content: center
+        @media (min-width: 768px)
+            padding: 32px
+            background: $seasalt
+        @media (min-width: 1200px)
+            min-height: 660px
+
+// Featured
+.featured
+    &__items
+        display: flex
+        @media (max-width: 1199px)
+            overflow-x: scroll
+            margin-left: -32px
+            margin-right: -32px
+            padding-left: 32px
+            padding-right: 32px
+    &__item
+        width: 320px
+        height: 486px
+
+        color: $white
+        padding: 24px
+        position: relative
+        text-decoration: none
+
+        background-size: cover
+        background-position: center
+        @media (max-width: 1199px)
+            min-width: 320px
+        @media (max-width: 991px)
+            min-width: 486px
+        @media (max-width: 767px)
+            min-width: 90%
+        &:not(:last-child)
+            margin-right: 32px
+            @media (max-width: 767px)
+                margin-right: 16px
+        &:first-child
+            width: 672px
+            @media (max-width: 1199px)
+                min-width: 672px
+            @media (max-width: 991px)
+                min-width: 486px
+            @media (max-width: 767px)
+                min-width: 90%
+            .featured__item-title,
+            .featured__item-description
+                width: 70%
+                max-width: 100%
+        &:before
+            content: ''
+
+            width: 100%
+            height: 100%
+
+            top: 0
+            left: 0
+            position: absolute
+
+            opacity: .2
+            background: $black
+        &_background-process-cyan
+            background: $process_cyan
+            &:before
+                content: none
+        &-wrap
+            height: 100%
+            position: relative
+
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+        &-category
+            font-size: 14px
+            font-weight: 600
+            text-transform: uppercase
+        &-date
+            margin-bottom: 16px
+        &-title
+            margin-bottom: 4px
+
+            overflow: hidden
+            display: -webkit-box
+            -webkit-line-clamp: 4
+            -webkit-box-orient: vertical
+        &-description
+            overflow: hidden
+            display: -webkit-box
+            -webkit-line-clamp: 2
+            -webkit-box-orient: vertical
+
+// PDF link
+.pdf-link,
+.txt-link,
+.rtf-link,
+.odt-link,
+.tiff-link,
+.doc-link,
+.docx-link,
+.xls-link,
+.xlsx-link,
+.ppt-link,
+.pptx-link,
+.exe-link,
+.dmg-link,
+.zip-link,
+.rar-link,
+._z-link,
+.pkg-link,
+.gzip-link,
+.epub-link,
+.pub-link,
+.fb2-link,
+.mp3-link,
+.aac-link,
+.wav-link,
+.mp4-link,
+.avi-link
+    @include link
+
+.pdf-link
+    &:before
+        background-image: url('../../img/icons/pdf.svg')
+    &:hover:before
+        background-image: url('../../img/icons/pdf_hover.svg')
+.txt-link
+    &:before
+        background-image: url('../../img/icons/txt.svg')
+    &:hover:before
+        background-image: url('../../img/icons/txt_hover.svg')
+.rtf-link
+    &:before
+        background-image: url('../../img/icons/rtf.svg')
+    &:hover:before
+        background-image: url('../../img/icons/rtf_hover.svg')
+.odt-link
+    &:before
+        background-image: url('../../img/icons/odt.svg')
+    &:hover:before
+        background-image: url('../../img/icons/odt_hover.svg')
+.tiff-link
+    &:before
+        background-image: url('../../img/icons/tiff.svg')
+    &:hover:before
+        background-image: url('../../img/icons/tiff_hover.svg')
+.doc-link
+    &:before
+        background-image: url('../../img/icons/doc.svg')
+    &:hover:before
+        background-image: url('../../img/icons/doc_hover.svg')
+.docx-link
+    &:before
+        background-image: url('../../img/icons/docx.svg')
+    &:hover:before
+        background-image: url('../../img/icons/docx_hover.svg')
+.xls-link
+    &:before
+        background-image: url('../../img/icons/xls.svg')
+    &:hover:before
+        background-image: url('../../img/icons/xls_hover.svg')
+.xlsx-link
+    &:before
+        background-image: url('../../img/icons/xlsx.svg')
+    &:hover:before
+        background-image: url('../../img/icons/xlsx_hover.svg')
+.ppt-link
+    &:before
+        background-image: url('../../img/icons/ppt.svg')
+    &:hover:before
+        background-image: url('../../img/icons/ppt_hover.svg')
+.pptx-link
+    &:before
+        background-image: url('../../img/icons/pptx.svg')
+    &:hover:before
+        background-image: url('../../img/icons/pptx_hover.svg')
+.exe-link
+    &:before
+        background-image: url('../../img/icons/exe.svg')
+    &:hover:before
+        background-image: url('../../img/icons/exe_hover.svg')
+.dmg-link
+    &:before
+        background-image: url('../../img/icons/dmg.svg')
+    &:hover:before
+        background-image: url('../../img/icons/dmg_hover.svg')
+.zip-link
+    &:before
+        background-image: url('../../img/icons/zip.svg')
+    &:hover:before
+        background-image: url('../../img/icons/zip_hover.svg')
+.rar-link
+    &:before
+        background-image: url('../../img/icons/rar.svg')
+    &:hover:before
+        background-image: url('../../img/icons/rar_hover.svg')
+._z-link
+    &:before
+        background-image: url('../../img/icons/7z.svg')
+    &:hover:before
+        background-image: url('../../img/icons/7z_hover.svg')
+.pkg-link
+    &:before
+        background-image: url('../../img/icons/pkg.svg')
+    &:hover:before
+        background-image: url('../../img/icons/pkg_hover.svg')
+.gzip-link
+    &:before
+        background-image: url('../../img/icons/gzip.svg')
+    &:hover:before
+        background-image: url('../../img/icons/gzip_hover.svg')
+.epub-link
+    &:before
+        background-image: url('../../img/icons/epub.svg')
+    &:hover:before
+        background-image: url('../../img/icons/epub_hover.svg')
+.pub-link
+    &:before
+        background-image: url('../../img/icons/pub.svg')
+    &:hover:before
+        background-image: url('../../img/icons/pub_hover.svg')
+.fb2-link
+    &:before
+        background-image: url('../../img/icons/fb2.svg')
+    &:hover:before
+        background-image: url('../../img/icons/fb2_hover.svg')
+.mp3-link
+    &:before
+        background-image: url('../../img/icons/mp3.svg')
+    &:hover:before
+        background-image: url('../../img/icons/mp3_hover.svg')
+.aac-link
+    &:before
+        background-image: url('../../img/icons/aac.svg')
+    &:hover:before
+        background-image: url('../../img/icons/aac_hover.svg')
+.wav-link
+    &:before
+        background-image: url('../../img/icons/wav.svg')
+    &:hover:before
+        background-image: url('../../img/icons/wav_hover.svg')
+.mp4-link
+    &:before
+        background-image: url('../../img/icons/mp4.svg')
+    &:hover:before
+        background-image: url('../../img/icons/mp4_hover.svg')
+.avi-link
+    &:before
+        background-image: url('../../img/icons/avi.svg')
+    &:hover:before
+        background-image: url('../../img/icons/avi_hover.svg')
+
+// Previous monthly updates
+.updates
+    &__title
+        margin-bottom: 24px
+    &__years
+        margin-bottom: 48px
+        padding-bottom: 16px
+
+        border-bottom: 1px solid $platinum
+    &__months
+        width: 400px
+        max-width: 100%
+        &-list
+            columns: 3
+
+            margin: 0
+            padding: 0
+            list-style-type: none
+        &-item
+            margin-bottom: 24px
+            &-link
+                text-decoration: none
+                color: $eerie_black_80
+                transition-duration: .3s
+                &:hover
+                    color: $process_cyan
+
+// Sessions
+.sessions
+    &__title
+        margin-bottom: 24px
+    &__list
+        border-top: 1px solid $platinum
+        border-left: 1px solid $platinum
+        border-right: 1px solid $platinum
+    &__item
+        padding-left: 16px
+        padding-right: 16px
+    &__controls
+        padding-bottom: 16px
+
+// Years
+.years
+    font-size: 18px
+    font-weight: 500
+    line-height: 24px
+    font-family: Inter
+
+    padding: 4px 8px
+    border-radius: 4px
+    transition-duration: .3s
+    &:not(:last-child)
+        margin-right: 24px
+    &.active,
+    &:hover
+        color: $white
+        background: $process_cyan
+
+    @media (max-width: 767px)
+        &:not(:last-child)
+            margin-right: 16px
+
+.session-tabs
+    .years
+        &:not(:last-child)
+            margin-right: 16px
+
+// Tabs
+.tab-content
+    display: none
+    &.active
+        display: block
+
+// News excerpt
+.news-excerpt
+    &__date
+        margin-bottom: 8px
+
+// Border
+.border
+    border: 1px solid $platinum
+
+// Newsletters
+.newsletters
+    &__item
+        color: $white
+        height: 486px
+        display: flex
+        padding: 24px
+        text-decoration: none
+        background: $process_cyan
+        &-title
+            margin-bottom: 4px
+
+// Meetings
+.meetings
+    &__items
+        margin-right: -32px
+        overflow: hidden
+        padding-left: 32px
+        width: calc(100% + 32px)
+    &__item
+        width: 450px
+        max-width: 100%
+        padding: 24px
+        color: $eerie_black
+        text-decoration: none
+        transition-duration: .3s
+        border: 1px solid $platinum
+        &:not(:last-child)
+            margin-right: 32px
+        &:hover
+            color: $white
+            background: $bice_blue
+            .meetings__item-header
+                color: $white
+        &:before
+            content: ''
+            width: 32px
+            height: 1px
+            left: -33px
+            position: absolute
+            background: $platinum
+        &:first-child:after
+            content: ''
+            position: absolute
+
+            width: 5px
+            height: 5px
+
+            top: 22px
+            left: -33px
+
+            border-radius: 100%
+            background: $platinum
+        &-header
+            font-size: 14px
+            line-height: 19px
+            margin-bottom: 50px
+            color: $eerie_black_40
+            transition-duration: .3s
+            display: flex
+            align-items: flex-start
+            justify-content: space-between
+        &-text:not(:last-child)
+            margin-bottom: 8px
+    .flickity-viewport
+        overflow: visible
+
+    @media (max-width: 767px)
+        &__items
+            margin-left: -16px
+            margin-right: -16px
+            padding-left: 16px
+            padding-right: 16px
+
+        &__item
+            max-width: 90%
+
+            &:first-child:after
+                left: -18px
+
+            &:not(:last-child)
+                margin-right: 16px
+
+            &:before
+                width: 18px
+                left: -18px
+
+// Roadmap
+.roadmap
+    &__item
+        padding-top: 16px
+        text-decoration: none
+        color: $eerie_black_60
+
+        display: inline-flex
+        flex-direction: column
+        &:hover
+            .roadmap__item-title
+                color: $eerie_black
+        &-date
+            margin-bottom: 8px
+        &-title
+            transition-duration: .3s
+
+// Map
+.map
+    width: 100%
+
+.accordion
+    &_board
+        .accordion__title
+            font-size: 28px
+            font-weight: 600
+            line-height: 36px
+            padding: 32px 0 28px
+            &:before
+                width: 40px
+                height: 40px
+                background-size: 40px
+        .accordion__content
+            padding: 0
+    &__title
+        padding: 24px
+        font-size: 18px
+        cursor: pointer
+        line-height: 25px
+        position: relative
+        background: transparent
+        color: $eerie_black
+        border: none
+        font-family: "Inter", sans-serif
+        &:before
+            content: ''
+            background-image: url('../../img/icons/caret_down.svg')
+
+            width: 24px
+            height: 24px
+
+            right: 0
+            position: absolute
+            transition-duration: .3s
+        &:not(:first-child)
+            border-top: 1px solid $platinum
+        &.ui-state-active:before
+            transform: rotate(180deg)
+        .ui-icon
+            display: none
+    &__content
+        padding: 0 24px 24px
+        border: none
+        font-family: "Inter", sans-serif
+        line-height: 22px
+    &__link
+        display: flex
+        padding-bottom: 20px
+        text-decoration: none
+        color: $eerie_black_60
+        transition-duration: .3s
+        &:hover
+            color: $eerie_black
+        &:not(:last-child)
+            border-bottom: 1px solid $platinum
+        &:not(:first-child)
+            padding-top: 20px
+
+// Navigation
+.navigation
+    display: flex
+    flex-wrap: wrap
+
+    margin-left: 0
+    margin-right: 0
+
+    position: relative
+    &_knowledge
+        .row
+            width: 100%
+            margin: 0
+            > *
+                padding: 0
+            .navigation__item
+                width: 100%
+                min-height: 220px
+                height: 100%
+                display: flex
+            .col-4
+                @media (max-width: 991px)
+                    width: 100%
+                .navigation__item
+                    @media (min-width: 992px)
+                        border-right: none
+            .col-6
+                @media (max-width: 767px)
+                    width: 50%
+                &:nth-child(2n + 1)
+                    .navigation__item
+                        border-right: none
+            .col-8
+                @media (max-width: 991px)
+                    width: 100%
+    &_v2
+        .navigation__item
+            font-size: 28px
+            font-weight: 600
+            line-height: 36px
+            color: $process_cyan
+
+            &.active
+                color: $white
+
+                p
+                    color: $white
+
+            p
+                margin-top: 32px
+                font-size: 16px
+                line-height: 22px
+                font-weight: 400
+                color: $eerie_black
+    &__item
+        padding: 24px
+        font-size: 20px
+        font-weight: 600
+        min-height: 104px
+        line-height: 28px
+
+        margin-top: -1px
+        margin-left: -1px
+
+        text-decoration: none
+        color: $eerie_black_80
+        transition-duration: .3s
+        border: 1px solid $platinum
+
+        &.tab-controls__button
+            cursor: pointer
+        
+        &.tab-controls__button:hover,
+        &.active
+            color: $white
+            background: $process_cyan
+
+        &-list
+            margin: 0
+            padding: 0
+            list-style-type: none
+            li
+                margin-top: 12px
+
+                font-size: 14px
+                font-weight: 500
+                line-height: 20px
+    .flickity-slider
+        .navigation__item
+            border-top: 1px solid $platinum
+            margin-top: 0
+            &:not(:last-child)
+                border-right: none
+    .flickity-button
+        width: 101px
+        height: 16px
+        top: -32px
+        transform: none
+        &.next
+            right: 0
+            background-image: url('../../img/icons/arrow_right_long_black.svg')
+        &.previous
+            right: 117px
+            left: auto
+            background-image: url('../../img/icons/arrow_left_long_black.svg')
+        svg
+            display: none
+
+// Membership
+.membership
+    &__item
+        &:not(:last-child)
+            margin-bottom: 16px
+            padding-bottom: 16px
+            border-bottom: 1px solid $platinum
+        &-header
+            display: flex
+            align-items: center
+            margin-bottom: 16px
+        &-count
+            padding: 4px
+            margin-left: 12px
+            border-radius: 8px
+            border: 1px solid $platinum
+
+            display: flex
+            align-items: center
+            &:after
+                content: ''
+                width: 24px
+                height: 24px
+                margin-left: 8px
+                background: url('../../img/icons/seat.svg')
+
+// Board
+.board
+    margin-bottom: 64px
+
+// Board countries
+.board-countries
+    margin-bottom: 32px
+    &__items
+        margin-left: -16px
+        margin-right: -16px
+
+        display: flex
+        flex-wrap: wrap
+    &__item
+        width: 202px
+        margin: 0 16px 32px
+    &__image
+        display: flex
+        margin-bottom: 8px
+    &__post
+        font-size: 12px
+        line-height: 16px
+        margin-bottom: 16px
+        color: $eerie_black_40
+    &__title
+        margin-bottom: 8px
+
+// Donate
+.donate
+    &__title
+        margin-bottom: 24px
+    &__content
+        display: flex
+        overflow: hidden
+        border-radius: 4px
+    &__thumbnail
+        flex: 1
+        width: 56%
+        background-size: cover
+        background-position: center
+    &__form
+        width: 44%
+        padding: 24px
+        color: $seasalt
+        background-color: $process_cyan
+        &-header
+            margin-bottom: 40px
+        &-row
+            display: flex
+            flex-wrap: wrap
+            margin-bottom: 32px
+        &-title
+            width: 100%
+            font-size: 20px
+            font-weight: 600
+            margin-bottom: 16px
+        &-code
+            width: 150px
+            margin-left: 16px
+        &-submit
+            width: 100%
+            cursor: pointer
+            margin-top: 16px
+        &-date
+            margin-top: 8px
+            width: calc(50% - 8px)
+            &:first-child
+                margin-right: 16px
+        &-radio
+            &-item
+                cursor: pointer
+                &:not(:last-child)
+                    margin-right: 40px
+            &-name
+                position: relative
+                padding-left: 24px
+                &:before,
+                &:after
+                    content: ''
+                    position: absolute
+                    border-radius: 100%
+                &:before
+                    left: 0
+                    top: 1px
+                    width: 16px
+                    height: 16px
+                    border: 1px solid $white
+                &:after
+                    opacity: 0
+
+                    width: 8px
+                    height: 8px
+
+                    top: 6px
+                    left: 5px
+
+                    background: $white
+                    transition-duration: .3s
+        &-button
+            padding: 8px 12px
+            color: $bice_blue
+            line-height: 22px
+            border-radius: 8px
+            background: $white
+            font-family: Inter
+            transition-duration: .3s
+            &:not(:last-child)
+                margin-right: 16px
+            &:hover,
+            &.active
+                color: $white
+                background: $bice_blue
+        input[type="radio"]
+            opacity: 0
+            position: absolute
+            visibility: hidden
+            &:checked + .donate__form-radio-name:after
+                opacity: 1
+        .select2
+            .select2-selection
+                height: 48px
+                border-color: transparent
+                .select2-selection__rendered
+                    height: 100%
+                    line-height: 48px
+                    padding-left: 16px
+                .select2-selection__arrow
+                    width: 18px
+                    height: 18px
+                    top: 15px
+                    right: 15px
+                    background-image: url('../../img/icons/caret_down.svg')
+                    background-position: center
+                    background-repeat: no-repeat
+                    b
+                        display: none
+                .select2-selection__placeholder
+                    color: $eerie_black_60
+
+// Campaigns
+.campaigns
+    &__item
+        display: flex
+        &-thumbnail
+            flex: 1
+            background-size: cover
+            background-position: center
+        &-content
+            width: 50%
+            min-height: 500px
+
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+
+            padding: 32px
+            border: 1px solid $platinum
+        &-link
+            width: 160px
+            margin-top: 24px
+            display: inline-flex
+            justify-content: center
+    .flickity-button
+        width: 100px
+        height: 16px
+
+        top: 42px
+        opacity: 1
+        transform: none
+        box-shadow: none
+        transition-duration: .3s
+        background-color: transparent
+        &.next
+            right: 32px
+            background-image: url('../../img/icons/arrow_right_long_black.svg')
+            &:hover
+                background-image: url('../../img/icons/arrow_right_long_blue.svg')
+        &.previous
+            left: auto
+            right: 150px
+            background-image: url('../../img/icons/arrow_left_long_black.svg')
+            &:hover
+                background-image: url('../../img/icons/arrow_left_long_blue.svg')
+        svg
+            display: none
+
+// Report tabs
+.report-tabs
+    padding-bottom: 16px
+    margin-bottom: 32px
+    border-bottom: 1px solid $platinum
+    .years
+        text-decoration: none
+        color: $eerie_black
+        &.active,
+        &:hover
+            color: $white
+
+    @media (max-width: 991px)
+        display: flex
+        align-items: center
+        white-space: nowrap
+        overflow: scroll
+        margin-left: -32px
+        margin-right: -32px
+        padding-left: 32px
+        padding-right: 32px
+
+    @media (max-width: 767px)
+        margin-right: -16px
+        margin-left: -16px
+        padding-left: 16px
+        padding-right: 16px
+
+// Share
+.share
+    &__header
+        margin-bottom: 48px
+        display: flex
+        align-items: center
+        .tag
+            margin-right: 24px
+    &__thumbnail
+        height: 450px
+        background-size: cover
+        background-position: center
+        border: 1px solid $platinum
+        margin-bottom: 24px
+    &__link
+        font-size: 14px
+        font-weight: 500
+        height: 36px
+        display: flex
+        align-items: center
+        justify-content: center
+        &:hover:after
+            background-image: url('../../img/icons/share_white.svg')
+        &:after
+            content: ''
+            background-image: url('../../img/icons/share.svg')
+            width: 20px
+            height: 20px
+            margin-left: 8px
+            transition-duration: .3s
+
+    @media (max-width: 767px)
+        &__header
+            margin-bottom: 32px
+
+// Thanks for the donation
+.donate-success
+    background: $process_cyan
+    .page__header
+        text-align: center
+
+        margin-top: 48px
+        margin-bottom: 80px
+    .donate
+        color: $seasalt
+        padding-bottom: 64px
+        border-bottom: 1px solid $seasalt
+        &__title
+            text-align: center
+        &__content
+            justify-content: center
+    .subscription
+        color: $seasalt
+        .section__title
+            text-align: center
+        &__form
+            background: transparent
+            border: 1px solid $platinum
+        &__description
+            color: $seasalt
+        &__submit
+            background: transparent
+            border: 1px solid $seasalt
+            &:hover
+                background: $white
+                color: $process_cyan
+        &__checkbox-description
+            &:before
+                border-color: $seasalt
+            &:after
+                background-color: $seasalt
+
+// Regions
+.regions
+    &__carousel
+        outline: none
+        position: relative
+        margin-bottom: 40px
+        &-item
+            width: 370px
+            height: 600px
+            color: $white
+            font-size: 28px
+            font-weight: 600
+            line-height: 30px
+            padding: 16px
+            cursor: pointer
+            text-decoration: none
+            background-position: center
+            background-size: cover
+            &:not(:last-child)
+                margin-right: 16px
+        .flickity-button
+            width: 48px
+            height: 48px
+            background-color: #00B2E3
+            border-radius: 100%
+            background-position: center
+            background-repeat: no-repeat
+            position: absolute
+            top: 50%
+            transform: translateY(-50%)
+            transition-duration: .3s
+            &.next
+                right: 24px
+                background-image: url('../../img/icons/arrow_right_small.svg')
+            &.previous
+                left: 24px
+                background-image: url('../../img/icons/arrow_left_small.svg')
+            &[disabled]
+                opacity: 0
+            svg
+                display: none
+        .flickity-viewport
+            overflow: visible
+    &__search
+        display: flex
+        align-items: center
+        margin-bottom: 32px
+        .search
+            margin-bottom: 0
+            margin-right: 32px
+            flex: 1
+        .filter
+            padding-top: 0
+    &__result
+        columns: 3
+        margin: 0
+        padding: 0
+        list-style-type: none
+        li
+            margin-bottom: 16px
+        a
+            font-size: 20px
+            font-weight: 500
+            text-decoration: none
+            color: #1D2025
+            line-height: 28px
+
+// Registration
+.registration
+    &__title
+        margin-bottom: 24px
+    &__items
+        display: flex
+        flex-wrap: wrap
+        margin-top: 32px
+    &__item
+        width: 197px
+        height: 200px
+        padding: 24px
+        color: $eerie_black_40
+        margin: -1px 0 0 -1px
+        border: 1px solid $platinum
+        transition-duration: .3s
+        &_current
+            background: $platinum
+            color: $eerie_black_60
+        &:hover:not(.registration__item_current)
+            background: $seasalt
+    &__time
+        color: $eerie_black
+        margin-bottom: 8px
+    &__date
+        margin-bottom: 4px
+    &__month
+        margin-bottom: 24px
+    &__description
+        font-size: 14px
+        font-weight: 500
+
+// Publications
+.publications
+    margin-bottom: 32px
+    &__item
+        text-decoration: none
+        color: $eerie_black
+        transition-duration: .3s
+        margin-bottom: 32px
+        display: flex
+        flex-direction: column
+        &:hover
+            color: $process_cyan
+        &-thumbnail
+            height: 486px
+            margin-bottom: 16px
+            background-size: cover
+            background-position: center
+            width: 100%
+            @media (max-width: 767px)
+                height: 555px
+        &-header
+            display: flex
+            align-items: center
+            margin-bottom: 8px
+        &-title
+            @media (max-width: 767px)
+                overflow: hidden
+                display: -webkit-box
+                -webkit-line-clamp: 3
+                -webkit-box-orient: vertical
+        .tag
+            margin-right: 16px
+        .small
+            color: $eerie_black
+    .show-more,
+    .pager
+        margin-top: 0
+    .col-3
+        &:last-child
+            @media (max-width: 1199px)
+                display: none
+            @media (max-width: 991px)
+                display: block
+        @media (max-width: 1199px)
+            width: 33.3333333333%
+        @media (max-width: 991px)
+            width: 50%
+
+        @media (max-width: 767px)
+            width: 100%
+
+// Lecture header
+.lecture-header
+    &__title
+        margin-bottom: 4px
+    &__buttons
+        display: flex
+        align-items: flex-start
+        @media (max-width: 1199px)
+            width: auto
+        .button:not(:last-child)
+            margin-right: 8px
+    .row
+        @media (max-width: 1199px)
+            justify-content: space-between
+        .col-2
+            @media (max-width: 767px)
+                width: auto
+
+// Select2
+.select2-dropdown
+    margin-top: 12px
+    border-radius: 4px
+    border: 1px solid $platinum
+    padding: 12px 12px 16px
+.select2-container--default
+    .select2-results__option--highlighted
+        &.select2-results__option--selectable
+            &:not(.select2-results__option--selected)
+                color: $eerie_black
+                background: $seasalt
+            &.select2-results__option--selected
+                color: $white
+                background: $process_cyan
+    .select2-results > .select2-results__options
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+
+        max-height: 430px
+        padding-right: 12px
+        &::-webkit-scrollbar
+            width: 4px
+        &::-webkit-scrollbar-track
+            border-radius: 2px
+            background: $platinum
+        &::-webkit-scrollbar-thumb
+            border-radius: 2px
+            background: $eerie_black_60
+    .select2-results__option--selected
+        color: $white
+        background: $process_cyan
+    .select2-search--dropdown
+        .select2-search__field
+            font-size: 16px
+            font-family: Inter
+
+            border: none
+            height: 38px
+            border-radius: 4px
+            padding-left: 38px
+            margin-bottom: 24px
+
+            background-color: $seasalt
+            background-repeat: no-repeat
+            background-position: left 7px top 7px
+            background-image: url('../../img/icons/search.svg')
+.select2-results__option
+    padding: 4px 8px
+    border-radius: 4px
+    &:not(:last-child)
+        margin-bottom: 12px
+.select2-container--open
+    .select2-dropdown--below
+        border-radius: 4px
+        border-top: 1px solid $platinum
+        width: auto !important
+        min-width: 200px
+
+
+.visually-hidden
+    position: absolute !important
+    overflow: hidden
+    clip: rect(1px, 1px, 1px, 1px)
+    width: 1px
+    height: 1px
+    word-wrap: normal
+    top: 0
+
+blockquote
+    margin: 2rem 0
+    padding-left: 2.125rem
+    border-left: 4px solid #ccc
+
+article table
+    width: 100%
+    td
+        background: #eee
+        border-spacing: 1px
+        padding: 4px 8px
+
+.paragraph-type--stories_centered_text
+    a
+        color: $eerie_black_80
+        transition-duration: .3s
+        &:hover
+            color: $process_cyan
+
+#page
+    display: flex
+    min-height: 100vh
+    flex-direction: column
+    > main
+        flex: 1
+    > *
+        width: 100%
+
+.mb-16
+    margin-bottom: 16px
+
+.mb-24
+    margin-bottom: 24px
+
+.mb-32
+    margin-bottom: 32px
+
+.mb-48
+    margin-bottom: 48px
+
+.mb-64
+    margin-bottom: 64px
+
+.mt-24
+    margin-top: 24px
+
+.mt-32
+    margin-top: 32px
+
+.mt-48
+    margin-top: 48px
+
+.mt-64
+    margin-top: 64px
+
+.mr-64
+    margin-right: 64px
+
+.d-flex
+    display: flex
+
+.align-items-start
+    align-items: flex-start
+
+.justify-content-end
+    justify-content: flex-end
+
+p.description
+    font-weight: 500
+    font-size: 1.125rem
+    line-height: 1.625rem
+p.keyword
+    font-weight: normal
+    font-size: 1.5rem
+    line-height: 2rem
+p.p2
+    font-weight: normal
+    font-size: .875rem
+    line-height: 1.25rem
+p.h4.color_star_command_blue
+    color: #007dc3
+p.h1
+    margin-bottom: 0
+
+.pager
+    &.pager-sample
+        &:before,
+        &:after
+            content: none
+        justify-content: flex-start
+    .pager__items
+        display: flex
+        align-items: center
+        margin: 0
+        padding: 0
+        list-style-type: none
+        li
+            &:not(:last-child)
+                margin-right: 16px
+                @media (max-width: 767px)
+                    margin-right: 8px
+            &.pager__item--ellipsis
+                @media (max-width: 767px)
+                    display: none
+            &.is-active
+                a
+                    background-color: $process_cyan
+                    color: $white
+            &.pager__item--next,
+            &.pager__item--first
+                @media (max-width: 767px)
+                    margin-right: 0
+        a
+            background-color: $seasalt
+            color: $eerie_black
+            text-decoration: none
+            transition-duration: .3s
+            border-radius: 4px
+            font:
+                size: 14px
+                weight: 500
+            padding: 8px 12px
+            display: block
+            &:hover
+                background-color: $process_cyan
+                color: $white
+
+.paragraph--unpublished 
+    background: yellow
+
+.page--user main 
+    max-width: 992px
+    margin-left: auto
+    margin-right: auto
+
+.page--user form[class^="user-"] 
+    max-width: 27rem
+    margin-left: auto
+    margin-right: auto
+    margin-top: 6rem
+
+.page--user form[class^="user-"] input 
+    width: 100%
+    max-width: 27rem
+    height: 3.5rem
+    border: 0.0625rem solid #cecdcd
+    padding: 0 1.5rem
+    transition-duration: .3s
+    font-size: 1rem
+
+.page--user form[class^="user-"] .form-item 
+    margin-bottom: 1.5rem
+
+.page--user form[class^="user-"] .form-item .description 
+    font-weight: normal
+    font-size: .875rem
+    line-height: 1.25rem
+    color: #999
+
+.page--user form[class^="user-"] .form-item label 
+    display: block
+
+.user-pass form[class^="user-"] .form-actions 
+    margin-top: 1.5rem
+
+.page--user .openid-connect-login-form
+    display: flex
+    justify-content: center
+
+    margin-top: 40px
+
+// ui-dialog
+.ui-dialog.external-link-popup
+    width: 680px !important
+.ui-widget.ui-widget-content.ui-dialog
+    border: 1px solid $platinum
+    border-radius: 8px
+    padding: 0
+    max-width: 100%
+    .external-link-popup-content
+        text-align: center
+        padding: 80px 0 0
+    .ui-dialog-titlebar
+        border: none
+        background: transparent
+        padding: 0
+        .ui-dialog-title
+            display: none
+        .ui-button
+            background: url('../../img/icons/clear.svg')
+            border: none
+            margin: 0
+            top: 24px
+            right: 24px
+            width: 24px
+            height: 24px
+            z-index: 1
+            width: 32px
+            height: 32px
+            background-size: cover
+            span
+                display: none
+    .ui-dialog-buttonpane
+        margin-bottom: 80px
+        padding: 0
+        margin-top: 24px
+        border: none
+        display: flex
+        justify-content: center
+        .ui-dialog-buttonset
+            display: flex
+            flex-direction: row-reverse
+            button
+                margin: 0
+                height: 38px
+                background: transparent
+                font-size: 18px
+                transition-duration: .3s
+                &:hover
+                    color: $white
+                &:last-child
+                    border-color: $eerie_black
+                    margin-right: 16px
+                    &:hover
+                        background: $eerie_black
+                &:first-child
+                    border-color: $process_cyan
+                    &:hover
+                        background: $process_cyan
+.external-link-popup-body-image
+    margin-bottom: 48px
+.external-link-popup-body-text
+    width: 500px
+    max-width: 100%
+    font-size: 24px
+    line-height: 33px
+.external-link-popup-body
+    display: flex
+    flex-direction: column
+    align-items: center
+.video-embed-field-lazy
+    position: relative
+    line-height: 0
+.video-embed-field-lazy-play
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 100%
+    height: 100%
+    left: 0
+    top: 0
+    margin: 0
+    background-repeat: no-repeat
+    background-position: center
+    position: absolute
+    &:before
+        content: ''
+        position: absolute
+        width: 100%
+        height: 100%
+        left: 0
+        top: 0
+        background: #000
+        opacity: .3
+    &:after
+        content: ''
+        z-index: 1
+        width: 48px
+        height: 48px
+        position: absolute
+        background: url('../../img/icons/play.svg')
+
+.section__audio
+    audio
+        margin: auto
+        display: block
+        width: 500px
+        max-width: 100%
+
+.node--unpublished
+    background: antiquewhite
+
+.webform-confirmation-modal--content
+    font-size: 24px
+    display: flex
+    align-items: center
+    justify-content: center
+
+.flex-grow-1
+    flex-grow: 1
+
+.page--user .openid-connect-login-form
+    margin-bottom: 64px
+
+.leaflet-container
+    .leaflet-popup_countries,
+    .leaflet-popup_events
+        .leaflet-popup-content-wrapper
+            font-family: Inter
+            box-shadow: none
+            border-radius: 0
+            padding: 0
+            border: 1px solid $platinum
+            .leaflet-popup_events
+                .leaflet-popup-content
+                    width: 460px
+            .leaflet-popup-content
+                display: flex
+                flex-direction: column
+                margin: 0
+                min-height: 210px
+                padding: 16px 24px
+                .event-thumbnail
+                    width: 160px
+                    background-size: cover
+                    background-position: center
+                .event-title,
+                .leaflet-popup-content_region
+                    font-size: 22px
+                    font-weight: 600
+                    line-height: 28px
+                    color: $eerie_black
+                    margin-bottom: 16px
+                    text-decoration: none
+                    display: flex
+                .leaflet-popup-content_title
+                    color: $eerie_black
+                    text-decoration: none
+                    transition-duration: .3s
+                    margin: 0 0 4px
+                    &:hover
+                        color: $process_cyan
+                    strong
+                        font-size: 14px
+                        font-weight: 500
+                p
+                    margin: 0 0 4px
+                    font-size: 14px
+                    font-weight: 500
+                .event-status
+                    margin-top: 12px
+                    color: $eerie_black_60
+                    font-size: 14px
+                    font-weight: 500
+
+.tag_global
+    background: #6DAF74
+    color: $white
+.tag_report
+    background: #003C95
+    color: $white
+.tag_physical
+    background: #79155D
+    color: $white
+.tag_virtual
+    background: #F7BE00
+    color: $white
+.tag_hybrid
+    background: #00B2E3
+    color: $white
+.tag_un
+    background: #B5D4F7
+    color: $white
+.tag_habitat
+    background: #457DAB
+    color: $white
+.tag_partner
+    background: #9393E3
+    color: $white
+.tag_conference
+    background: #43D1F9
+    color: $white
+.tag_workshop
+    background: #5D9DA4
+    color: $white
+.tag_launch
+    background: #00BC70
+    color: $white
+
+.tag_best_practice
+  background: #0148fc
+
+.tag_country
+  background: #5c01f8
+
+.tag_donor
+  background: #f0b401
+
+.tag_event
+  background: #2ED9C3
+
+.tag_generic_page
+  background: #00BC70
+
+.tag_video
+  background: #FF8C42
+
+.tag_cpr_session
+  background: #F7BE00
+
+.tag_news
+  background: #457DAB
+
+.tag_press_release
+  background: #5D9DA4
+
+.tag_work
+  background: #2A7DE1
+
+.tag_publication
+  background: #8509f8
+
+.tag_region
+  background: #0bfc6f
+
+.tag_speeches
+  background: #3f15fa
+
+.tag_statements
+  background: #e802f0
+
+.tag_story
+  background: #00753b
+
+.tag_topic
+  background: #fa5d15
+
+
+.button_lang
+    font-size: 14px
+    line-height: 15px
+    padding: 4px 8px
+
+.button_ar
+  border-color:#00753b
+
+.button_fr
+  border-color:#2f7df1
+
+.button_es
+  border-color:#f1b533
+
+.button_pt
+  border-color:#094226
+
+.button_zh_hans
+  border-color:#ec4f1f
+
+.button_ja
+  border-color:#b62af7
+
+.button_ru
+  border-color:#38ddf3
+
+.event-tags
+    display: flex
+    margin-bottom: 32px
+    .tag:not(:last-child)
+        margin-right: 16px
+
+.event-header
+    padding-top: 32px
+    margin-top: 32px
+    border-top: 1px solid $platinum
+    margin-bottom: 64px
+
+.event-info
+    p
+        margin-bottom: 4px
+
+.event-link
+    .small
+        color: $eerie_black_40
+        margin-bottom: 4px
+
+.link
+    color: $process_cyan
+    text-decoration: none
+    display: flex
+    &:after
+        margin-left: 14px
+        content: url('../../img/icons/link-2.svg')
+
+.google-btn
+    border: 1px solid #E5E5E5
+    border-radius: 4px
+    padding: 8px 12px
+    font-weight: 500
+    font-size: 16px
+    font-family: Inter
+    transition-duration: .3s
+    display: inline-flex
+    text-decoration: none
+    align-items: center
+    color: $eerie_black
+    &:hover
+        background: $process_cyan
+        color: $white
+        &:before
+            background-image: url('../../img/icons/google_hover.svg')
+    &:before
+        content: ''
+        width: 17px
+        height: 17px
+        display: block
+        margin-right: 12px
+        background-image: url('../../img/icons/google.svg')
+        transition-duration: .3s
+
+@media (min-width: 992px)
+    .col-md-6
+        width: 50%
+
+@media (min-width: 1200px)
+    .col-lg-3
+        width: 25%
+
+html[dir="rtl"]
+    .impact__item-title
+        direction: ltr
+        text-align: right
+    .header__menu-item:not(:last-child)
+        margin-right: 0
+        margin-left: 56px
+
+.unhauthorize-donate
+    @include container
+    margin-bottom: 64px
+    h2
+        margin-bottom: 24px
+        font-size: 36px
+        font-weight: 600
+        line-height: 47px
+    .form-donate-wrapper
+        display: flex
+        overflow: hidden
+        border-radius: 4px
+        background-image: url('../../img/photos/donate-thumbnail.jpg')
+    form
+        display: flex
+        flex-wrap: wrap
+        width: 44%
+        padding: 24px
+        color: $seasalt
+        background-color: $process_cyan
+    fieldset
+        border: none
+        padding: 0
+        margin: 0
+        display: flex
+        flex-wrap: wrap
+        margin-bottom: 32px
+        .fieldset-legend
+            width: 100%
+            font-size: 20px
+            font-weight: 600
+            margin-bottom: 16px
+            display: block
+    #edit-donate-type
+        display: flex
+        .form-item:not(:last-child)
+            margin-right: 40px
+        input[type="radio"]
+            &:checked + .option:after
+                opacity: 1
+        .option
+            position: relative
+            padding-left: 24px
+            cursor: pointer
+            &:before,
+            &:after
+                content: ''
+                position: absolute
+                border-radius: 100%
+            &:before
+                left: 0
+                top: 1px
+                width: 16px
+                height: 16px
+                border: 1px solid $white
+            &:after
+                opacity: 0
+
+                width: 8px
+                height: 8px
+
+                top: 6px
+                left: 5px
+
+                background: $white
+                transition-duration: .3s
+    .form-item-donate-value
+        display: flex
+        flex-direction: column
+        width: 100%
+        label
+            width: 100%
+            font-size: 20px
+            font-weight: 600
+            margin-bottom: 16px
+    #edit-donate-email
+        margin-bottom: 32px
+    .form-number,
+    #edit-donate-email,
+    #edit-donate-first-name,
+    #edit-donate-last-name
+        width: 100%
+        height: 48px
+        padding: 0 16px
+        font-size: 16px
+        font-family: Inter
+        border-radius: 4px
+        background: $seasalt
+        transition-duration: .3s
+        border: 1px solid transparent
+        &:hover
+            background: #F1F1F1
+        &:focus
+            background: $white
+            border-color: $eerie_black_60
+            &::-webkit-input-placeholder
+                color: $eerie_black_40
+            &::-moz-placeholder
+                color: $eerie_black_40
+            &:-ms-input-placeholder
+                color: $eerie_black_40
+            &:-moz-placeholder
+                color: $eerie_black_40
+        &::-webkit-input-placeholder
+            color: $eerie_black_60
+        &::-moz-placeholder
+            color: $eerie_black_60
+        &:-ms-input-placeholder
+            color: $eerie_black_60
+        &:-moz-placeholder
+            color: $eerie_black_60
+    .form-item-donate-first-name,
+    .form-item-donate-last-name
+        width: calc(50% - 16px)
+        margin-bottom: 32px
+    .form-item-donate-first-name
+        margin-right: 32px
+    input[type="radio"],
+    .form-submit
+        opacity: 0
+        position: absolute
+        visibility: hidden
+    #edit-donate-value-radios--wrapper
+        margin-top: 32px
+        legend
+            display: none
+    #edit-donate-value-radios
+        display: flex
+        .form-item
+            display: flex
+            &:not(:last-child)
+                margin-right: 16px
+            input:checked + .option
+                color: $white
+                background: $bice_blue
+            .option
+                cursor: pointer
+                padding: 8px 12px
+                color: $bice_blue
+                line-height: 22px
+                border-radius: 8px
+                background: $white
+                font-family: Inter
+                transition-duration: .3s
+                &:hover
+                    color: $white
+                    background: $bice_blue
+    .form-item-donate-to
+        margin-bottom: 32px
+        width: 100%
+        .select2
+            width: 100% !important
+            .select2-selection
+                height: 48px
+                border-color: transparent
+                border-radius: 4px !important
+                .select2-selection__rendered
+                    height: 100%
+                    line-height: 48px
+                    padding-left: 16px
+                .select2-selection__arrow
+                    width: 18px
+                    height: 18px
+                    top: 15px
+                    right: 15px
+                    background-image: url('../../img/icons/caret_down.svg')
+                    background-position: center
+                    background-repeat: no-repeat
+                    b
+                        display: none
+                .select2-selection__placeholder
+                    color: $eerie_black_60
+    .form-item-donate
+        width: 100%
+        button
+            color: $white
+            border: 1px solid $white
+            width: 100%
+            cursor: pointer
+            margin-top: 32px
+            font-size: 18px
+            font-weight: 500
+            line-height: 22px
+            text-align: center
+            text-decoration: none
+            
+            padding: 8px 12px
+            border-radius: 4px
+            transition-duration: .3s
+            &:hover
+                background: $white
+                color: $process_cyan
+    .form-item-subscribe
+        input
+            position: absolute !important
+            overflow: hidden
+            clip: rect(1px, 1px, 1px, 1px)
+            width: 1px
+            height: 1px
+            word-wrap: normal
+            top: 0
+            &:checked + label
+                &:before
+                    background: $white
+                &:after
+                    opacity: 1
+        label
+            display: flex
+            position: relative
+            align-items: center
+            cursor: pointer
+            &:before
+                content: ''
+                height: 16px
+                min-width: 16px
+                margin-right: 10px
+                border-radius: 2px
+                transition-duration: .3s
+                border: 1px solid $white
+            &:after
+                left: 1px
+                content: ''
+                opacity: 0
+                width: 18px
+                height: 18px
+                position: absolute
+                transition-duration: .3s
+                background-position: center
+                background-repeat: no-repeat
+                background-image: url('../../img/icons/checkbox.svg')
+
+.donate-success
+
+    .authorize-success-notice
+        margin-bottom: 80px
+
+        h3
+            font-size: 64px
+            font-weight: 600
+            line-height: 70px
+            text-align: center
+
+            @media (max-width: 767px)
+                font-size: 48px
+                line-height: 62px
+    
+    .form-donate-page
+        color: $white
+
+        h2
+            margin-bottom: 24px
+            font-size: 36px
+            font-weight: 600
+            line-height: 47px
+            text-align: center
+
+    .unhauthorize-donate
+        padding-top: 24px
+        padding-bottom: 24px
+        width: calc(557px + 48px)
+        max-width: 100%
+        display: flex
+        flex-wrap: wrap
+
+.publication-header
+    @media (max-width: 1199px) and (min-width: 992px)
+        .col-8
+            width: 60%
+        
+        .col-1
+            width: 5%
+
+        .col-3
+            width: 35%
+
+    @media (max-width: 991px) and (min-width: 768px)
+        .col-8
+            width: 55%
+
+        .col-3
+            width: 45%
+
+    @media (max-width: 767px)
+        .row
+            flex-direction: column-reverse
+
+        .col-8,
+        .col-3
+            width: 100%
+
+        .col-3
+            margin-bottom: 48px
+
+.learn
+    @media (max-width: 1199px)
+        .col-8,
+        .col-3
+            width: 100%
+
+        .col-3
+            margin-top: 24px
+
+        .col-1
+            display: none
+
+    @media (max-width: 767px)
+        .col-8
+            flex-direction: column
+
+            .mr-64
+                margin-right: 0
+                margin-bottom: 24px
+
+        .col-3
+            justify-content: flex-start
+
+.leadership
+    width: 1140px
+    max-width: 100%
+    display: flex
+    flex-wrap: wrap
+
+    &_extended
+        margin-top: 64px
+
+        .leadership__image
+            width: 232px
+            height: 232px
+
+        .leadership__title
+            margin-bottom: 8px
+
+        .leadership__post
+            margin-bottom: 24px
+
+    &:not(.leadership_extended)
+        margin-top: 32px
+
+        .leadership__item
+            padding: 24px
+            width: 50%
+
+        .leadership__post
+            font-size: 20px
+            font-weight: 500
+            line-height: 140%
+            margin-bottom: 12px
+
+    &__item
+        margin-bottom: 48px
+        display: flex
+
+    &__image
+        border-radius: 100%
+        width: 88px
+        height: 88px
+        background-size: cover
+        background-position: center
+        margin-right: 32px
+
+    &__content
+        flex: 1
+
+    &__title
+        margin-bottom: 12px
+
+    &__place
+        color: $bice_blue
+        margin-bottom: 32px

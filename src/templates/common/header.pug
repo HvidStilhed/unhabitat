@@ -1,0 +1,42 @@
+doctype html
+html(lang="zh-hans")
+	head
+		meta(charset="UTF-8")
+		meta(name='viewport' content='width=device-width, initial-scale=1.0')
+
+		link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css')
+		link(rel='stylesheet' href='libs/flickity.min.css')
+		link(rel='stylesheet' href='styles/old/old.css')
+		link(rel='stylesheet' href='styles/old/maintenance.css')
+		link(rel='stylesheet' href='https://unpkg.com/leaflet@1.8.0/dist/leaflet.css')
+
+		title UN-HABITAT
+
+	body(class='page ' + body_class)
+		a(href="#main-content" class="visually-hidden focusable") Skip to main content
+
+		.dialog-off-canvas-main-canvas(data-off-canvas-main-canvas)
+			#page
+				header.header
+					a(class="header__logo" href="/" aria-label="logo")
+					nav.header__nav
+						ul.header__menu
+							each item in ['Who we are', 'Where we are', 'What we do', 'Knowledge', 'Events', 'Get Involved', 'Media']
+								li.header__menu-item
+									a.header__menu-link= item
+
+					.header__right.d-flex.align-items-center
+						ul.lang-toggle
+							li
+								a.language-link en
+							li
+								span.is-active zh-hans
+
+						button.header__search
+						button.header__button
+
+				#search.search-modal.modal
+					.search__form.container
+						include ../components/search-form.pug
+
+				block content
