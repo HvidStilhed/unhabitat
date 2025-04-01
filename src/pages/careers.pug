@@ -1,0 +1,25 @@
+extends ../components/header.pug
+
+block content
+	-
+		var title = 'Careers'
+		var breadcrumbs = [
+			{title: 'Get Involved', url: '/'},
+			{title: 'Careers', url: ''}
+		]
+		var links = [
+			{title: 'Openings', url: 'careers.html'},
+			{title: 'United Nations Volunteers', url: 'volunteers.html'},
+			{title: 'Junior professional officers', url: 'officers.html'}
+		]
+
+	include ../components/breadcrumbs.pug
+	include ../components/page-header.pug
+	include ../components/page-navigation.pug
+
+	+breadcrumbs(breadcrumbs)
+
+	main
+		article
+			+page-header(title)
+			+page-navigation(links)

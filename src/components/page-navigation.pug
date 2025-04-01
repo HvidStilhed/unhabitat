@@ -1,0 +1,5 @@
+mixin page-navigation(links)
+	.container
+		.report-tabs.menus-buttons
+			each link in links
+				a.years(href=link.url)= link.title

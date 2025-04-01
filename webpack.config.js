@@ -5,7 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const fs = require('fs');
 
-const templatesDir = path.resolve(__dirname, 'src/templates');
+const templatesDir = path.resolve(__dirname, 'src/pages');
 const pugFiles = fs.readdirSync(templatesDir).filter(file => file.endsWith('.pug'));
 
 const htmlPlugins = pugFiles.map(file => {
@@ -17,11 +17,12 @@ const htmlPlugins = pugFiles.map(file => {
 
 module.exports = {
 	mode: 'development',
-	entry: './src/index.js',
+	entry: './index.js',
 	output: {
-		filename: 'bundle.js',
+		filename: 'index.js',
 		path: path.resolve(__dirname, 'dist'),
 	},
+	context: path.resolve(__dirname, 'src'),
 	module: {
 		rules: [
 			{
@@ -41,6 +42,13 @@ module.exports = {
 					'sass-loader'
 				],
 			},
+			{
+				test: /\.(woff2?|eot|ttf|otf|svg|png|jpg|gif)$/i,
+				type: 'asset/resource',
+				generator: {
+					filename: '[path][name][ext]',
+				},
+			},
 		],
 	},
 	plugins: [
@@ -52,19 +60,21 @@ module.exports = {
 		new CopyWebpackPlugin({
 			patterns: [
 				{
-					from: 'src',
-					to: '',
-					globOptions: {
-						ignore: [
-							'**/*.sass',
-							'**/*.pug'
-						],
-					},
-					filter: async (resourcePath) => {
-						const includeDirs = ['libs', 'styles/old', 'img', 'fonts', 'js/old'];
-						return includeDirs.some(dir => resourcePath.includes(`src/${dir}`));
-					}
-				}
+					from: 'fonts',
+					to: 'fonts',
+				},
+				{
+					from: 'js',
+					to: 'js',
+				},
+				{
+					from: 'lib',
+					to: 'lib',
+				},
+				{
+					from: 'sass',
+					to: 'sass',
+				},
 			]
 		}),
 	],

@@ -1,0 +1,11 @@
+mixin breadcrumbs(breadcrumbs)
+	nav(aria-label="Breadcrumb")
+		ul.breadcrumbs
+			li.breadcrumbs__item
+				a.breadcrumbs__item-link(href="/")
+			each crumb, index in breadcrumbs
+				li.breadcrumbs__item
+					if index === breadcrumbs.length - 1
+						span.breadcrumbs__item-link(aria-current="page")= crumb.title
+					else
+						a.breadcrumbs__item-link(href=crumb.url)= crumb.title

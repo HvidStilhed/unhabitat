@@ -1,0 +1,45 @@
+footer.footer
+	.container
+		.footer__row.row
+			.footer__column.col-8
+				a(href="/" class="footer__logo")
+					img(src="img/logos/logo_white.svg" alt="UN-HABITAT" width="89" height="89")
+
+				.footer__row.row
+					.footer__column.col-7
+						.footer__address
+							| United Nations Human Settlements Programme (UN-Habitat)<br>P.O. Box 30030-00100<br>
+							a(class="footer__address-link" href="mailto:unhabitat-info@un.org") unhabitat-info@un.org
+							<br>Nairobi, Kenya
+
+					.footer__column.col-5
+						ul.footer__social
+							each social in ['facebook', 'linkedin', 'twitter', 'instagram', 'youtube']
+								li.footer__social-item
+									a.footer__social-link(
+										class=`footer__social-${social}`,
+										href='#',
+										title=social
+									)
+
+				.footer__copyright-wrap.footer__row.row
+					.footer__column.col-7
+						.footer__copyright.small © 2012-2023 United Nations Human Settlements Programme
+
+					.footer__column.col-5
+						a(href="#" class="footer__link") Privacy Notice
+					
+			.footer__column.subscribe-wrap.col-4
+				.subscribe__title.h3 Subscribe to our <br>newsletter to stay in touch with the latest.
+
+				form.subscribe.subscribe_footer
+					input(class="subscribe__email" type="email" placeholder="E-mail address" title="Email")
+					input(class="subscribe__submit" type="submit" value="" title="Submit")
+			
+	.footer__bottom
+		.container
+			nav
+				ul.footer__bottom-nav
+					each item in ['Who we are', 'Where we are', 'What we do', 'Knowledge', 'Events', 'Get Involved', 'Media', 'Contacts']
+						li.footer__bottom-item
+							a.footer__bottom-link= item
