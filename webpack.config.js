@@ -11,30 +11,43 @@ const pugFiles = fs.readdirSync(templatesDir).filter(file => file.endsWith('.pug
 const htmlPlugins = pugFiles.map(file => {
 	return new HtmlWebpackPlugin({
 		template: path.join(templatesDir, file),
-		filename: file.replace('.pug', '.html')
+		filename: file.replace('.pug', '.html'),
+		minify: {
+			collapseWhitespace: false,
+			removeComments: false,
+			collapseBooleanAttributes: false,
+			preserveLineBreaks: true,
+			indentInnerHtml: true,
+		}
 	});
 });
 
 module.exports = {
 	mode: 'development',
 	entry: {
-		'main': './sass/main.sass',
-    	'style': './sass/style.sass',
+		'index': './index.js',
 	},
 	output: {
 		filename: '[name].js',
 		path: path.resolve(__dirname, 'dist'),
+		clean: true,
 	},
 	context: path.resolve(__dirname, 'src'),
 	module: {
 		rules: [
 			{
 				test: /\.pug$/,
-				use: ['pug-loader']
+				use: [
+					{
+					  loader: 'pug-loader',
+					  options: {
+						pretty: true,
+					  }
+					}
+				]
 			},
 			{
-				test: /\.json$/,
-				type: 'javascript/auto',
+				test: /\.json$/i,
 				use: 'json-loader'
 			},
 			{
@@ -63,19 +76,19 @@ module.exports = {
 		new CopyWebpackPlugin({
 			patterns: [
 				{
-					from: 'fonts',
+					from: path.resolve(__dirname, 'src/fonts'),
 					to: 'fonts',
 				},
 				{
-					from: 'js',
+					from: path.resolve(__dirname, 'src/js'),
 					to: 'js',
 				},
 				{
-					from: 'lib',
+					from: path.resolve(__dirname, 'src/lib'),
 					to: 'lib',
 				},
 				{
-					from: 'sass',
+					from: path.resolve(__dirname, 'src/sass'),
 					to: 'sass',
 				},
 			]
