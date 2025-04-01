@@ -1,0 +1,62 @@
+@use '../../sass/variables' as *
+
+.breadcrumbs
+    display: flex
+
+    margin: 0
+    padding: 0
+    list-style-type: none
+
+    margin-left: auto
+    margin-right: auto
+    margin-bottom: 48px
+
+    border-top: 1px solid $platinum
+    border-bottom: 1px solid $platinum
+
+    overflow: hidden
+    &__item
+        display: flex
+        border-right: 1px solid $platinum
+        &:first-child
+            .breadcrumbs__item-link
+                color: $white
+                width: 48px
+                height: 48px
+                overflow: hidden
+                position: relative
+                text-indent: 10000px
+                &:after
+                    content: ''
+                    display: block
+
+                    width: 16px
+                    height: 16px
+
+                    background-size: contain
+                    background-position: center
+                    background-repeat: no-repeat
+                    background-image: url('../img/icons/home.svg')
+
+                    transition-duration: .3s
+
+                    top: 16px
+                    left: 16px
+                    position: absolute
+                &:hover:after
+                    background-image: url('../img/icons/home_blue.svg')
+    &__item-link,
+    &__item-text
+        padding: 16px
+
+        font-size: 12px
+        line-height: 16px
+        color: $eerie_black
+        text-decoration: none
+        white-space: nowrap
+    &__item-link
+        transition-duration: .3s
+        &:hover
+            color: $process_cyan
+    span.breadcrumbs__item-link:hover
+        color: $eerie_black

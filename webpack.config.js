@@ -17,9 +17,12 @@ const htmlPlugins = pugFiles.map(file => {
 
 module.exports = {
 	mode: 'development',
-	entry: './index.js',
+	entry: {
+		'main': './sass/main.sass',
+    	'style': './sass/style.sass',
+	},
 	output: {
-		filename: 'index.js',
+		filename: '[name].js',
 		path: path.resolve(__dirname, 'dist'),
 	},
 	context: path.resolve(__dirname, 'src'),
@@ -55,7 +58,7 @@ module.exports = {
 		new CleanWebpackPlugin(),
 		...htmlPlugins,
 		new MiniCssExtractPlugin({
-			filename: 'styles.css'
+			filename: 'sass/[name].css'
 		}),
 		new CopyWebpackPlugin({
 			patterns: [

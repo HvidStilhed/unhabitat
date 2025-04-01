@@ -1,30 +1,4 @@
-// Colors
-$black: #000000
-
-$eerie_black: #17191B
-$eerie_black_80: #454749
-$eerie_black_60: #747576
-$eerie_black_40: #A2A3A4
-
-$platinum: #DFDFDF
-
-$seasalt: #F8F8F8
-
-$white: #FFFFFF
-
-$process_cyan: #00B2E3
-$process_cyan_80: #43D1F9
-$process_cyan_60: #72DDFA
-
-$light_sea_green: #00B2A9
-
-$mantis: #6DBE4B
-
-$bice_blue: #00689D
-
-$tag_language: #FFF7DA
-
-$transparent: rgba(0, 0, 0, 0)
+@use "variables" as *
 
 // Project card
 @mixin project
@@ -1122,68 +1096,6 @@ figcaption
                 &:hover
                     background: $process_cyan_80
                     color: $white
-
-// Breadcrumbs
-.breadcrumbs
-    display: flex
-
-    margin: 0
-    padding: 0
-    list-style-type: none
-
-    margin-left: auto
-    margin-right: auto
-    margin-bottom: 48px
-
-    border-top: 1px solid $platinum
-    border-bottom: 1px solid $platinum
-
-    overflow: hidden
-    &__item
-        display: flex
-        border-right: 1px solid $platinum
-        &:first-child
-            .breadcrumbs__item-link
-                color: $white
-                width: 48px
-                height: 48px
-                overflow: hidden
-                position: relative
-                text-indent: 10000px
-                &:after
-                    content: ''
-                    display: block
-
-                    width: 16px
-                    height: 16px
-
-                    background-size: contain
-                    background-position: center
-                    background-repeat: no-repeat
-                    background-image: url('../img/icons/home.svg')
-
-                    transition-duration: .3s
-
-                    top: 16px
-                    left: 16px
-                    position: absolute
-                &:hover:after
-                    background-image: url('../img/icons/home_blue.svg')
-    &__item-link,
-    &__item-text
-        padding: 16px
-
-        font-size: 12px
-        line-height: 16px
-        color: $eerie_black
-        text-decoration: none
-        white-space: nowrap
-    &__item-link
-        transition-duration: .3s
-        &:hover
-            color: $process_cyan
-    span.breadcrumbs__item-link:hover
-        color: $eerie_black
 
 // Buttons
 .button
