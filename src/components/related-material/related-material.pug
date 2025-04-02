@@ -1,0 +1,17 @@
+mixin related-material(related)
+	section.projects.container.section
+		h2.h2.section__title= related.title || 'Related Material'
+		.row
+			- for (let i = 0; i < 3; i++)
+				.col-4
+					a.projects__item.projects__item_green(href="#")
+						.projects__item-wrap
+							.projects__item-content
+								.projects__item-header
+									.projects__item-category= related.category || 'Publications' 
+									if related.date
+										.projects__item-date
+											time(datetime=related.date)= related.date
+								.projects__item-title.h4 Augue mattis adipiscing sed eget mi egestas. Aliquet augue diam sit.
+								.projects__item-description Habitant amet placerat sit quam. Diam aliquam est iaculis sollicitudin. In habitant ligula rutrum risus sed. Viverra nulla ac eu tristique vel aliquam. Libero risus varius vel purus. Sed pretium aliquam mi justo.
+							.projects__item-link Learn more

@@ -1,0 +1,28 @@
+@use '../../sass/variables' as *
+
+.report-tabs
+    padding-bottom: 16px
+    margin-bottom: 48px
+    border-bottom: 1px solid $platinum
+    .years
+        text-decoration: none
+        color: $eerie_black
+        &.active,
+        &:hover
+            color: $white
+
+    @media (max-width: 991px)
+        display: flex
+        align-items: center
+        white-space: nowrap
+        overflow: scroll
+        margin-left: -32px
+        margin-right: -32px
+        padding-left: 32px
+        padding-right: 32px
+
+    @media (max-width: 767px)
+        margin-right: -16px
+        margin-left: -16px
+        padding-left: 16px
+        padding-right: 16px

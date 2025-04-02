@@ -47,7 +47,8 @@ module.exports = {
 				]
 			},
 			{
-				test: /\.json$/i,
+				test: /\.json$/,
+				type: 'javascript/auto',
 				use: 'json-loader'
 			},
 			{
@@ -55,7 +56,12 @@ module.exports = {
 				use: [
 					MiniCssExtractPlugin.loader,
 					'css-loader',
-					'sass-loader'
+					{
+						loader: 'sass-loader',
+						options: {
+							sourceMap: true,
+						}
+					}
 				],
 			},
 			{
@@ -71,7 +77,7 @@ module.exports = {
 		new CleanWebpackPlugin(),
 		...htmlPlugins,
 		new MiniCssExtractPlugin({
-			filename: 'sass/[name].css'
+			filename: 'sass/style.css'
 		}),
 		new CopyWebpackPlugin({
 			patterns: [
@@ -90,7 +96,14 @@ module.exports = {
 				{
 					from: path.resolve(__dirname, 'src/sass'),
 					to: 'sass',
+					globOptions: {
+						ignore: ['**/*.sass']
+					}
 				},
+				{
+					from: path.resolve(__dirname, 'src/img'),
+					to: 'img',
+				}
 			]
 		}),
 	],

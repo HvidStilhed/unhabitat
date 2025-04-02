@@ -1,0 +1,9 @@
+#search.search-modal.modal
+	.search__form.container
+		form(class="views-exposed-form bef-exposed-form" data-drupal-selector="views-exposed-form-search-page-1" action="/library/search" method="get" id="views-exposed-form-search-page-1" accept-charset="UTF-8")
+			.search-container.d-flex
+				div(class="js-form-item form-item js-form-type-search-api-autocomplete form-item-search js-form-item-search")
+					input(data-drupal-selector="edit-search" data-search-api-autocomplete-search="search" class="form-autocomplete form-text ui-autocomplete-input" data-autocomplete-path="/search_api_autocomplete/search?display=page_1&amp;&amp;filter=search" type="text" id="edit-search" name="search" value="" size="30" maxlength="128" placeholder="Search" data-once="autocomplete search-api-autocomplete" autocomplete="off")
+				div(data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions")
+					input(data-drupal-selector="edit-submit-search" type="submit" id="edit-submit-search" value="Search" class="button js-form-submit form-submit")
+		button(class="close toggler" data-target="#search")

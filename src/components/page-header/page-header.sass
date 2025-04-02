@@ -1,0 +1,169 @@
+@use '../../sass/variables' as *
+
+.page__header
+	z-index: 2
+	position: relative
+	margin-bottom: 32px
+	&-row,
+	&_row
+		display: flex
+		flex-wrap: wrap
+		align-items: flex-start
+		justify-content: space-between
+		@media (max-width: 991px)
+			flex-direction: column
+		@media (max-width: 767px)
+			flex-wrap: nowrap
+			flex-direction: row
+			align-items: center
+	&_no-picture
+		padding-bottom: 64px
+		.page__background
+			height: 100%
+		.page__header-thumbnail
+			flex-direction: column-reverse
+	&_background
+		min-height: 660px
+		margin-bottom: 64px
+		padding-bottom: 48px
+		@media (max-width: 767px)
+			margin-bottom: 48px
+		.button
+			color: $white
+			border-color: $white
+			&:hover
+				color: $process_cyan
+				background: $white
+		.page__inserted
+			a
+				color: $white
+	&_thumbnail
+		@media (min-width: 1200px)
+			padding-bottom: 0
+		.page__background
+			height: calc(100% - 40px)
+			@media (max-width: 1199px)
+				height: 100%
+	&_slim
+		min-height: 540px
+	&_thumbnail,
+	&_no-picture
+		height: auto
+		max-height: none
+		.page__title
+			width: 100%
+			margin-bottom: 64px
+	&-tag
+		@media (min-width: 1200px)
+			margin-right: 100px
+		@media (max-width: 991px)
+			margin-top: 16px
+	&-info
+		display: flex
+		flex-wrap: wrap
+		align-items: flex-start
+		&-date
+			width: 100%
+			margin-top: 8px
+			margin-bottom: 4px
+		&-country
+			margin: 0 8px 8px 0
+		&-tag
+			margin: 0 16px 16px 0
+	&-description
+		width: 790px
+		max-width: 100%
+		margin-top: 100px
+	&-link
+		margin-top: 32px
+		min-width: 120px
+		display: inline-flex
+		justify-content: center
+		&:not(:last-child)
+			margin-right: 32px
+	&-thumbnail
+		&:not(.page__header-thumbnail_vertical-caption)
+			figcaption
+				margin-top: 4px
+		&_vertical-caption
+			figure
+				position: relative
+				figcaption
+					top: 0
+					left: 0
+					margin: 0
+					position: absolute
+					transform-origin: 0
+					transform: rotate(-90deg) translate(-100%, -16px)
+		figcaption
+			color: $black
+			position: absolute
+			@media (max-width: 1199px)
+				position: static
+				color: $white
+		figure
+			width: 580px
+			max-width: 100%
+			position: relative
+			img
+				width: 100%
+				height: auto
+		.col-5,
+		.col-6
+			@media (max-width: 767px)
+				width: 100%
+		.col-5
+			@media (max-width: 767px)
+				margin-bottom: 40px
+	&-content
+		display: flex
+		align-items: flex-start
+		flex-direction: column
+	&-date
+		margin-top: 24px
+		margin-bottom: 4px
+	&-nav
+		display: flex
+		align-items: flex-end
+
+		margin-top: 90px
+		&-thumbnail
+			width: 135px
+			height: 98px
+		&-link
+			width: 185px
+			position: relative
+			background: $white
+			text-decoration: none
+			color: $eerie_black_80
+			padding: 16px 16px 32px
+			transition-duration: .3s
+			&:hover
+				color: $process_cyan
+			&:after
+				left: 16px
+				bottom: 16px
+
+				content: ''
+				width: 32px
+				height: 6px
+				position: absolute
+				background-image: url('../img/icons/arrow_right_short_blue.svg')
+	.page__info
+		margin-bottom: 0
+		&-item
+			margin-left: -16px
+			margin-right: -16px
+			&:last-child
+				padding-bottom: 0
+				border: none
+		&-button
+			border-color: $white
+			color: $white
+			&:hover
+				color: $process_cyan
+				background: $white
+	.page__description
+		.button
+			margin-top: 32px
+			display: inline-flex

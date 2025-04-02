@@ -1,4 +1,4 @@
-extends ../components/header.pug
+extends ../components/header/header.pug
 
 block content
 	- var pages = require('../data/pages.json')
@@ -12,4 +12,4 @@ block content
 					li
 						if item.checked
 							| ✔ 
-						a(target="_blank" href="item.url")=item.name
+						a(target="_blank" href=item.url)=item.name

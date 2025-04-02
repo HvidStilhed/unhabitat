@@ -1,0 +1,111 @@
+@use '../../sass/variables' as *
+
+.search-modal
+    position: fixed
+    width: 100%
+    left: 0
+    z-index: 10
+    top: -113px
+    background: $white
+    transition-duration: .5s
+    @media (max-width: 767px)
+        height: 100vh
+        top: -100vh
+        display: flex
+        flex-direction: column
+        justify-content: center
+    &.active
+        top: 0
+    .search-container
+        .form-actions
+            display: none
+        input.form-text
+            height: 49px
+            background-image: url('../img/icons/search.svg')
+            background-position: left 8px center
+            padding-left: 42px
+            background-repeat: no-repeat
+            border: none
+            font-size: 16px
+            width: 100%
+            color: $eerie_black
+            &::placeholder
+                color: #A6A5A5
+            &:-ms-input-placeholder
+                color: #A6A5A5
+            &::-ms-input-placeholder
+                color: #A6A5A5
+    .search__form
+        width: 100%
+        display: flex
+        align-items: center
+        padding: 32px 48px
+        form,
+        div
+            width: 100%
+        @media (max-width: 767px)
+            justify-content: center
+            width: 100%
+            padding-top: 0
+            padding-bottom: 0
+            padding-left: 32px
+            padding-right: 32px
+        .close
+            margin-left: 24px
+            width: 2.5rem
+            height: 2.5rem
+            background-image: url(../img/icons/close.svg)
+            background-repeat: no-repeat
+            background-position: center
+            transition-duration: 0.5s
+            &:hover
+                transform: rotate(90deg)
+            @media (max-width: 767px)
+                margin-left: 0
+                position: absolute
+                top: 48px
+                background-image: url('../img/icons/search_arrow.svg')
+        label
+            width: 100%
+            display: block
+    .search__result
+        display: none
+        border-top: 1px solid #CECDCD
+        border-bottom: 1px solid #CECDCD
+        padding-left: 16px
+        padding-right: 16px
+        @media (min-width: 375px)
+            padding-left: 24px
+            padding-right: 24px
+        @media (min-width: 390px) and (max-width: 767px)
+            padding-left: 32px
+            padding-right: 32px
+        @media (max-width: 767px)
+            border: none
+        @media (min-width: 768px)
+            padding-left: 0
+            padding-right: 0
+        .search__result__items
+            list-style-type: none
+            margin: 0
+            padding: 0
+            .search__result__item
+                border-bottom: 1px solid #CECDCD
+                padding: 24px 24px 24px 90px
+                @media (max-width: 767px)
+                    padding-left: 24px
+                    &:last-child
+                        border-bottom: none
+                a
+                    color: $eerie_black
+                    text-decoration: none
+                    line-height: 24px
+        .search__link
+            padding: 24px 90px
+            @media (max-width: 767px)
+                text-align: center
+                padding-left: 0
+                padding-right: 0
+                .button
+                    &:after
+                        content: none

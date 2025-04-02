@@ -1,0 +1,27 @@
+@use '../../sass/variables' as *
+@use '../../sass/mixins' as *
+
+.projects
+    margin-bottom: 32px
+    @media (max-width: 767px)
+        margin-bottom: 0
+    &__items
+        margin-top: 32px
+    &__item
+        @include project
+        &_green:before
+            background: $light_sea_green
+    .col-4
+        @media (max-width: 991px)
+            width: 50%
+        @media (max-width: 767px)
+            width: 100%
+        &:not(:last-child)
+            @media (max-width: 767px)
+                margin-bottom: 0
+    .section__header
+        @media (max-width: 767px)
+            align-items: center
+    .show-more
+        @media (max-width: 767px)
+            margin-top: 0

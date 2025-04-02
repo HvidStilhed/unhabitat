@@ -1,0 +1,50 @@
+extends ../components/header/header.pug
+include ../components/breadcrumbs/breadcrumbs.pug
+include ../components/page-header/page-header.pug
+include ../components/page-navigation/page-navigation.pug
+include ../components/job-list/job-list.pug
+include ../components/contacts/contacts.pug
+
+block content
+	-
+		var title = 'United Nations Volunteers'
+		var breadcrumbs = [
+			{title: 'Get Involved', url: '/'},
+			{title: 'Join us', url: '/'},
+			{title: 'United Nations Volunteers', url: ''}
+		]
+		var links = [
+			{title: 'Openings', url: 'careers.html'},
+			{title: 'United Nations Volunteers', url: 'volunteers.html'},
+			{title: 'Junior professional officers', url: 'officers.html'}
+		]
+		var related = {
+			title: 'Career categories',
+			category: 'Category'
+		}
+		var jobTitle = 'Volunteer Programmes'
+		var jobItems = [
+			'Regional Office For Arab States',
+			'Global Reports And Trends Unit, External Relations, Strategy, Knowledge And Innovation Division',
+			'Management And Operations Division',
+			'Office For Europe And European Institutions',
+			'Un-Habitat Office In Geneva, Office Of The Executive Director'
+		]
+		var showMore = true
+
+	+breadcrumbs(breadcrumbs)
+
+	main
+		article
+			+page-header(title)
+			+page-navigation(links)
+
+			section.section.container.paragraph
+				.row
+					.col-4
+						h2.h2 Overview
+					.col-8
+						p The Junior Professional Officer (JPO) Programme provides young professionals with hands-on experience in the international arena. JPOs are professional level staff, financed by their respective governments, normally for a period of two to three years. Applications for JPO positions is made by nationals through their respective governments. JPOs have the status of international civil servants and are subject to the United Nations Staff Regulations and Rules.
+						p The main objective of the JPO Programme is to support the implementation of UN-Habitat's #[a(href="#") mission], which is to promote socially and environmentally sustainable towns and cities with the goal of providing adequate shelter for all.
+
+			+job-list(jobItems, jobTitle, showMore)

@@ -1,0 +1,116 @@
+@use '../../sass/variables' as *
+
+.google-btn,
+.outlook-btn
+	border: 1px solid #E5E5E5
+	border-radius: 4px
+	padding: 7px 12px
+	font-weight: 500
+	min-height: 40px
+	font-size: 16px
+	font-family: Inter
+	transition-duration: .3s
+	display: inline-flex
+	text-decoration: none
+	align-items: center
+	color: $eerie_black
+
+	&:hover
+		background: $process_cyan
+		color: $white
+
+		&:before
+			background-image: url('../img/icons/google_hover.svg')
+
+	&:before
+		content: ''
+		width: 17px
+		height: 17px
+		display: block
+		margin-right: 12px
+		background-image: url('../img/icons/google.svg')
+		transition-duration: .3s
+
+.google-btn
+	margin-bottom: var(--space-default)
+	
+	&:before
+		background-image: url('../img/icons/google.svg')
+
+	&:hover:before
+		background-image: url('../img/icons/google_hover.svg')
+
+.outlook-btn
+	&:before
+		background-image: url('../img/icons/outlook.svg')
+		width: 23px
+		height: 24px
+
+	&:hover:before
+		background-image: url('../img/icons/outlook.svg')
+
+.pager
+	margin: 0
+	padding: 0
+	list-style-type: none
+	
+.show-more,
+.pager
+	display: flex
+	justify-content: center
+
+	position: relative
+	color: $eerie_black
+	text-decoration: none
+
+	margin-top: 32px
+	margin-bottom: 48px
+	@media (max-width: 767px)
+		margin-bottom: 0
+	&:hover
+		&:before,
+		&:after
+			background: $eerie_black
+		.show-more__button,
+		.button
+			&:before,
+			&:after
+				opacity: 1
+	&:before,
+	&:after
+		top: 20px
+		content: ''
+		position: absolute
+		transition-duration: .3s
+		background: $eerie_black_60
+
+		height: 1px
+		width: calc(50% - ((120px / 2) + 64px + 48px))
+		@media (max-width: 767px)
+			content: none
+	&:before
+		left: 48px
+	&:after
+		right: 48px
+	&__button,
+	.button
+		@media (max-width: 767px)
+			width: 100%
+			justify-content: center
+		&:before,
+		&:after
+			content: ''
+			opacity: .6
+			width: 24px
+			height: 24px
+			position: absolute
+			transition-duration: .3s
+			background-image: url('../img/icons/caret_down.svg')
+			@media (max-width: 767px)
+				content: none
+		&:before
+			left: 0
+		&:after
+			right: 0
+	.button
+		display: flex

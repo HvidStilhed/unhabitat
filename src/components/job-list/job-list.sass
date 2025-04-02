@@ -1,0 +1,46 @@
+@use '../../sass/variables' as *
+
+.jobs
+	&__items
+		margin-top: 32px
+
+	&__item
+		border: 1px solid var(--platinum)
+		padding: var(--space-default)
+
+		&:not(:first-child)
+			border-top: none
+
+	&__header
+		display: flex
+		justify-content: space-between
+		margin-bottom: var(--space-small)
+
+	&__footer
+		margin-top: calc(var(--space-small) * 5)
+		display: flex
+
+		&-item
+			min-width: calc(150px + (var(--space-default) * 4))
+
+		&-title
+			color: var(--eerie-black-60)
+			margin-bottom: calc(var(--space-small) / 2)
+
+	&__place
+		color: var(--bice-blue)
+		display: flex
+		align-items: center
+		font-weight: 500
+
+		&:before
+			content: ''
+			width: 20px
+			height: 20px
+			background-image: url('../img/icons/pin.svg')
+			margin-right: calc(var(--space-small) / 2)
+
+	&__link
+		color: var(--process-cyan)
+		text-decoration: none
+		font-weight: 500

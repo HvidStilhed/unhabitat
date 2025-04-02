@@ -1,0 +1,142 @@
+@use '../../sass/variables' as *
+
+.footer
+    color: $white
+    padding-top: 32px
+    background: $eerie_black
+    @media (max-width: 991px)
+        padding-bottom: 90px
+    @media (max-width: 767px)
+        margin-top: 48px
+        overflow-x: hidden
+        position: relative
+    &__row
+        margin-left: -32px
+        margin-right: -32px
+        @media (max-width: 991px)
+            flex-direction: column
+        @media (max-width: 767px)
+            margin-left: -16px
+            margin-right: -16px
+    &__column
+        padding-left: 32px
+        padding-right: 32px
+        @media (max-width: 991px)
+            width: 100%
+        @media (max-width: 767px)
+            padding-left: 16px
+            padding-right: 16px
+    &__logo
+        display: inline-flex
+        margin-bottom: 64px
+    &__address
+        margin-bottom: 40px
+        &-link
+            color: $white
+            text-decoration: none
+            transition-duration: .3s
+            &:hover
+                color: $process_cyan
+    &__social
+        display: flex
+
+        margin: 0
+        padding: 0
+        list-style-type: none
+        @media (max-width: 991px)
+            margin-bottom: 40px
+        &-item:not(:last-child)
+            margin-right: 16px
+        &-link
+            width: 32px
+            height: 32px
+
+            display: flex
+            transition-duration: .3s
+
+            background-position: center
+            background-repeat: no-repeat
+        &-facebook
+            background-image: url('../img/icons/facebook_white.svg')
+            &:hover
+                background-image: url('../img/icons/facebook.svg')
+        &-linkedin
+            background-image: url('../img/icons/linkedin_white.svg')
+            &:hover
+                background-image: url('../img/icons/linkedin.svg')
+        &-twitter
+            background-image: url('../img/icons/twitter_white.svg')
+            &:hover
+                background-image: url('../img/icons/twitter.svg')
+        &-instagram
+            background-image: url('../img/icons/instagram_white.svg')
+            &:hover
+                background-image: url('../img/icons/instagram.svg')
+        &-youtube
+            background-image: url('../img/icons/youtube_white.svg')
+            &:hover
+                background-image: url('../img/icons/youtube.svg')
+    &__link
+        color: $white
+        font-size: 12px
+        font-weight: 500
+        text-decoration: none
+        transition-duration: .3s
+        &:hover
+            color: $process_cyan
+    &__bottom
+        padding: 24px 0
+        margin-top: 32px
+        border-top: 1px solid $platinum
+        @media (max-width: 991px)
+            display: none
+        &-nav
+            display: flex
+
+            margin: 0
+            padding: 0
+            list-style-type: none
+        &-item:not(:last-child)
+            margin-right: 64px
+        &-link
+            color: $white
+            font-size: 12px
+            font-weight: 500
+            line-height: 16px
+            text-decoration: none
+
+            transition-duration: .3s
+            &:hover
+                color: $process_cyan
+    &__copyright-wrap
+        @media (max-width: 991px)
+            bottom: 32px
+            position: absolute
+            flex-direction: row
+            align-items: center
+            .footer__column
+                width: auto
+                &:last-child
+                    flex: 1
+                    text-align: center
+                    @media (max-width: 767px)
+                        display: none
+    .subscribe-wrap
+        @media (max-width: 991px)
+            flex-direction: row
+        @media (max-width: 767px)
+            flex-direction: column
+    .subscribe
+        @media (max-width: 991px)
+            min-width: 320px
+            margin-left: 64px
+        @media (max-width: 767px)
+            margin-left: 0
+        &__title
+            @media (max-width: 991px)
+                font-size: 22px
+                line-height: 28px
+            @media (max-width: 767px)
+                margin-bottom: 32px
+                font-size: 28px
+                line-height: 36px

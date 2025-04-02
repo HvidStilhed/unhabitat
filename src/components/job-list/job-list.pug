@@ -1,0 +1,29 @@
+mixin job-list(items, title, showMore)
+	-
+		var data = [
+			{title: 'Posted on', value: '26 September 2021'},
+			{title: 'Deadline', value: '26 September 2025'},
+			{title: 'Branch/Section/Unit', value: 'UN-Habitat Iraq Office'},
+		]
+	section.section.jobs
+		.container
+			h2.h2= title
+			.jobs__items
+				each item in items
+					.jobs__item
+						.jobs__header
+							.jobs__title.h4= item
+							a.jobs__link(href="#") website link
+						.jobs__place Erbil, Kurdistan Region, Iraq
+						.jobs__footer
+							each col, index in data
+								.jobs__footer-item
+									.jobs__footer-title= col.title
+									.jobs__footer-text
+										if index === 0 || index === 1
+											time(datetime=col.value)= col.value
+										else
+											= col.value
+				if showMore
+					a.pager(href="#")
+						.button.show-more__button Show more

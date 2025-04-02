@@ -11,8 +11,8 @@ html(lang="zh-hans")
 		link(rel='stylesheet' href='https://unpkg.com/leaflet@1.8.0/dist/leaflet.css')
 
 		title UN-HABITAT
-
-	body(class='page ' + body_class)
+	
+	body(class=['page ', body_class ? body_class : ''])
 		a(href="#main-content" class="visually-hidden focusable") Skip to main content
 
 		.dialog-off-canvas-main-canvas(data-off-canvas-main-canvas)
@@ -28,21 +28,19 @@ html(lang="zh-hans")
 					.header__right.d-flex.align-items-center
 						ul.lang-toggle
 							li
-								a.language-link en
+								a.language-link(href="en") en
 							li
 								span.is-active zh-hans
 
 						button.header__search
 						button.header__button
 
-				#search.search-modal.modal
-					.search__form.container
-						include ../components/search-form.pug
+				include ../search-modal/search-modal.pug
 
 				block content
 
 				block footer
-					include footer.pug
+					include ../footer/footer.pug
 
 		block scripts
-			include scripts.pug
+			include ../scripts.pug
