@@ -2,16 +2,11 @@ extends ../components/header/header.pug
 
 block content
 	-
-		var title = 'United Nations Volunteers'
+		var title = ' Job Openings'
 		var breadcrumbs = [
 			{title: 'Get Involved', url: '/'},
 			{title: 'Join us', url: '/'},
 			{title: title, url: ''}
-		]
-		var links = [
-			{title: 'Openings', url: 'careers.html'},
-			{title: title, url: 'volunteers.html'},
-			{title: 'Junior professional officers', url: 'officers.html'}
 		]
 		var related = {
 			title: 'Career categories',
@@ -32,7 +27,6 @@ block content
 	main
 		article
 			+page-header(title)
-			+page-navigation(links)
 
 			section.section.container.paragraph
 				.row

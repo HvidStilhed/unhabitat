@@ -2,7 +2,7 @@ extends ../components/header/header.pug
 
 block content
 	- var pages = require('../data/pages.json')
-	.container(style="margin-bottom: 50px")
+	.container(style="margin: 50px 0")
 		each section in pages.sections
 			p
 				strong= section.title

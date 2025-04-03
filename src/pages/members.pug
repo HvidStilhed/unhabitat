@@ -1,0 +1,62 @@
+extends ../components/header/header.pug
+
+block content
+
+	-
+		var title = 'African Clean Cities Platform Associate Members'
+		var breadcrumbs = [
+			{title: 'Get Involved', url: '/'},
+			{title: 'Join us', url: '/'},
+			{title: 'Calls for proposals', url: '/'},
+			{title: 'Development of a Guidebook on Design and Construction of Sustainable Buildings in Zimbabwe', url: ''}
+		]
+		var info = {
+			tag: 'Deadline',
+			date: '30 January 2024'
+		}
+		var documents = 'Documents'
+		var contactsLeft = {
+			title: 'Contact',
+			text: 'The EOI must be submitted in electronic format no later than close of business on the 30th of January 2024 to the following email address:',
+			email: 'Souleymane.Diawara@unhabitat.org'
+		}
+		var contactsRight = {
+			title: 'The subject',
+			text: 'The subject line should be “Guidebook on design and construction of sustainable buildings in Zimbabwe”. Please note that UN-Habitat will only contact shortlisted individuals and organizations.'
+		}
+
+	+breadcrumbs(breadcrumbs)
+
+	main
+		article
+			+page-header(title, info)
+			.container
+				section.section.section_border.mb-48
+					h2.h2.mb-32 Introduction
+					.row
+						.col-10
+							p The United Nations Human Settlements Programme (UN-Habitat) is the United Nations agency for human settlements. It is mandated by the UN General Assembly to promote socially and environmentally sustainable towns and cities with the goal of providing adequate shelter for all. UN-Habitat is the lead agency within the United Nations system for the implementation of the Habitat Agenda. The agency helps the urban poor by transforming cities into safer and healthier places with better opportunities. It works with organizations at every level, including all spheres of government, civil society and the private sector.
+							p Cities, being home to more than half of the world’s population, consume 60% to 80% of the world’s energy resources and produce 70% of the world’s anthropogenic carbon dioxide emissions. Hence, cities must play a major role in improving energy efficiency, using resources more carefully, transforming urban energy systems, enhancing energy security and national prosperity - while reducing greenhouse gas emissions. A good understanding of current and projected energy consumption patterns in urban areas as well as their renewable energy generation potentials will provide useful information for urban energy planning. Within this programme, the objective of the focus area on urban energy is to promote approaches, methods, and instruments for sustainable urban energy planning, improving energy efficiency in buildings, increasing the use of renewable energy technologies, and improving access to clean, reliable, and sustainable energy services in urban areas.
+							p Sub Saharan Africa countries – Zimbabwe included – are facing a huge social housing deficit estimated at 160 million homes. This number will reach 230 million homes if business as usual continues. There is need for mass production of affordable and sustainable housing to address the social housing crisis. The housing crisis is also an opportunity to address the climate change through promotion of carbon neutral building materials.
+							p Net Zero Carbon Architecture and energy efficiency are important topics worldwide. Nevertheless, each region has its own specifics, which have to be considered. This is especially important for guidebooks that will deliver comprehensive information on designing Net Zero Carbon architecture, energy efficiency and renewable energy for the individual consumer in the different climate zones within Zimbabwe. It is possible to save up to 40% or more of energy and resources consumed in a building by using saving measures, low carbon footprint material and passive building design principles. Addressing these issues, the programme “Harare Sustainable City Initiatives: Promoting Carbon Neutral Urban Basic Services and Energy Efficient Built Environment, has the objective of providing better living condition to Harare citizens by increasing and improving their access to sustainable waste to wealth services, clean energy provisions and promoting energy and resource efficiency in Zimbabwe’s built environment.
+							p In order to promote energy-conscious building design and energy demand management, as well as to respond to the growing energy needs in Zimbabwe, the Programme is seeking to develop a guidebook on design and construction of sustainable buildings focusing on the different climatic zones within the country.
+							p The guidebook should be able to provide users with information on: low carbon building materials, energy and resource efficient strategies, building retrofitting, and designing of new energy efficient buildings to achieve net zero carbon emission by minimizing energy consumption and maximizing indoor thermal comfort.
+							p In order to respond to the needs in Zimbabwe, the guidebook will look into the climate data for different regions within the country; local building materials and provide guidelines for bioclimatic architectural design and building energy retrofit.
+
+			.container
+				section.section
+					h3.h3.mb-32 Scope of the Assignment
+					h4.h4.mb-16 The assignment will cover the following:
+					ul.mb-32
+						li Developing a guidebook on design and construction of sustainable buildings in Zimbabwe focusing on the different climatic zones within the country. This will include sustainable building and neighborhood design, use of low carbon building materials and technologies;
+						li Conducting two professional trainings on green building strategies and sustainable building environment in Zimbabwe;
+						li Making policy recommendations on sustainable building strategies and proposing new interventions based on international best practices;
+					h4.h4.mb-16 Requirements of the Expression of Interest
+					ul
+						li In order to be considered eligible, individuals and organizations submitting an Expression of Interest must have a proven track record of past work conducted in the field of energy efficiency in buildings and environmental building construction technologies. Past experience in designing similar guidebooks will be an asset;
+						li A proposal clearly outlining how the assignment will be implemented. This should the technical approach and the methodology;
+						li A detailed CV if the applicant is an individual;
+						li In case of an organization, the experience and qualifications of key professional staff; and the organization’s registration documents;
+
+		+documents(documents)
+		+contacts(contactsLeft, contactsRight)

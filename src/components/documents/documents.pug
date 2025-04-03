@@ -1,0 +1,27 @@
+mixin documents(title)
+	-
+		const data = [
+			'Resolution on International guidelines on people-centred smart cities',
+			'Resolution on World Cleanup Day',
+			'Resolution on Localization of the Sustainable Development Goals',
+			'A/RES/73/239 General Assembly Resolution'
+		]
+		const lang = [
+			'English',
+			'Español',
+			'Français',
+			'العربية',
+			'中文'
+		]
+		
+	.container
+		section.statements.section
+			.section__title.h2= title
+			each item in data
+				.statements__item
+					.statements__item-content
+						.statements__item-title
+							.h4= item
+						.statements__item-download
+							each button in lang
+								a.statements__item-button.button.button_download.button_small.button_black(href="#")= button

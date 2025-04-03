@@ -512,164 +512,6 @@ body
             width: calc(50% - 24px)
             display: flex
 
-// Section
-.section
-    margin-bottom: 64px
-    
-    &_background,
-    &_video
-        padding: 48px
-        color: $white
-        position: relative
-        overflow: hidden
-        @media (max-width: 767px)
-            padding: 32px
-        &_light-sea-green
-            background: $light_sea_green
-        .button
-            color: $white
-            border-color: $white
-            &:hover
-                background: $white
-                color: $process_cyan
-    &_background-image
-        &:before
-            content: ''
-
-            width: 100%
-            height: 100%
-
-            top: 0
-            left: 0
-            z-index: 1
-            position: absolute
-
-            opacity: .65
-            background: $black
-        .row
-            position: relative
-            z-index: 1
-    &_video
-        &:before
-            content: ''
-            opacity: .2
-
-            width: 100%
-            height: 100%
-
-            top: 0
-            left: 0
-            z-index: 1
-            position: absolute
-
-            background: $black
-        .row
-            position: relative
-            z-index: 2
-        .col-5
-            @media (max-width: 1199px)
-                width: 100%
-        .button
-            display: inline-flex
-    &_search
-        .section__header
-            margin-bottom: 24px
-    &__video
-        position: absolute
-        min-width: 100%
-        min-height: 100%
-        left: 0
-        top: 0
-    &__title
-        margin-bottom: 32px
-    &__header
-        display: flex
-        align-items: center
-        justify-content: space-between
-
-        margin-bottom: 32px
-        @media (max-width: 767px)
-            align-items: flex-start
-        .section__title
-            margin-bottom: 0
-    &__link
-        font-weight: 500
-        color: $eerie_black
-        text-decoration: none
-        transition-duration: .3s
-
-        display: flex
-        align-items: center
-
-        margin-right: 40px
-        @media (max-width: 767px)
-            margin-right: 0
-            margin-left: 24px
-            white-space: nowrap
-        &:hover
-            margin-right: 0
-            &:before
-                width: 24px
-        &:before
-            content: ''
-            display: block
-            transition-duration: .3s
-
-            margin-top: 2px
-            margin-right: 16px
-
-            width: 0
-            height: 9px
-
-            background-size: cover
-            background-position: right center
-            background-image: url('../img/icons/arrow.svg')
-            @media (max-width: 767px)
-                content: none
-    &__calendar
-        width: 32px
-        height: 32px
-        
-        background-position: center
-        background-repeat: no-repeat
-        background-image: url('../img/icons/calendar.svg')
-    .col-4,
-    .col-5,
-    .col-7
-        @media (max-width: 991px)
-            width: 100%
-        img
-            @media (max-width: 991px)
-                display: block
-                margin: auto
-    .col-4,
-    .col-5
-        &:not(:last-child)
-            @media (max-width: 991px)
-                margin-bottom: 24px
-    .col-5
-        &:last-child
-            figure
-                @media (max-width: 61.9375rem)
-                    margin-top: 2rem
-
-    @media (max-width: 1199px)
-        &_background
-            .col-5,
-            .col-6
-                width: 100%
-
-    @media (max-width: 991px)
-        &_background
-            padding: 32px
-
-    @media (max-width: 767px)
-        margin-bottom: 32px
-
-        &_background
-            margin-left: -16px
-            margin-right: -16px
-
 // Typography
 .hero
     font-size: 64px
@@ -1123,6 +965,8 @@ figcaption
     &_physical
         background: #79155D
         color: $white
+    &_deadline
+        background: #E34609
 
 // Subscribe form
 .subscribe-wrap
@@ -3821,13 +3665,13 @@ article table
         width: 100%
 
 .mb-16
-    margin-bottom: 16px
+    margin-bottom: var(--space-default)
 
 .mb-24
     margin-bottom: 24px
 
 .mb-32
-    margin-bottom: 32px
+    margin-bottom: calc(var(--space-default) * 2)
 
 .mb-48
     margin-bottom: 48px
@@ -4304,6 +4148,7 @@ html[dir="rtl"]
         overflow: hidden
         border-radius: 4px
         background-image: url('../img/photos/donate-thumbnail.jpg')
+        background-position: center
     form
         display: flex
         flex-wrap: wrap

@@ -1,4 +1,9 @@
-mixin page-header(title)
+mixin page-header(title, info)
 	.container
-		.page__header
+		div(class='page__header ' + (info ? 'page__header_row' : ''))
 			h1.h1= title
+			if info
+				.page__header-content
+					.tag.tag_large.tag_deadline= info.tag
+					.page__header-date.h5
+						time(datetime=info.date)= info.date

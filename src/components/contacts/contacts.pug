@@ -1,22 +1,29 @@
-mixin contacts
+mixin contacts(left, right, showSocial)
 	- var social = ['facebook', 'linkedin', 'instagram', 'twitter']
 	.container
 		.contacts
 			.contacts__header.row
-				.contacts__column.col-5
-					.contacts__title.small Get in touch
-					.h5 Are you a journalist interested in UN-Habitat? Contact our communications team.
-					.contacts__title.h4 Katerina Bezgachina
-					.contacts__post Chief of Communication
-					a(class="contacts__email contacts__header-email" href="mailto:katerina.bezgachina@un.org") katerina.bezgachina@un.org
+					if left
+						.contacts__column.col-5
+							if left.title
+								.contacts__title.small= left.title
+							if left.text
+								.h5= left.text
+							if left.personName
+								.contacts__title.h4= left.personName
+							if left.personPost
+								.contacts__post= left.personPost
+							if left.email
+								a(class="contacts__email contacts__header-email" href=`mailto:${left.email}`)= left.email
 
-				.col-1
-
-				.contacts__column.col-4
-					.contacts__title.small Social Media
-					.h5 Connect with us on Social Media for the latest developments in sustainable urbanization
-					ul.contacts__social
-						each link in social
-							li.contacts__social-item
-								a.contacts__social-link(href="#")
-									img(src=`img/icons/${link}.svg` alt=link width="24" height="24")
+					.col-1
+					if right
+						.contacts__column.col-4
+							.contacts__title.small Social Media
+							.h5 Connect with us on Social Media for the latest developments in sustainable urbanization
+							if showSocial
+								ul.contacts__social
+									each link in social
+										li.contacts__social-item
+											a.contacts__social-link(href="#")
+												img(src=`img/icons/${link}.svg` alt=link width="24" height="24")

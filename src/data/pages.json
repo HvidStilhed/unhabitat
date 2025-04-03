@@ -20,6 +20,10 @@
 			"items": [
 				{"name": "Careers", "url": "careers.html", "checked": false},
 				{"name": "United Nations Volunteers", "url": "volunteers.html", "checked": false},
+				{"name": "Junior professional officers", "url": "officers.html", "checked": false},
+				{"name": "Calls for proposals", "url": "calls-proposals.html", "checked": false},
+				{"name": "Calls for expressions of interest", "url": "calls-interest.html", "checked": false},
+				{"name": "African Clean Cities Platform Associate Members", "url": "members.html", "checked": false},
 				{"name": "Donate now", "url": "donate.php", "checked": false},
 				{"name": "Thank you for the donation!", "url": "thanks.php", "checked": false}
 			]

@@ -23,13 +23,18 @@ block content
 			'Office For Europe And European Institutions',
 			'Un-Habitat Office In Geneva, Office Of The Executive Director'
 		]
-
-	include ../components/breadcrumbs/breadcrumbs.pug
-	include ../components/page-header/page-header.pug
-	include ../components/page-navigation/page-navigation.pug
-	include ../components/related-material/related-material.pug
-	include ../components/job-list/job-list.pug
-	include ../components/contacts/contacts.pug
+		var contactsLeft = {
+			title: 'Contact',
+			text: 'Are you a journalist interested in UN-Habitat? Contact our communications team.',
+			personName: 'Peter Folsberg',
+			personPost: 'HR officer',
+			email: 'peterfolsberg@un.org'
+		}
+		var contactsRight = {
+			title: 'Social Media',
+			text: 'Connect with us on Social Media for the latest developments in sustainable urbanization'
+		}
+		var social = true
 
 	+breadcrumbs(breadcrumbs)
 
@@ -46,6 +51,6 @@ block content
 							p Vulputate sit enim dui urna nulla egestas vitae enim. Netus at tristique metus dis nunc eu nisi feugiat. Eget nunc euismod a donec consequat eget blandit. Nulla dolor aliquam massa vitae viverra quisque. Enim egestas nunc nunc sit ullamcorper tristique interdum morbi. Pretium dolor morbi pulvinar in donec. Erat amet nisi praesent quis vel rutrum elementum.
 							p Massa lectus feugiat tristique etiam mattis proin facilisis. Commodo vivamus eget urna aliquam quis. Eu cursus sit et adipiscing in. Lacus fames risus viverra sit blandit est amet sit sed. Id sollicitudin elit orci semper nulla dignissim diam. Placerat quis vulputate elementum eros vel amet.
 
-			+related-material(related)
-			+job-list(jobs)
-			+contacts
+		+related-material(related)
+		+job-list(jobs)
+		+contacts(contactsLeft, contactsRight, social)

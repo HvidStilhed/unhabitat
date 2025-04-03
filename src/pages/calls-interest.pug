@@ -1,0 +1,21 @@
+extends ../components/header/header.pug
+include ../components/breadcrumbs/breadcrumbs.pug
+include ../components/page-header/page-header.pug
+include ../components/calls/calls.pug
+
+block content
+	-
+		var title = 'Calls for expressions of interest'
+		var breadcrumbs = [
+			{title: 'Get Involved', url: '/'},
+			{title: 'Join us', url: '/'},
+			{title: 'Calls', url: ''}
+		]
+		var calls = require('../data/calls.json')
+		var showMore = true
+
+	+breadcrumbs(breadcrumbs)
+	main
+		article
+			+page-header(title)
+		+calls(calls, showMore)

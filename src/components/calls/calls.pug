@@ -1,0 +1,14 @@
+mixin calls(calls, showMore)
+	.container.calls
+		each item in calls.items
+			.calls__item
+				.calls__header
+					| Submission deadline: 
+					strong
+						time(datetime=item.date)= item.date
+				a.calls__content(href="#")
+					.h4.calls__title= item.title
+					p= item.text
+		if showMore
+			a.pager(href="#")
+				.button.show-more__button Show more

@@ -1,8 +1,13 @@
 extends ../components/header/header.pug
+include ../components/breadcrumbs/breadcrumbs.pug
+include ../components/page-header/page-header.pug
+include ../components/page-navigation/page-navigation.pug
+include ../components/job-list/job-list.pug
+include ../components/contacts/contacts.pug
 
 block content
 	-
-		var title = 'United Nations Volunteers'
+		var title = 'Junior professional officers'
 		var breadcrumbs = [
 			{title: 'Get Involved', url: '/'},
 			{title: 'Join us', url: '/'},
@@ -10,8 +15,8 @@ block content
 		]
 		var links = [
 			{title: 'Openings', url: 'careers.html'},
-			{title: title, url: 'volunteers.html'},
-			{title: 'Junior professional officers', url: 'officers.html'}
+			{title: 'United Nations Volunteers', url: 'volunteers.html'},
+			{title: title, url: 'officers.html'}
 		]
 		var related = {
 			title: 'Career categories',
