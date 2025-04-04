@@ -297,57 +297,6 @@ body
             @media (max-width: 991px)
                 width: 100%
                 margin-bottom: 24px
-    &__video,
-    &__background
-        top: 0
-        left: 0
-
-        width: 100%
-    &__background
-        width: 100%
-        height: 100%
-
-        z-index: -1
-        overflow: hidden
-        position: absolute
-
-        top: 0
-        left: 0
-
-        background-size: cover
-        background-position: center
-        &:before
-            content: ''
-
-            width: 100%
-            height: 100%
-
-            top: 0
-            left: 0
-            z-index: 1
-            position: absolute
-
-            opacity: .65
-            background: $black
-        &_bice-blue
-            background: $bice_blue
-            &:before
-                content: none
-        &_process-cyan
-            background: $process_cyan
-            &:before
-                content: none
-    &__video
-        position: absolute
-        width: auto
-        max-width: 100%
-        min-width: 100%
-        min-height: 100%
-        video
-            top: 0
-            left: 0
-            width: 100%
-            position: absolute
     &__info
         &_single
             .page__info-item
@@ -559,65 +508,6 @@ figcaption
 
     font-size: 12px
     line-height: 16px
-
-// Buttons
-.button
-    font-size: 18px
-    font-weight: 500
-    line-height: 22px
-    text-align: center
-    text-decoration: none
-    
-    padding: 8px 12px
-    border-radius: 4px
-    transition-duration: .3s
-
-    color: $eerie_black
-    border: 1px solid $process_cyan
-    &:hover
-        color: $white
-        background: $process_cyan
-    &_small
-        font-size: 14px
-        line-height: 15px
-    &_black
-        border-color: $eerie_black
-        &:hover
-            background: $eerie_black
-    &_white
-        color: $white
-        border-color: $white
-        &:hover
-            background: $white
-            color: $process_cyan
-    &_submit
-        border: none
-        color: $white
-        background: $eerie_black
-        &:hover
-            background: $process_cyan
-    &_download
-        overflow: hidden
-        position: relative
-
-        display: flex
-        align-items: center
-        justify-content: center
-        &:hover
-            color: $transparent
-            border-color: $process_cyan
-            background-color: $process_cyan
-            &:before
-                opacity: 1
-                animation: fade_move_down .6s linear infinite
-        &:before
-            opacity: 0
-            content: ''
-            width: 24px
-            height: 24px
-            position: absolute
-            transition-duration: .3s
-            background-image: url('../img/icons/download.svg')
 
 // Inputs
 .text-input
@@ -841,79 +731,6 @@ figcaption
         margin-left: 16px
     &__button
         margin-top: 32px
-
-// Contacts
-.contacts
-    margin-top: 48px
-    margin-bottom: 64px
-    padding: 32px 32px 0
-
-    background: $seasalt
-    @media (max-width: 767px)
-        margin-bottom: 0
-    & + .shorts
-        margin-top: 48px
-    &__section
-        @media (max-width: 991px)
-            flex-direction: column
-        &:not(:last-child)
-            margin-bottom: 16px
-        &-title
-            width: 100%
-            margin-bottom: 24px
-            color: $eerie_black_60
-    &__title
-        margin-bottom: 8px
-        &.small
-            color: $eerie_black_60
-    &__column
-        display: flex
-        margin-bottom: 32px
-        flex-direction: column
-        align-items: flex-start
-        @media (max-width: 991px)
-            width: 100%
-            &:not(:last-child)
-                margin-bottom: 56px
-    &__post
-        color: $eerie_black_60
-        &:not(:last-child)
-            margin-bottom: 16px
-    &__email
-        text-decoration: none
-        color: $eerie_black_80
-        transition-duration: .3s
-        &:hover
-            color: $process_cyan
-        &:not(:last-child)
-            margin-bottom: 24px
-            & + .button
-                margin-top: 0
-    &__social
-        display: flex
-
-        padding: 0
-        margin: 0
-
-        list-style-type: none
-        &-item:not(:last-child)
-            margin-right: 24px
-        &-link
-            display: flex
-            filter: grayscale(1)
-            transition-duration: .3s
-            &:hover
-                filter: grayscale(0)
-    &__subscribe
-        margin: 24px 0
-    .h5,
-    .quote
-        margin-bottom: 24px
-    .quote + .subscribe
-        margin-top: 0
-    .button
-        margin-top: 24px
-
 
 // Tag
 .tag

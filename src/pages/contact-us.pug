@@ -1,0 +1,35 @@
+extends ../components/header/header.pug
+block content
+	-
+		var title = 'Contact us'
+		var breadcrumbs = [
+			{title: 'Get Involved', url: '/'},
+			{title: title, url: ''}
+		]
+		var contactsLeft = {
+			quote: `P.O. Box 30030-00100 <br>Nairobi, KENYA`,
+			email: 'unhabitat-info@un.org'
+		}
+		var contactsRight = {
+			title: 'Social Media',
+			text: 'Stay connected for Habitat UNI updates on social media:'
+		}
+
+	main
+		article
+			+page-header(title, null, {background: true, slim: true})
+			.container
+				.row
+					.col-7
+						h2.h2 United Nations Human Settlements Programme (UN-Habitat)
+			+contacts(contactsLeft, contactsRight, {social: true, no_bg: true})
+			.container
+				section.section.section_border
+					.row
+						.col-6
+							p UN-Habitat opportunities are published on INSPIRA, the United Nations Human Resources Gateway and selection/recruitment processes are conducted only through this channel.
+							a.button.button_small(href="#") INSPIRA website
+						.col-6.d-flex.flex-column.align-items-start
+							p(style="flex: 1") For more details on the human resources processes at the UN, we recommend consulting the UN Careers website
+							a.button.button_small(href="#") UN Careers website
+			+offices

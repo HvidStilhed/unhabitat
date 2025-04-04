@@ -1,0 +1,67 @@
+mixin offices
+	-
+		var data = [
+			{
+				title: 'Regional Office for Africa',
+				text: 'United Nations Human Settlements Programme (UN-Habitat) P.O. Box 30030 00100 Nairobi GPO KENYA',
+				email: 'Njoki.ngethe@un.org'
+			},
+			{
+				title: 'Regional Office for Asia and the Pacific',
+				text: 'ACROS Fukuoka Building <br>8th Floor 1-1-1 Tenjin, Chuo-ku <br>Fukuoka 810, Japan',
+				email: 'habitat.fukuoka@un.org',
+				phone: '(81-92) 724-7121'
+			},
+			{
+				title: 'Regional Office for Arab States',
+				text: 'c/o Housing and Building Research Centre (HBRC)<br>87 Tahreer Street, 9th floor – Dokki, Giza, Egypt',
+				email: 'unhabitat.cairo@un.org',
+				phone: '+20 2 3761 8812'
+			},
+			{
+				title: 'Regional Office for Latin America and the Caribbean',
+				text: 'Avenida Almirante Barroso, 81 - CEP: 20031-004<br>Centro, Rio de Janeiro, Brazil',
+				email: 'rolac@onuhabitat.org',
+				site: 'onuhabitat.org'
+			},
+			{
+				title: 'Office for Europe and European Institutions',
+				text: 'Boulevard du Régent 37, 1000 Brussels, Belgium',
+				email: 'unhabitat-europe@un.org',
+				phone: '+32 25033572'
+			},
+			{
+				title: 'New York Office',
+				text: 'Two United Nations Plaza<br>Room DC2-0943, New York, N.Y. 10017, U.S.A.',
+				email: 'habitatny@un.org',
+				phone: '+1 (212) 963 8725/4200'
+			},
+			{
+				title: 'Information Office in China',
+				text: 'No. 9 Sanlihe Road<br>Beijing 100835<br>People’s Republic of China',
+				email: 'office@unhabitat.org.cn',
+				phone: '(86-10)5893-4750'
+			},
+			{
+				title: 'Project Coordination Office for Countries of the Commonwealth of Independent States (CIS)',
+				text: 'Russian Federation125009, Moscow<br>9, Leontyevsky Lane, UN-House',
+				email: 'galina.kolesnikova@un.org',
+				site: 'www.unhabitat.ru',
+				phone: '+7 495 787-22-78'
+			}
+		]
+	.container
+		section.section.offices
+			h2.h2 Offices
+			.offices__items
+				each item in data
+					.offices__item
+						h3.h3.offices__title= item.title
+						p!= item.text
+						.offices__footer
+							if item.email
+								a.offices__link(href=`mailto:${item.email}`)= item.email
+							if item.site
+								a.offices__link(href=`https://${item.site}` target="_blank")= item.site
+							if item.phone
+								a.offices__link(href=`tel:${item.phone}`)= item.phone

@@ -1,29 +1,39 @@
-mixin contacts(left, right, showSocial)
-	- var social = ['facebook', 'linkedin', 'instagram', 'twitter']
+mixin contacts(left, right, options = {})
+	- const hasBackground = options.no_bg !== true
 	.container
-		.contacts
-			.contacts__header.row
-					if left
-						.contacts__column.col-5
-							if left.title
-								.contacts__title.small= left.title
-							if left.text
-								.h5= left.text
-							if left.personName
-								.contacts__title.h4= left.personName
-							if left.personPost
-								.contacts__post= left.personPost
-							if left.email
-								a(class="contacts__email contacts__header-email" href=`mailto:${left.email}`)= left.email
+		.contacts(class=!hasBackground && 'contacts--no-bg')
+			+contacts-content(left, right, options)
 
-					.col-1
-					if right
-						.contacts__column.col-4
-							.contacts__title.small Social Media
-							.h5 Connect with us on Social Media for the latest developments in sustainable urbanization
-							if showSocial
-								ul.contacts__social
-									each link in social
-										li.contacts__social-item
-											a.contacts__social-link(href="#")
-												img(src=`img/icons/${link}.svg` alt=link width="24" height="24")
+mixin contacts-content(left, right, options = {})
+	- var social = ['facebook', 'linkedin', 'instagram', 'twitter']
+	.contacts__header.row
+		if left
+			.contacts__column.col-5
+				if left.title
+					.contacts__title.small= left.title
+				if left.text
+					.h5= left.text
+				if left.quote
+					.quote!= left.quote
+						br
+						a(class="contacts__email contacts__header-email" href=`mailto:${left.email}`)= left.email
+				if left.personName
+					.contacts__title.h4= left.personName
+				if left.personPost
+					.contacts__post= left.personPost
+				if left.email && !left.quote
+					a(class="contacts__email contacts__header-email" href=`mailto:${left.email}`)= left.email
+
+		.col-1
+		if right
+			.contacts__column.col-4
+				if right.title
+					.contacts__title.small= right.title
+				if right.text
+					.h5= right.text
+				if options.social === true
+					ul.contacts__social
+						each link in social
+							li.contacts__social-item
+								a.contacts__social-link(href="#")
+									img(src=`img/icons/${link}.svg` alt=link width="24" height="24")

@@ -25,7 +25,8 @@
 				{"name": "Calls for expressions of interest", "url": "calls-interest.html", "checked": false},
 				{"name": "African Clean Cities Platform Associate Members", "url": "members.html", "checked": false},
 				{"name": "Donate now", "url": "donate.php", "checked": false},
-				{"name": "Thank you for the donation!", "url": "thanks.php", "checked": false}
+				{"name": "Thank you for the donation!", "url": "thanks.php", "checked": false},
+				{"name": "Contact us", "url": "contact-us.html", "checked": false}
 			]
 		},
 		{

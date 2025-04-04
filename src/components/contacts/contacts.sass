@@ -1,0 +1,80 @@
+@use '../../sass/variables' as *
+
+.contacts
+	margin-top: 48px
+	margin-bottom: 64px
+
+	&:not(.contacts--no-bg)
+		padding: 32px 32px 0
+		background: var(--seasalt)
+
+	@media (max-width: 767px)
+		margin-bottom: 0
+	& + .shorts
+		margin-top: 48px
+	&__section
+		@media (max-width: 991px)
+			flex-direction: column
+		&:not(:last-child)
+			margin-bottom: 16px
+		&-title
+			width: 100%
+			margin-bottom: 24px
+			color: $eerie_black_60
+	&__title
+		margin-bottom: 8px
+		&.small
+			color: $eerie_black_60
+	&__column
+		display: flex
+		margin-bottom: 32px
+		flex-direction: column
+		align-items: flex-start
+		@media (max-width: 991px)
+			width: 100%
+			&:not(:last-child)
+				margin-bottom: 56px
+	&__post
+		color: $eerie_black_60
+		&:not(:last-child)
+			margin-bottom: 16px
+	&__email
+		text-decoration: none
+		color: $eerie_black_80
+		transition-duration: .3s
+		&:hover
+			color: $process_cyan
+		&:not(:last-child)
+			margin-bottom: 24px
+			& + .button
+				margin-top: 0
+	&__social
+		display: flex
+
+		padding: 0
+		margin: 0
+
+		list-style-type: none
+		&-item:not(:last-child)
+			margin-right: 24px
+		&-link
+			display: flex
+			filter: grayscale(1)
+			transition-duration: .3s
+			&:hover
+				filter: grayscale(0)
+	&__subscribe
+		margin: 24px 0
+	.h5,
+	.quote
+		margin-bottom: 24px
+	.quote + .subscribe
+		margin-top: 0
+	.button
+		margin-top: 24px
+
+	.quote
+		line-height: 40px
+
+		a
+			color: var(--process-cyan)

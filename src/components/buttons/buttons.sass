@@ -114,3 +114,62 @@
 			right: 0
 	.button
 		display: flex
+
+.button
+	font-size: 18px
+	font-weight: 500
+	line-height: 22px
+	text-align: center
+	text-decoration: none
+	
+	padding: 8px 12px
+	border-radius: 4px
+	transition-duration: .3s
+
+	color: $eerie_black
+	border: 1px solid $process_cyan
+	display: inline-flex
+	&:hover
+		color: $white
+		background: $process_cyan
+	&_small
+		font-size: 14px
+		line-height: 15px
+	&_black
+		border-color: $eerie_black
+		&:hover
+			background: $eerie_black
+	&_white
+		color: $white
+		border-color: $white
+		&:hover
+			background: $white
+			color: $process_cyan
+	&_submit
+		border: none
+		color: $white
+		background: $eerie_black
+		&:hover
+			background: $process_cyan
+	&_download
+		overflow: hidden
+		position: relative
+
+		display: flex
+		align-items: center
+		justify-content: center
+		&:hover
+			color: $transparent
+			border-color: $process_cyan
+			background-color: $process_cyan
+			&:before
+				opacity: 1
+				animation: fade_move_down .6s linear infinite
+		&:before
+			opacity: 0
+			content: ''
+			width: 24px
+			height: 24px
+			position: absolute
+			transition-duration: .3s
+			background-image: url('../img/icons/download.svg')

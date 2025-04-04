@@ -1,9 +1,27 @@
-mixin page-header(title, info)
-	.container
-		div(class='page__header ' + (info ? 'page__header_row' : ''))
-			h1.h1= title
-			if info
-				.page__header-content
-					.tag.tag_large.tag_deadline= info.tag
-					.page__header-date.h5
-						time(datetime=info.date)= info.date
+mixin page-header(title, info, options = {})
+	- const hasBackground = options.background === true
+	- const baseClasses = ['page__header', info ? 'page__header_row' : false]
+	- const backgroundClass = options.background ? 'page__header_background' : false
+	- const slimClass = options.slim ? 'page__header_slim' : false
+	- const allClasses = baseClasses.concat(backgroundClass, slimClass).filter(Boolean).join(' ')
+
+	if hasBackground
+		div(class=allClasses)
+			.container
+				+header-content(title, info, true)
+	else
+		.container
+			div(class=allClasses)
+				+header-content(title, info, false)
+
+mixin header-content(title, info, isHero)
+	if isHero
+		.page__background(style="background-image: url('../../img/photos/contact-us.webp')")
+		h1.page__title.hero= title
+	else
+		h1.h1= title
+	if info
+		.page__header-content
+			.tag.tag_large.tag_deadline= info.tag
+			.page__header-date.h5
+				time(datetime=info.date)= info.date
