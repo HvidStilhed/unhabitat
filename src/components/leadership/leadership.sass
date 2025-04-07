@@ -1,0 +1,92 @@
+@use '../../sass/variables' as *
+
+.leadership
+	width: 1140px
+	max-width: 100%
+	display: flex
+	flex-wrap: wrap
+	margin-top: 32px
+
+	&_extended
+		margin-top: 64px
+
+		.leadership__item
+			padding: 0
+			width: 100%
+
+		.leadership__image
+			width: 232px
+			height: 232px
+
+		.leadership__title
+			margin-bottom: 8px
+
+		.leadership__post
+			margin-bottom: 24px
+			font-size: var(--font-default)
+			font-weight: 400
+			line-height: normal
+
+	&_border
+		width: 100%
+		display: grid
+		grid-template-columns: 1fr 1fr
+		gap: calc(var(--space-default) * 2)
+		margin-top: calc(var(--space-small) * 3)
+
+		.leadership__title
+			margin-bottom: calc(var(--space-small) * 3)
+
+		.leadership__item
+			width: 100%
+			margin-bottom: 0
+			border: 1px solid var(--platinum)
+
+			.leadership__content
+				display: flex
+				flex-direction: column
+
+	&__item
+		padding: 24px
+		width: 50%
+		margin-bottom: 48px
+		display: flex
+
+	&__post
+		font-size: 20px
+		font-weight: 500
+		line-height: 140%
+		margin-bottom: 12px
+
+	&__image
+		border-radius: 100%
+		width: 88px
+		height: 88px
+		background-size: cover
+		background-position: center
+		margin-right: 32px
+
+	&__content
+		flex: 1
+
+	&__title
+		margin-bottom: 12px
+
+	&__place
+		color: $bice_blue
+		margin-bottom: 32px
+
+	&__footer
+		flex: 1
+		display: flex
+		justify-content: flex-end
+		align-items: flex-start
+		flex-direction: column
+		margin-top: calc(var(--space-small) * 3)
+
+	&__link
+		text-decoration: none
+		color: var(--process-cyan)
+
+		&:not(:last-child)
+			margin-bottom: calc(var(--space-small) / 2)

@@ -1,4 +1,4 @@
-mixin offices
+mixin leadership
 	-
 		var data = [
 			{
@@ -51,17 +51,18 @@ mixin offices
 			}
 		]
 	.container
-		section.section.offices
-			h2.h2 Offices
-			.offices__items
-				each item in data
-					.offices__item
-						h3.h3.offices__title= item.title
-						p!= item.text
-						.offices__footer
+		h2.h2 Offices
+		.section.leadership.leadership_border
+			each item in data
+				.leadership__item
+					.leadership__content
+						.h3.leadership__title= item.title
+						.leadership__text
+							p!= item.text
+						.leadership__footer
 							if item.email
-								a.offices__link(href=`mailto:${item.email}`)= item.email
+								a.leadership__link(href=`mailto:${item.email}`)= item.email
 							if item.site
-								a.offices__link(href=`https://${item.site}` target="_blank")= item.site
+								a.leadership__link(href=`https://${item.site}` target="_blank")= item.site
 							if item.phone
-								a.offices__link(href=`tel:${item.phone}`)= item.phone
+								a.leadership__link(href=`tel:${item.phone}`)= item.phone
