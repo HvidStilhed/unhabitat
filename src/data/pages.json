@@ -3,11 +3,11 @@
 		{
 			"title": "Media",
 			"items": [
-				{"name": "Shorts", "url": "shorts.php", "checked": false},
-				{"name": "Statements", "url": "statements.php", "checked": false},
-				{"name": "Speeches", "url": "speeches.php", "checked": false},
-				{"name": "Press Releases", "url": "press-releases.php", "checked": false},
-				{"name": "Press Release", "url": "press-release.php", "checked": false},
+				{"name": "Shorts", "url": "shorts.html", "checked": true},
+				{"name": "Statements", "url": "statements.html", "checked": true},
+				{"name": "Speeches", "url": "speeches.html", "checked": true},
+				{"name": "Press Releases", "url": "press-releases.html", "checked": true},
+				{"name": "Press Release", "url": "press-release.html", "checked": true},
 				{"name": "Stories", "url": "stories.php", "checked": false},
 				{"name": "News", "url": "news.php", "checked": false},
 				{"name": "Media", "url": "media.php", "checked": false},

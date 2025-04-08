@@ -1,0 +1,337 @@
+extends ../components/header/header.pug
+
+block content
+	-
+		var title = 'Shorts'
+		var breadcrumbs = [
+			{title: 'Media', url: '/'},
+			{title: title, url: ''}
+		]
+
+	+breadcrumbs(breadcrumbs)
+
+	<main>
+		<article>
+			<div class="container">
+				<div class="page__header page__header_row">
+					<h1 class="h1">Shorts</h1>
+					<div class="filter">
+						<div class="filter__item filter__item_topic">
+							<select name="topic[]" class="filter__select" data-placeholder="Topic">
+								<option value="1">Advocacy</option>
+								<option value="2">Climate Change</option>
+								<option value="3">Capacity Building</option>
+								<option value="4">Disability</option>
+								<option value="5">Gender</option>
+								<option value="6">Housing</option>
+								<option value="7">Human Rights</option>
+								<option value="8">Advocacy</option>
+								<option value="9">Climate Change</option>
+								<option value="10">Capacity Building</option>
+								<option value="11">Disability</option>
+								<option value="12">Gender</option>
+								<option value="13">Housing</option>
+								<option value="14">Human Rights</option>
+							</select>
+						</div>
+						<div class="filter__item filter__item_country">
+							<select name="country[]" class="filter__select" data-placeholder="Country">
+								<option value="1">Afghanistan</option>
+								<option value="2">Africa Region</option>
+								<option value="3">Andean Countries HUB</option>
+								<option value="4">Angola</option>
+								<option value="5">Arab States Region</option>
+								<option value="6">Argentina</option>
+								<option value="7">Asia and the Pacific Region</option>
+								<option value="8">Afghanistan</option>
+								<option value="9">Africa Region</option>
+								<option value="10">Andean Countries HUB</option>
+								<option value="11">Angola</option>
+								<option value="12">Arab States Region</option>
+								<option value="13">Argentina</option>
+								<option value="14">Asia and the Pacific Region</option>
+							</select>
+						</div>
+						<div class="filter__item filter__item_year">
+							<select name="year[]" class="filter__select" data-placeholder="Year">
+								<option value="1">2011</option>
+								<option value="2">2012</option>
+								<option value="3">2013</option>
+								<option value="4">2014</option>
+								<option value="5">2015</option>
+								<option value="6">2016</option>
+								<option value="7">2017</option>
+								<option value="8">2018</option>
+								<option value="9">2019</option>
+								<option value="10">2020</option>
+								<option value="11">2021</option>
+								<option value="12">2022</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="search search_calendar">
+					<input class="search__field" type="text" placeholder="Search">
+					<button type="button" aria-label="Clear" class="search__clear"></button>
+					<button type="button" class="search__submit">Search</button>
+					<button type="button" aria-label="Date" class="search__calendar"></button>
+				</div>
+			</div>
+			<div class="container">
+				<div class="shorts">
+					<div class="row">
+						<div class="shorts__item">
+							<div class="shorts__item-background" style="background-image: url('img/photos/shorts_background-1.jpg')"></div>
+							<div class="shorts__item-thumbnail" style="background-image: url('img/photos/shorts-1.jpg')"></div>
+							<div class="shorts__item-content">
+								<div class="shorts__item-category">Topic</div>
+								<div class="h4 shorts__item-title">Et odio pharetra diam at neque. Volutpat nisl amet.</div>
+							</div>
+						</div>
+						<div class="shorts__item">
+							<div class="shorts__item-background">
+								<video class="shorts__item-video" muted playsinline loop>
+									<source src="img/videos/shorts_background-2.mp4" type="video/mp4">
+									<source src="img/videos/shorts_background-2.webm" type="video/webm">
+								</video>
+							</div>
+							<div class="shorts__item-thumbnail" style="background-image: url('img/photos/shorts-2.jpg')"></div>
+							<div class="shorts__item-content">
+								<div class="shorts__item-category">Topic</div>
+								<div class="h4 shorts__item-title">Rutrum viverra ipsum morbi ac eros tincidunt in. Non.</div>
+							</div>
+						</div>
+						<div class="shorts__item">
+							<div class="shorts__item-background shorts__item-background_overlay-off shorts__item-background_bice-blue"></div>
+							<div class="shorts__item-thumbnail" style="background-image: url('img/photos/shorts-3.jpg')"></div>
+							<div class="shorts__item-content">
+								<div class="h4 shorts__item-title">In lectus augue habitasse amet enim non</div>
+							</div>
+						</div>
+						<div class="shorts__item">
+							<div class="shorts__item-background" style="background-image: url('img/photos/shorts_background-3.jpg')"></div>
+							<div class="shorts__item-thumbnail" style="background-image: url('img/photos/shorts-4.jpg')"></div>
+							<div class="shorts__item-content">
+								<div class="h4 shorts__item-title">Neque lorem tincidunt dignissim imperdiet sed.</div>
+							</div>
+						</div>
+						<div class="shorts__item">
+							<div class="shorts__item-background" style="background-image: url('img/photos/shorts_background-4.jpg')"></div>
+							<div class="shorts__item-thumbnail" style="background-image: url('img/photos/shorts-5.jpg')"></div>
+							<div class="shorts__item-content">
+								<div class="shorts__item-category">Topic</div>
+								<div class="h4 shorts__item-title">Turpis morbi fusce pharetra nulla neque orci gravida.</div>
+							</div>
+						</div>
+						<div class="shorts__item">
+							<div class="shorts__item-background shorts__item-background_overlay-off">
+								<video class="shorts__item-video" muted playsinline loop>
+									<source src="img/videos/shorts_background-5.mp4" type="video/mp4">
+									<source src="img/videos/shorts_background-5.webm" type="video/webm">
+								</video>
+							</div>
+							<div class="shorts__item-thumbnail" style="background-image: url('img/photos/shorts-3.jpg')"></div>
+						</div>
+						<div class="shorts__item">
+							<div class="shorts__item-background" style="background-image: url('img/photos/shorts_background-6.jpg')"></div>
+							<div class="shorts__item-thumbnail" style="background-image: url('img/photos/shorts-6.jpg')"></div>
+							<div class="shorts__item-content">
+								<div class="shorts__item-category">Topic</div>
+								<div class="h4 shorts__item-title">Scelerisque semper nibh eget pulvinar condimentum.</div>
+							</div>
+						</div>
+						<div class="shorts__item">
+							<div class="shorts__item-background">
+								<video class="shorts__item-video" muted playsinline loop>
+									<source src="img/videos/shorts_background-7.mp4" type="video/mp4">
+									<source src="img/videos/shorts_background-7.webm" type="video/webm">
+								</video>
+							</div>
+							<div class="shorts__item-thumbnail" style="background-image: url('img/photos/shorts-7.jpg')"></div>
+							<div class="shorts__item-content">
+								<div class="shorts__item-category">Topic</div>
+								<div class="h4 shorts__item-title">Pretium massa vel nunc diam magna diam senectus.</div>
+							</div>
+						</div>
+						<div class="shorts__item">
+							<div class="shorts__item-background" style="background-image: url('img/photos/shorts_background-8.jpg')"></div>
+							<div class="shorts__item-thumbnail" style="background-image: url('img/photos/shorts-8.jpg')"></div>
+							<div class="shorts__item-content">
+								<div class="shorts__item-category">Topic</div>
+								<div class="h4 shorts__item-title">Porttitor odio viverra tortor sed maecenas ipsum.</div>
+							</div>
+						</div>
+						<div class="shorts__item">
+							<div class="shorts__item-background">
+								<video class="shorts__item-video" muted playsinline loop>
+									<source src="img/videos/shorts_background-9.mp4" type="video/mp4">
+									<source src="img/videos/shorts_background-9.webm" type="video/webm">
+								</video>
+							</div>
+							<div class="shorts__item-thumbnail" style="background-image: url('img/photos/shorts-9.jpg')"></div>
+							<div class="shorts__item-content">
+								<div class="shorts__item-category">Topic</div>
+								<div class="h4 shorts__item-title">Nibh integer pellentesque massa sapien cras.</div>
+							</div>
+						</div>
+						<div class="shorts__item">
+							<div class="shorts__item-background">
+								<video class="shorts__item-video" muted playsinline loop>
+									<source src="img/videos/shorts_background-10.mp4" type="video/mp4">
+									<source src="img/videos/shorts_background-10.webm" type="video/webm">
+								</video>
+							</div>
+							<div class="shorts__item-thumbnail" style="background-image: url('img/photos/shorts-2.jpg')"></div>
+							<div class="shorts__item-content">
+								<div class="shorts__item-category">Topic</div>
+								<div class="h4 shorts__item-title">Cras interdum luctus proin porta. Libero auctor.</div>
+							</div>
+						</div>
+						<div class="shorts__item">
+							<div class="shorts__item-background" style="background-image: url('img/photos/shorts_background-11.jpg')"></div>
+							<div class="shorts__item-thumbnail" style="background-image: url('img/photos/shorts-10.jpg')"></div>
+							<div class="shorts__item-content">
+								<div class="shorts__item-category">Topic</div>
+								<div class="h4 shorts__item-title">Id mauris et nisl interdum. Enim nisl adipiscing sed.</div>
+							</div>
+						</div>
+						<div class="shorts__item">
+							<div class="shorts__item-background">
+								<video class="shorts__item-video" muted playsinline loop>
+									<source src="img/videos/shorts_background-12.mp4" type="video/mp4">
+									<source src="img/videos/shorts_background-12.webm" type="video/webm">
+								</video>
+							</div>
+							<div class="shorts__item-thumbnail" style="background-image: url('img/photos/shorts-11.jpg')"></div>
+							<div class="shorts__item-content">
+								<div class="shorts__item-category">Topic</div>
+								<div class="h4 shorts__item-title">Nunc vitae nibh non faucibus justo vitae nunc. Felis iaculis.</div>
+							</div>
+						</div>
+						<div class="shorts__item">
+							<div class="shorts__item-background" style="background-image: url('img/photos/shorts_background-13.jpg')"></div>
+							<div class="shorts__item-thumbnail" style="background-image: url('img/photos/shorts-12.jpg')"></div>
+							<div class="shorts__item-content">
+								<div class="shorts__item-category">Topic</div>
+								<div class="h4 shorts__item-title">Amet sit volutpat libero scelerisque. Tortor nisl sem.</div>
+							</div>
+						</div>
+						<div class="shorts__item">
+							<div class="shorts__item-background shorts__item-background_overlay-off shorts__item-background_bice-blue"></div>
+							<div class="shorts__item-thumbnail" style="background-image: url('img/photos/shorts-3.jpg')"></div>
+							<div class="shorts__item-content">
+								<div class="h4 shorts__item-title">In lectus augue habitasse amet enim non</div>
+							</div>
+						</div>
+						<div class="shorts__item">
+							<div class="shorts__item-background">
+								<video class="shorts__item-video" muted playsinline loop>
+									<source src="img/videos/shorts_background-9.mp4" type="video/mp4">
+									<source src="img/videos/shorts_background-9.webm" type="video/webm">
+								</video>
+							</div>
+							<div class="shorts__item-thumbnail" style="background-image: url('img/photos/shorts-9.jpg')"></div>
+							<div class="shorts__item-content">
+								<div class="shorts__item-category">Topic</div>
+								<div class="h4 shorts__item-title">Nibh integer pellentesque massa sapien cras.</div>
+							</div>
+						</div>
+						<div class="shorts__item">
+							<div class="shorts__item-background" style="background-image: url('img/photos/shorts_background-14.jpg')"></div>
+							<div class="shorts__item-thumbnail" style="background-image: url('img/photos/shorts-13.jpg')"></div>
+							<div class="shorts__item-content">
+								<div class="shorts__item-category">Topic</div>
+								<div class="h4 shorts__item-title">Feugiat suscipit praesent scelerisque</div>
+							</div>
+						</div>
+						<div class="shorts__item">
+							<div class="shorts__item-background shorts__item-background_overlay-off">
+								<video class="shorts__item-video" muted playsinline loop>
+									<source src="img/videos/shorts_background-15.mp4" type="video/mp4">
+									<source src="img/videos/shorts_background-15.webm" type="video/webm">
+								</video>
+							</div>
+							<div class="shorts__item-thumbnail" style="background-image: url('img/photos/shorts-3.jpg')"></div>
+						</div>
+						<div class="shorts__item">
+							<div class="shorts__item-background" style="background-image: url('img/photos/shorts_background-16.jpg')"></div>
+							<div class="shorts__item-thumbnail" style="background-image: url('img/photos/shorts-5.jpg')"></div>
+							<div class="shorts__item-content">
+								<div class="shorts__item-category">Topic</div>
+								<div class="h4 shorts__item-title">Turpis morbi fusce pharetra nulla neque orci gravida.</div>
+							</div>
+						</div>
+						<div class="shorts__item">
+							<div class="shorts__item-background">
+								<video class="shorts__item-video" muted playsinline loop>
+									<source src="img/videos/shorts_background-2.mp4" type="video/mp4">
+									<source src="img/videos/shorts_background-2.webm" type="video/webm">
+								</video>
+							</div>
+							<div class="shorts__item-thumbnail" style="background-image: url('img/photos/shorts-2.jpg')"></div>
+							<div class="shorts__item-content">
+								<div class="shorts__item-category">Topic</div>
+								<div class="h4 shorts__item-title">Rutrum viverra ipsum morbi ac eros tincidunt in. Non.</div>
+							</div>
+						</div>
+						<div class="shorts__item">
+							<div class="shorts__item-background">
+								<video class="shorts__item-video" muted playsinline loop>
+									<source src="img/videos/shorts_background-17.mp4" type="video/mp4">
+									<source src="img/videos/shorts_background-17.webm" type="video/webm">
+								</video>
+							</div>
+							<div class="shorts__item-thumbnail" style="background-image: url('img/photos/shorts-14.jpg')"></div>
+							<div class="shorts__item-content">
+								<div class="shorts__item-category">Topic</div>
+								<div class="h4 shorts__item-title">Non feugiat risus neque ultricies nulla sagittis ultrices.</div>
+							</div>
+						</div>
+						<div class="shorts__item">
+							<div class="shorts__item-background">
+								<video class="shorts__item-video" muted playsinline loop>
+									<source src="img/videos/shorts_background-18.mp4" type="video/mp4">
+									<source src="img/videos/shorts_background-18.webm" type="video/webm">
+								</video>
+							</div>
+							<div class="shorts__item-thumbnail" style="background-image: url('img/photos/shorts-15.jpg')"></div>
+							<div class="shorts__item-content">
+								<div class="shorts__item-category">Topic</div>
+								<div class="h4 shorts__item-title">In felis hendrerit mauris tempus tortor accumsan.</div>
+							</div>
+						</div>
+						<div class="shorts__item">
+							<div class="shorts__item-background shorts__item-background_overlay-off shorts__item-background_mantis"></div>
+							<div class="shorts__item-thumbnail" style="background-image: url('img/photos/shorts-8.jpg')"></div>
+							<div class="shorts__item-content">
+								<div class="shorts__item-category">Topic</div>
+								<div class="h4 shorts__item-title">A id gravida amet sed nunc elementum nunc.</div>
+							</div>
+						</div>
+						<div class="shorts__item">
+							<div class="shorts__item-background" style="background-image: url('img/photos/shorts_background-19.jpg')"></div>
+							<div class="shorts__item-thumbnail" style="background-image: url('img/photos/shorts-3.jpg')"></div>
+							<div class="shorts__item-content">
+								<div class="shorts__item-category">Topic</div>
+								<div class="h4 shorts__item-title">Non ornare bibendum consequat quis. At</div>
+							</div>
+						</div>
+						<div class="shorts__item">
+							<div class="shorts__item-background shorts__item-background_overlay-off">
+								<video class="shorts__item-video" muted playsinline loop>
+									<source src="img/videos/shorts_background-5.mp4" type="video/mp4">
+									<source src="img/videos/shorts_background-5.webm" type="video/webm">
+								</video>
+							</div>
+							<div class="shorts__item-thumbnail" style="background-image: url('img/photos/shorts-3.jpg')"></div>
+						</div>
+					</div>
+					<a href="#" class="show-more">
+						<div class="button show-more__button">Show more</div>
+					</a>
+				</div>
+			</div>
+		</article>
+	</main>

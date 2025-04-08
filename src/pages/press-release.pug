@@ -1,0 +1,134 @@
+extends ../components/header/header.pug
+
+block content
+	-
+		var title = 'Press Releases'
+		var breadcrumbs = [
+			{title: 'What we do', url: '/'},
+			{title: 'Press Releases', url: '/'},
+			{title: 'UN-Habitat and Rebirth Beirut join forces to improve the city’s urban infrastructure and environment', url: ''}
+		]
+
+	+breadcrumbs(breadcrumbs)
+
+	<main>
+		<article>
+			<div class="page__header page__header_background page__header_no-picture">
+				<div class="container">
+					<div class="page__background page__background_process-cyan"></div>
+					<h1 class="page__title hero">UN-Habitat and Rebirth Beirut join forces to improve the city’s urban infrastructure and environment</h1>
+					<div class="page__header-thumbnail page__header-thumbnail_vertical-caption row">
+						<div class="col-5">
+							<!-- <figure>
+								<img src="img/photos/press-release.jpg" alt="">
+								<figcaption>Housing Rehabilitation for Palestinians, Gaza Strip</figcaption>
+							</figure> -->
+						</div>
+						<div class="col-1"></div>
+						<div class="col-6">
+							<div class="page__header-info">
+								<div class="page__header-info-tag tag tag_large tag_white">Slum Upgrading</div>
+								<div class="page__header-info-date"><time>11 January 2023</time></div>
+								<h5 class="h5">Gaza city</h5>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="section">
+					<div class="row">
+						<div class="col-7">
+							<p>Habitasse enim adipiscing id rhoncus amet diam ultrices integer. Adipiscing sodales nulla sem vulputate quam fermentum porta. Vehicula cras ante aliquam hac cras est viverra aenean. Sed sit neque ridiculus ut commodo tempor. Lorem turpis id nullam sit cursus nec. Et cursus lectus arcu aenean elementum eget tortor accumsan. Risus arcu condimentum aliquet feugiat orci nec lectus velit. Turpis mi condimentum cursus aliquam dolor. Tempus cursus nisl arcu dolor fusce scelerisque.</p>
+							<p>Leo quam facilisis non eget ultrices gravida nisi nunc. Ut egestas at tristique ipsum cum. Diam fringilla et varius amet pretium lacinia at. Viverra posuere cursus morbi amet. Felis pellentesque enim habitasse tincidunt feugiat. Sagittis risus accumsan sed magna consequat fringilla mattis pulvinar. Et arcu mus potenti enim nibh pellentesque diam. Augue molestie est diam rhoncus ut. Consequat lectus non augue libero. Volutpat facilisi ante nulla donec sagittis fermentum nibh in. Nam tempor duis fermentum ut elit malesuada cursus. Sed leo a eget sed nunc egestas. Sit vitae porta varius vitae adipiscing aliquam aenean eget. Sollicitudin pulvinar sed viverra nec commodo.</p>
+						</div>
+						<div class="col-1"></div>
+						<div class="col-4">
+							<a href="#" class="pdf-link">UN-Habitat and Rebirth Beirut join forces to improve the city’s urban infrastructure and environment</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<section class="related">
+					<div class="related__title h3">Related Sustainable Development Goals</div>
+					<div class="related__items">
+						<div class="related__item">
+							<img width="200" height="200" src="img/icons/challenge-3.svg" alt="">
+						</div>
+						<div class="related__item">
+							<img width="200" height="200" src="img/icons/challenge-5.svg" alt="">
+						</div>
+						<div class="related__item">
+							<img width="200" height="200" src="img/icons/challenge-11.svg" alt="">
+						</div>
+						<div class="related__item">
+							<img width="200" height="200" src="img/icons/challenge-13.svg" alt="">
+						</div>
+						<div class="related__item">
+							<img width="200" height="200" src="img/icons/challenge-16.svg" alt="">
+						</div>
+					</div>
+				</section>
+			</div>
+			<div class="container">
+				<section class="news-section section">
+					<h2 class="section__title h2">Related materials</h2>
+					<div class="row">
+						<a href="#" class="news-section__item col-3">
+							<div class="news-section__item-thumbnail" style="background-image: url('../img/photos/news-3.jpg')"></div>
+							<div class="news-section__item-date small"><time>12 February, 2024</time></div>
+							<h4 class="news-section__item-title h4">Cities take centre stage in climate change</h4>
+						</a>
+						<a href="#" class="news-section__item col-3">
+							<div class="news-section__item-thumbnail" style="background-image: url('../img/photos/news-4.jpg')"></div>
+							<div class="news-section__item-date small"><time>12 February, 2024</time></div>
+							<h4 class="news-section__item-title h4">Supporting sustainable urban recovery in Ukraine</h4>
+						</a>
+						<a href="#" class="news-section__item col-3">
+							<div class="news-section__item-thumbnail" style="background-image: url('../img/photos/news-5.jpg')"></div>
+							<div class="news-section__item-date small"><time>12 February, 2024</time></div>
+							<h4 class="news-section__item-title h4">Unconventional water sources a way to fight water scarcity in Lebanon</h4>
+						</a>
+						<a href="#" class="news-section__item col-3">
+							<div class="news-section__item-thumbnail" style="background-image: url('../img/photos/news-6.jpg')"></div>
+							<div class="news-section__item-date small"><time>12 February, 2024</time></div>
+							<h4 class="news-section__item-title h4">The housing crisis is a symptom of global policy failure</h4>
+						</a>
+					</div>
+				</section>
+			</div>
+		</article>
+		<div class="container">
+			<section class="contacts">
+				<div class="contacts__header row">
+					<div class="contacts__column col-5">
+						<div class="contacts__title small">Get in touch</div>
+						<div class="h5">Are you a journalist interested in UN-Habitat? Contact our communications team.</div>
+						<div class="contacts__title h4">Katerina Bezgachina</div>
+						<div class="contacts__post">Chief of Communication</div>
+						<a class="contacts__email contacts__header-email" href="mailto:katerina.bezgachina@un.org">katerina.bezgachina@un.org</a>
+					</div>
+					<div class="col-1"></div>
+					<div class="contacts__column col-4">
+						<div class="contacts__title small">Social Media</div>
+						<h5 class="h5">Connect with us on Social Media for the latest developments in sustainable urbanization</h5>
+						<ul class="contacts__social">
+							<li class="contacts__social-item">
+								<a class="contacts__social-link" href="#"><img src="img/icons/facebook.svg" alt="Facebook" width="24" height="24"></a>
+							</li>
+							<li class="contacts__social-item">
+								<a class="contacts__social-link" href="#"><img src="img/icons/linkedin.svg" alt="Linkedin" width="24" height="24"></a>
+							</li>
+							<li class="contacts__social-item">
+								<a class="contacts__social-link" href="#"><img src="img/icons/instagram.svg" alt="Instagram" width="24" height="24"></a>
+							</li>
+							<li class="contacts__social-item">
+								<a class="contacts__social-link" href="#"><img src="img/icons/twitter.svg" alt="Twitter" width="24" height="24"></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+	</main>

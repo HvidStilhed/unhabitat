@@ -84,3 +84,8 @@
         justify-content: space-between
         > *
             margin-bottom: 0
+
+@mixin mq-max($canvas)
+    @if $canvas
+        @media (max-width: $canvas - 0.02)
+            @content

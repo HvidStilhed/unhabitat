@@ -96,10 +96,10 @@ document.addEventListener('DOMContentLoaded', function() {
 })
 
 jQuery(document).ready(function() {
-    // jQuery('.filter__select').select2({
-    //     closeOnSelect: false,
-    //     dropdownAutoWidth: true,
-    // })
+    jQuery('.filter__select').select2({
+        closeOnSelect: false,
+        dropdownAutoWidth: true,
+    })
 
     jQuery('.publications-filter__select').select2({
         dropdownAutoWidth: true
@@ -200,6 +200,25 @@ jQuery(document).ready(function() {
         })
     }
     tabs()
+
+    function hashTab() {
+        const hash = window.location.hash;
+        if (!hash) return;
+
+        const hashVal = hash.substring(1);
+        const target = jQuery(`.tab-controls__button[data-target="${hashVal}"]`)
+        const targetTab = jQuery(`.tab-content[data-target="${hashVal}"]`)
+        const type = target.attr('data-type')
+        const tabs = jQuery(`.tab-controls__button[data-type="${type}"]`);
+        const tabsContent = jQuery(`.tab-content[data-type="${type}"]`)
+
+        tabs.removeClass('active');
+        tabsContent.removeClass('active');
+
+        target.addClass('active');
+        targetTab.addClass('active');
+    }
+    hashTab()
 
     function statementsToggle() {
         jQuery('.statements__toggler').click(function() {
@@ -314,6 +333,8 @@ jQuery(document).ready(function() {
         jQuery('.lang-toggle li > *:contains('+chinese+')').text(newChinese)
     }
     langToggle()
+
+    jQuery(window).on('hashchange', hashTab)
 })
 
 jQuery(window).on('load', function() {

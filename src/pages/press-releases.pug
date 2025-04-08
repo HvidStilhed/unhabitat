@@ -1,0 +1,241 @@
+extends ../components/header/header.pug
+
+block content
+	-
+		var title = 'Press Releases'
+		var breadcrumbs = [
+			{title: 'Media', url: '/'},
+			{title: title, url: ''}
+		]
+
+	+breadcrumbs(breadcrumbs)
+
+	<main>
+		<article>
+			<div class="container">
+				<div class="page__header page__header_row">
+					<h1 class="h1">Press Releases</h1>
+					<div class="filter">
+						<div class="filter__item filter__item_topic">
+							<select name="topic[]" class="filter__select" data-placeholder="Topic">
+								<option value="1">Advocacy</option>
+								<option value="2">Climate Change</option>
+								<option value="3">Capacity Building</option>
+								<option value="4">Disability</option>
+								<option value="5">Gender</option>
+								<option value="6">Housing</option>
+								<option value="7">Human Rights</option>
+								<option value="8">Advocacy</option>
+								<option value="9">Climate Change</option>
+								<option value="10">Capacity Building</option>
+								<option value="11">Disability</option>
+								<option value="12">Gender</option>
+								<option value="13">Housing</option>
+								<option value="14">Human Rights</option>
+							</select>
+						</div>
+						<div class="filter__item filter__item_country">
+							<select name="country[]" class="filter__select" data-placeholder="Country">
+								<option value="1">Afghanistan</option>
+								<option value="2">Africa Region</option>
+								<option value="3">Andean Countries HUB</option>
+								<option value="4">Angola</option>
+								<option value="5">Arab States Region</option>
+								<option value="6">Argentina</option>
+								<option value="7">Asia and the Pacific Region</option>
+								<option value="8">Afghanistan</option>
+								<option value="9">Africa Region</option>
+								<option value="10">Andean Countries HUB</option>
+								<option value="11">Angola</option>
+								<option value="12">Arab States Region</option>
+								<option value="13">Argentina</option>
+								<option value="14">Asia and the Pacific Region</option>
+							</select>
+						</div>
+						<div class="filter__item filter__item_year">
+							<select name="year[]" class="filter__select" data-placeholder="Year">
+								<option value="1">2011</option>
+								<option value="2">2012</option>
+								<option value="3">2013</option>
+								<option value="4">2014</option>
+								<option value="5">2015</option>
+								<option value="6">2016</option>
+								<option value="7">2017</option>
+								<option value="8">2018</option>
+								<option value="9">2019</option>
+								<option value="10">2020</option>
+								<option value="11">2021</option>
+								<option value="12">2022</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="search">
+					<input class="search__field" type="text" placeholder="Search">
+					<button class="search__clear"></button>
+					<button class="search__submit">Search</button>
+				</div>
+			</div>
+			<div class="container">
+				<div class="statements">
+					<div class="statements__item">
+						<div class="statements__item-thumbnail" style="background-image: url('img/photos/press-1.jpg')"></div>
+						<div class="statements__item-content">
+							<div class="statements__item-date"><time>26 September 2023</time></div>
+							<div class="statements__item-title">
+								<h4 class="statements__item-title h4">UN-Habitat receives generous support from the Government of the Netherlands to initiate policy dialogue on the Land Legal Framework Reform and Secure Tenure Rights for internally displaced Iraqis</h4>
+							</div>
+						</div>
+						<div class="statements__item-download">
+							<a href="#" class="statements__item-button button button_download button_small button_black">English</a>
+						</div>
+					</div>
+					<div class="statements__item">
+						<div class="statements__item-thumbnail" style="background-image: url('img/photos/press-2.jpg')"></div>
+						<div class="statements__item-content">
+							<div class="statements__item-date"><time>26 September 2023</time></div>
+							<div class="statements__item-title">
+								<h4 class="statements__item-title h4">Media advisory on the World Cities Day 2023 and zero-waste initiatives briefing</h4>
+							</div>
+						</div>
+						<div class="statements__item-download">
+							<a href="#" class="statements__item-button button button_download button_small button_black">English</a>
+						</div>
+					</div>
+					<div class="statements__item">
+						<div class="statements__item-thumbnail" style="background-image: url('img/photos/press-3.jpg')"></div>
+						<div class="statements__item-content">
+							<div class="statements__item-date"><time>26 September 2023</time></div>
+							<div class="statements__item-title">
+								<h4 class="statements__item-title h4">The United Nations and the Government of Japan inaugurate recently rehabilitated Markazouna Community Centre in Tripoli</h4>
+							</div>
+						</div>
+						<div class="statements__item-download">
+							<a href="#" class="statements__item-button button button_download button_small button_black">English</a>
+						</div>
+					</div>
+					<div class="statements__item">
+						<div class="statements__item-thumbnail" style="background-image: url('img/photos/press-4.jpg')"></div>
+						<div class="statements__item-content">
+							<div class="statements__item-date"><time>26 September 2023</time></div>
+							<div class="statements__item-title">
+								<h4 class="statements__item-title h4">023 UN-Habitat Scroll of Honour Award winners announced</h4>
+							</div>
+						</div>
+						<div class="statements__item-download">
+							<a href="#" class="statements__item-button button button_download button_small button_black">English</a>
+						</div>
+					</div>
+					<div class="statements__item">
+						<div class="statements__item-thumbnail" style="background-image: url('img/photos/press-5.jpg')"></div>
+						<div class="statements__item-content">
+							<div class="statements__item-date"><time>26 September 2023</time></div>
+							<div class="statements__item-title">
+								<h4 class="statements__item-title h4">UN-Habitat in Tunisia moderates a panel on 'The Cities of the Future' as part of the “Youth Future Zone” Symposium organised by the ministry of Youth and Sports and the National Youth Observatory</h4>
+							</div>
+						</div>
+						<div class="statements__item-download">
+							<a href="#" class="statements__item-button button button_download button_small button_black">English</a>
+						</div>
+					</div>
+					<div class="statements__item">
+						<div class="statements__item-thumbnail" style="background-image: url('img/photos/press-6.jpg')"></div>
+						<div class="statements__item-content">
+							<div class="statements__item-date"><time>26 September 2023</time></div>
+							<div class="statements__item-title">
+								<h4 class="statements__item-title h4">Developing data-driven insights for cities</h4>
+							</div>
+						</div>
+						<div class="statements__item-download">
+							<a href="#" class="statements__item-button button button_download button_small button_black">English</a>
+						</div>
+					</div>
+					<div class="statements__item">
+						<div class="statements__item-thumbnail" style="background-image: url('img/photos/press-7.jpg')"></div>
+						<div class="statements__item-content">
+							<div class="statements__item-date"><time>26 September 2023</time></div>
+							<div class="statements__item-title">
+								<h4 class="statements__item-title h4">UN-Habitat and Rebirth Beirut join forces to improve the city’s urban infrastructure and environment</h4>
+							</div>
+						</div>
+						<div class="statements__item-download">
+							<a href="#" class="statements__item-button button button_download button_small button_black">English</a>
+						</div>
+					</div>
+					<div class="statements__item">
+						<div class="statements__item-thumbnail" style="background-image: url('img/photos/press-8.jpg')"></div>
+						<div class="statements__item-content">
+							<div class="statements__item-date"><time>26 September 2023</time></div>
+							<div class="statements__item-title">
+								<h4 class="statements__item-title h4">UN-Habitat in Tunisia and GDA Sidi Amor (Agricultural Development Grouping) join efforts for green and sustainable housing</h4>
+							</div>
+						</div>
+						<div class="statements__item-download">
+							<a href="#" class="statements__item-button button button_download button_small button_black">English</a>
+						</div>
+					</div>
+					<div class="statements__item">
+						<div class="statements__item-thumbnail" style="background-image: url('img/photos/press-9.jpg')"></div>
+						<div class="statements__item-content">
+							<div class="statements__item-date"><time>26 September 2023</time></div>
+							<div class="statements__item-title">
+								<h4 class="statements__item-title h4">SDG11 Progress Report: the world is failing to provide adequate housing</h4>
+							</div>
+						</div>
+						<div class="statements__item-download">
+							<a href="#" class="statements__item-button button button_download button_small button_black">English</a>
+						</div>
+					</div>
+					<div class="statements__item">
+						<div class="statements__item-thumbnail" style="background-image: url('img/photos/press-10.jpg')"></div>
+						<div class="statements__item-content">
+							<div class="statements__item-date"><time>26 September 2023</time></div>
+							<div class="statements__item-title">
+								<h4 class="statements__item-title h4">UN-Habitat and Ministry of Environment launch nationwide project to reduce marine litter and plastic pollution</h4>
+							</div>
+						</div>
+						<div class="statements__item-download">
+							<a href="#" class="statements__item-button button button_download button_small button_black">English</a>
+						</div>
+					</div>
+					<a href="#" class="statements__button show-more">
+						<div class="button show-more__button">Show more</div>
+					</a>
+				</div>
+			</div>
+		</article>
+		<div class="container">
+			<section class="contacts">
+				<div class="contacts__header row">
+					<div class="contacts__column col-5">
+						<div class="contacts__title small">Get in touch</div>
+						<div class="h5">Are you a journalist interested in UN-Habitat? Contact our communications team.</div>
+						<div class="contacts__title h4">Katerina Bezgachina</div>
+						<div class="contacts__post">Chief of Communication</div>
+						<a class="contacts__email contacts__header-email" href="mailto:katerina.bezgachina@un.org">katerina.bezgachina@un.org</a>
+					</div>
+					<div class="col-1"></div>
+					<div class="contacts__column col-4">
+						<div class="contacts__title small">Social Media</div>
+						<h5 class="h5">Connect with us on Social Media for the latest developments in sustainable urbanization</h5>
+						<ul class="contacts__social">
+							<li class="contacts__social-item">
+								<a class="contacts__social-link" href="#"><img src="img/icons/facebook.svg" alt="Facebook" width="24" height="24"></a>
+							</li>
+							<li class="contacts__social-item">
+								<a class="contacts__social-link" href="#"><img src="img/icons/linkedin.svg" alt="Linkedin" width="24" height="24"></a>
+							</li>
+							<li class="contacts__social-item">
+								<a class="contacts__social-link" href="#"><img src="img/icons/instagram.svg" alt="Instagram" width="24" height="24"></a>
+							</li>
+							<li class="contacts__social-item">
+								<a class="contacts__social-link" href="#"><img src="img/icons/twitter.svg" alt="Twitter" width="24" height="24"></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
+	</main>
