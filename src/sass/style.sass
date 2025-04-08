@@ -72,6 +72,13 @@
     font-style: normal
     font-display: swap
 
+@font-face
+    font-family: Inter
+    src: url("../fonts/Inter/Inter-ExtraBold.woff2") format("woff2"), url("../fonts/Inter/Inter-ExtraBold.woff") format("woff")
+    font-weight: 800
+    font-style: normal
+    font-display: swap
+
 // Animations
 @keyframes fade_move_down
     0%
@@ -1827,6 +1834,10 @@ figcaption
 
         color: $white
         position: relative
+
+        @media (max-width: 1365px)
+            width: calc(25% - (var(--space-default) * 2))
+
         @media (max-width: 1199px)
             width: calc(33% - 32px)
         @media (max-width: 991px)
@@ -1837,7 +1848,6 @@ figcaption
             width: calc(100% - 32px)
             margin-left: 16px
             margin-right: 16px
-            height: 500px
         &-thumbnail,
         &-background
             background-size: cover
