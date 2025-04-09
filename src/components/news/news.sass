@@ -29,37 +29,6 @@
 				&:hover
 					margin-left: 0
 
-		.news-section__item
-			color: var(--white)
-			padding: calc(var(--space-small) * 3)
-			height: 486px
-			justify-content: flex-end
-
-			&:before
-				content: ''
-				position: absolute
-				z-index: 1
-				width: 100%
-				height: 100%
-				left: 0
-				top: 0
-				background: var(--black)
-				opacity: .7
-				transition-duration: .3s
-
-			&:hover
-				&:before
-					opacity: .4
-
-				.news-section__item-content
-					transform: translateY(0)
-
-				.news-section__item-title
-					color: var(--white)
-
-			&-content
-				transform: translateY(calc(var(--space-small) * 9))
-
 	&__title
 		margin-bottom: 32px
 	&__item
@@ -111,6 +80,37 @@
 			text-transform: uppercase
 			font-size: 14px
 			font-weight: 600
+
+		&--thumbnail
+			color: var(--white)
+			padding: calc(var(--space-small) * 3)
+			height: 486px
+			justify-content: flex-end
+
+			&:before
+				content: ''
+				position: absolute
+				z-index: 1
+				width: 100%
+				height: 100%
+				left: 0
+				top: 0
+				background: var(--black)
+				opacity: .7
+				transition-duration: .3s
+
+			&:hover
+				&:before
+					opacity: .4
+
+				.news-section__item-content
+					transform: translateY(0)
+
+				.news-section__item-title
+					color: var(--white)
+
+			.news-section__item-content
+				transform: translateY(calc(var(--space-small) * 9))
 
 	@media (max-width: 1199px)
 		.row

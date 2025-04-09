@@ -37,30 +37,31 @@ mixin news(options = {})
 			.row
 				if isSection
 					each item, index in randomNews
-						+news-content(item, index, date, options.category, options.grid)
+						+news-content(item, index, date, options.category, options.grid, options.thumbnail)
 				else
 					each item, index in news
-						+news-content(item, index, date, '', false)
+						+news-content(item, index, date, '', false, options.thumbnail)
 			if isPage
 				a.show-more(href="#")
 					.button.show-more__button Show more
 
-mixin news-content(item, index, date, category, grid)
-	if grid
-		.news-section__item
-			+news-inner(item, index, date, category, grid)
+mixin news-content(item, index, date, category, grid, thumbnail)
+	- var itemClass = ['news-section__item ', thumbnail ? 'news-section__item--thumbnail' : false]
+	if thumbnail
+		div(class=itemClass)
+			+news-inner(item, index, date, category, thumbnail)
 	else
-		a.news-section__item(href="#")
-			+news-inner(item, index, date, category, grid)
+		a(class=itemClass href="#")
+			+news-inner(item, index, date, category, thumbnail)
 
-mixin news-inner(item, index, date, category, grid)
+mixin news-inner(item, index, date, category, thumbnail)
 	if category
 		.news-section__item-category= category
-	if grid
+	if thumbnail
 		.news-section__item-thumbnail(style=`background-image: url('img/photos/stories-${index + 1}.jpg')`)
 	.news-section__item-content
 		.news-section__item-date.small
 			time(datetime=date)= date
 		.news-section__item-title.h3= item
-		if grid
+		if thumbnail
 			a.news-section__item-link.button.button_white(href="#") Learn more
