@@ -1,0 +1,44 @@
+extends ../components/header/header.pug
+
+block content
+	-
+		var title = 'Stories'
+		var breadcrumbs = [
+			{title: 'Media', url: '/'},
+			{title: title, url: ''},
+		]
+		var date = 'September 27th, 2023'
+		var news = [
+			'Low - and middle-income countries the targets of a new innovation partnership',
+			'UN-Habitat builds urban resilience in Mozambican town',
+			'Meet the 2023 UN-Habitat Scroll of Honour winners: Dubai Municipality, United Arab Emirates',
+			'UN-Habitat and UNEP join hands to help officials strengthen climate resilience',
+			'Meet the 2023 UN-Habitat Scroll of Honour winners: Fundo Imobiliário Comunitário para Aluguel, São Paulo, Brazil',
+			'Meet the 2023 UN-Habitat Scroll of Honour winners: Fundación ProEmpleo, Mexico City, Mexico',
+			'UN-Habitat and the Olympic movement getting sporty in cities',
+			'Meet the 2023 UN-Habitat Scroll of Honour winners: Ecovironment, Sierra Leone',
+			'Meet the 2023 UN-Habitat Scroll of Honour winners: Assembleia de Moradores, Braga, Portugal',
+			'Meet our winners: portraits of the 2023 Scroll of Honour Awardees',
+			'World Habitat Day 2023 to focus on resilience and recovery',
+			'Urban resilience takes centre stage at Africa climate meetings',
+		]
+
+	+breadcrumbs(breadcrumbs)
+
+	main
+		+page-header(title, '', {filter: true})
+		+search
+
+		.container
+			.news-section
+				.row
+					each item, index in news
+						.news-section__item
+							.news-section__item-thumbnail(style=`background-image: url('img/photos/stories-${index + 1}.jpg')`)
+							.news-section__item-content
+								.news-section__item-date.small
+									time(datetime=date)= date
+								.news-section__item-title.h3= item
+								a.news-section__item-link.button.button_white(href="#") Learn more
+				a.show-more(href="#")
+					.button.show-more__button Show more

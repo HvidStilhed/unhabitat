@@ -1,0 +1,158 @@
+@use '../../sass/variables' as *
+
+.search
+    display: flex
+    align-items: center
+
+    position: relative
+    margin-bottom: calc(var(--space-default) * 2)
+    padding-right: 16px
+    transition-duration: .3s
+    border: 1px solid $platinum
+
+    &:before
+        content: ''
+
+        background-repeat: no-repeat
+        background-position: center
+        background-image: url('../img/icons/search.svg')
+
+        opacity: .7
+        right: 16px
+        width: 28px
+        height: 28px
+        position: absolute
+        transition-duration: .3s
+    &:hover
+        border-color: $eerie_black_40
+        .search__settings
+            border-color: $eerie_black_40
+    &_active
+        background-image: none
+        &:before
+            opacity: 0
+            svisibility: hidden
+        .search__filter
+            opacity: 0
+            visibility: hidden
+            width: 0
+        .search__clear
+            opacity: .5
+            visibility: visible
+            &:hover
+                opacity: 1
+        .search__submit
+            opacity: 1
+            visibility: visible
+            &:hover
+                color: $white
+                background: $eerie_black
+    &_filter
+        padding-right: 24px
+        &:before
+            right: 72px
+    &_calendar
+        padding-right: 0
+        &:before
+            right: 80px
+        &:after
+            width: 1px
+            height: 100%
+
+            content: ''
+            right: 64px
+            position: absolute
+            background: $platinum
+            transition-duration: .3s
+        &:hover:after
+            background: $eerie_black_40
+        .search__submit
+            margin-right: 16px
+    &_settings
+        &:before
+            right: 145px
+        &:after
+            right: 128px
+    &__submit
+        opacity: 0
+        visibility: hidden
+
+        border-radius: 4px
+        border: 1px solid $eerie_black_60
+
+        padding: 8px 12px
+        color: $eerie_black_60
+        transition-duration: .3s
+
+        font-size: 14px
+        font-weight: 500
+        font-family: "Inter", sans-serif
+    &__settings
+        height: 28px
+        min-width: 28px
+        box-sizing: content-box
+        padding: 18px
+        border-left: 1px solid $platinum
+
+        background-position: center
+        background-repeat: no-repeat
+        background-image: url('../img/icons/settings.svg')
+
+        opacity: .6
+        transition-duration: .3s
+        &:hover
+            opacity: 1
+    &__filter
+        height: 24px
+        width: 24px
+
+        background-image: url('../img/icons/search-filter.svg')
+
+        opacity: .6
+        transition-duration: .3s
+        &:hover
+            opacity: 1
+    &__field
+        width: 100%
+
+        font-size: 20px
+        font-weight: 500
+        line-height: 28px
+        font-family: "Inter", sans-serif
+
+        padding: 18px 16px
+        color: $eerie_black_60
+        width: calc(100% - (28px + (16px * 2)))
+        &::-webkit-input-placeholder
+            color: $eerie_black_60
+        &::-moz-placeholder
+            color: $eerie_black_60
+        &:-ms-input-placeholder
+            color: $eerie_black_60
+        &:-moz-placeholder
+            color: $eerie_black_60
+    &__clear
+        opacity: 0
+        width: 24px
+        height: 24px
+        margin-right: 8px
+        visibility: hidden
+        transition-duration: .3s
+
+        background-position: center
+        background-repeat: no-repeat
+        background-image: url('../img/icons/clear.svg')
+    &__calendar
+        height: 28px
+        min-width: 28px
+
+        opacity: .6
+        padding: 18px
+        box-sizing: content-box
+        transition-duration: .2s
+
+        background-position: center
+        background-repeat: no-repeat
+        background-image: url('../img/icons/calendar.svg')
+        &:hover
+            opacity: 1

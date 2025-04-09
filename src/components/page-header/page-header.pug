@@ -1,25 +1,31 @@
+include ../filter/filter.pug
+
 mixin page-header(title, info, options = {})
 	- const hasBackground = options.background === true
-	- const baseClasses = ['page__header', info ? 'page__header_row' : false]
+	- const baseClasses = ['page__header', (info || options.filter) ? 'page__header_row' : false]
 	- const backgroundClass = options.background ? 'page__header_background' : false
 	- const slimClass = options.slim ? 'page__header_slim' : false
 	- const allClasses = baseClasses.concat(backgroundClass, slimClass).filter(Boolean).join(' ')
+	- const hasFilter = options.filter === true
 
 	if hasBackground
 		div(class=allClasses)
 			.container
-				+header-content(title, info, true)
+				+header-content(title, info, true, false)
 	else
 		.container
 			div(class=allClasses)
-				+header-content(title, info, false)
+				+header-content(title, info, false, hasFilter)
 
-mixin header-content(title, info, isHero)
+mixin header-content(title, info, isHero, hasFilter)
 	if isHero
 		.page__background(style="background-image: url('../../img/photos/contact-us.webp')")
 		h1.page__title.hero= title
 	else
 		h1.h1= title
+		if hasFilter
+			+filter
+
 	if info
 		.page__header-content
 			.tag.tag_large.tag_deadline= info.tag

@@ -1,0 +1,62 @@
+mixin filter
+	-
+		var topics = [
+			'Advocacy',
+			'Climate Change',
+			'Capacity Building',
+			'Disability',
+			'Gender',
+			'Housing',
+			'Human Rights',
+			'Advocacy',
+			'Climate Change',
+			'Capacity Building',
+			'Disability',
+			'Gender',
+			'Housing',
+			'Human Rights',
+		]
+		var countries = [
+			'Afghanistan',
+			'Africa Region',
+			'Andean Countries HUB',
+			'Angola',
+			'Arab States Region',
+			'Argentina',
+			'Asia and the Pacific Region',
+			'Afghanistan',
+			'Africa Region',
+			'Andean Countries HUB',
+			'Angola',
+			'Arab States Region',
+			'Argentina',
+			'Asia and the Pacific Region',
+		]
+		var years = [
+			'2011',
+			'2012',
+			'2013',
+			'2014',
+			'2015',
+			'2016',
+			'2017',
+			'2018',
+			'2019',
+			'2020',
+			'2021',
+			'2022',
+		]
+		
+	.filter
+		.filter__item
+			select.filter__select(name="topic[]" data-placeholder="Topic")
+				each topic, index in topics
+					option(value=index)= topic
+		.filter__item
+			select.filter__select(name="country[]" data-placeholder="Country")
+				each country, index in countries
+					option(value=index)= country
+		.filter__item
+			select.filter__select(name="year[]" data-placeholder="Year")
+				each year, index in years
+					option(value=index)= year
