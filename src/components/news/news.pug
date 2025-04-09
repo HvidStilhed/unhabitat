@@ -54,6 +54,7 @@ mixin news-content(item, index, date, category, grid, thumbnail)
 			+news-inner(item, index, date, category, thumbnail)
 
 mixin news-inner(item, index, date, category, thumbnail)
+	- var title = ['news-section__item-title ', thumbnail ? 'h3' : 'h4']
 	if category
 		.news-section__item-category= category
 	if thumbnail
@@ -61,6 +62,6 @@ mixin news-inner(item, index, date, category, thumbnail)
 	.news-section__item-content
 		.news-section__item-date.small
 			time(datetime=date)= date
-		.news-section__item-title.h3= item
+		div(class=title)= item
 		if thumbnail
 			a.news-section__item-link.button.button_white(href="#") Learn more
