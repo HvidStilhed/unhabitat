@@ -22,7 +22,6 @@ mixin news(options = {})
 			'World Habitat Day 2023 to focus on resilience and recovery',
 			'Urban resilience takes centre stage at Africa climate meetings',
 		]
-		var isPage = options.page === true
 		var isSection = options.section === true
 		var sectionClass = ['news-section ', options.grid ? 'news-section--grid' : false]
 		var cols = options.grid ? 3 : 4
@@ -41,7 +40,7 @@ mixin news(options = {})
 				else
 					each item, index in news
 						+news-content(item, index, date, '', false, options.thumbnail)
-			if isPage
+			if !isSection
 				a.show-more(href="#")
 					.button.show-more__button Show more
 
