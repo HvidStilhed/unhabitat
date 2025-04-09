@@ -8,92 +8,92 @@
 				{"name": "Speeches", "url": "speeches.html", "checked": true},
 				{"name": "Press Releases", "url": "press-releases.html", "checked": true},
 				{"name": "Press Release", "url": "press-release.html", "checked": true},
-				{"name": "Stories", "url": "stories.html", "checked": false},
-				{"name": "News", "url": "news.html", "checked": false},
-				{"name": "Media", "url": "media.html", "checked": false},
-				{"name": "News template (old)", "url": "news-template_old.html", "checked": false},
-				{"name": "News template (new)", "url": "news-template_new.html", "checked": false}
+				{"name": "Stories", "url": "stories.html", "checked": true},
+				{"name": "News", "url": "news.php", "checked": false},
+				{"name": "Media", "url": "media.php", "checked": false},
+				{"name": "News template (old)", "url": "news-template_old.php", "checked": false},
+				{"name": "News template (new)", "url": "news-template_new.php", "checked": false}
 			]
 		},
 		{
 			"title": "Get involved",
 			"items": [
-				{"name": "Careers", "url": "careers.html", "checked": false},
-				{"name": "United Nations Volunteers", "url": "volunteers.html", "checked": false},
-				{"name": "Junior professional officers", "url": "officers.html", "checked": false},
-				{"name": "Calls for proposals", "url": "calls-proposals.html", "checked": false},
-				{"name": "Calls for expressions of interest", "url": "calls-interest.html", "checked": false},
-				{"name": "African Clean Cities Platform Associate Members", "url": "members.html", "checked": false},
-				{"name": "Donate now", "url": "donate.html", "checked": false},
-				{"name": "Thank you for the donation!", "url": "thanks.html", "checked": false},
-				{"name": "Contact us", "url": "contact-us.html", "checked": false}
+				{"name": "Careers", "url": "careers.php", "checked": false},
+				{"name": "United Nations Volunteers", "url": "volunteers.php", "checked": false},
+				{"name": "Junior professional officers", "url": "officers.php", "checked": false},
+				{"name": "Calls for proposals", "url": "calls-proposals.php", "checked": false},
+				{"name": "Calls for expressions of interest", "url": "calls-interest.php", "checked": false},
+				{"name": "African Clean Cities Platform Associate Members", "url": "members.php", "checked": false},
+				{"name": "Donate now", "url": "donate.php", "checked": false},
+				{"name": "Thank you for the donation!", "url": "thanks.php", "checked": false},
+				{"name": "Contact us", "url": "contact-us.php", "checked": false}
 			]
 		},
 		{
 			"title": "Knowledge",
 			"items": [
-				{"name": "Knowledge", "url": "knowledge.html", "checked": false},
-				{"name": "Global Urban Lectures (landing)", "url": "lectures-landing.html", "checked": false},
-				{"name": "Global Urban Lectures (archive)", "url": "lectures-archive.html", "checked": false},
-				{"name": "Single lecture", "url": "lecture.html", "checked": false},
-				{"name": "Publications", "url": "publications.html", "checked": false},
-				{"name": "Single publication", "url": "single-publication.html", "checked": false},
-				{"name": "Reports", "url": "reports.html", "checked": false},
-				{"name": "Annual Reports", "url": "annual-reports.html", "checked": false},
-				{"name": "Report page", "url": "report-page.html", "checked": false},
-				{"name": "Capacity Building Knowledge", "url": "capacity.html", "checked": false},
-				{"name": "Learning", "url": "learning.html", "checked": false},
-				{"name": "Best Practices", "url": "practices.html", "checked": false},
-				{"name": "Best Practices (article)", "url": "reducing.html", "checked": false},
-				{"name": "Habitat UNI", "url": "habitat.html", "checked": false},
-				{"name": "Communities of Practice", "url": "communities.html", "checked": false},
-				{"name": "Apply to become Habitat UNI member", "url": "member.html", "checked": false},
-				{"name": "Data and Analytics", "url": "data.html", "checked": false}
+				{"name": "Knowledge", "url": "knowledge.php", "checked": false},
+				{"name": "Global Urban Lectures (landing)", "url": "lectures-landing.php", "checked": false},
+				{"name": "Global Urban Lectures (archive)", "url": "lectures-archive.php", "checked": false},
+				{"name": "Single lecture", "url": "lecture.php", "checked": false},
+				{"name": "Publications", "url": "publications.php", "checked": false},
+				{"name": "Single publication", "url": "single-publication.php", "checked": false},
+				{"name": "Reports", "url": "reports.php", "checked": false},
+				{"name": "Annual Reports", "url": "annual-reports.php", "checked": false},
+				{"name": "Report page", "url": "report-page.php", "checked": false},
+				{"name": "Capacity Building Knowledge", "url": "capacity.php", "checked": false},
+				{"name": "Learning", "url": "learning.php", "checked": false},
+				{"name": "Best Practices", "url": "practices.php", "checked": false},
+				{"name": "Best Practices (article)", "url": "reducing.php", "checked": false},
+				{"name": "Habitat UNI", "url": "habitat.php", "checked": false},
+				{"name": "Communities of Practice", "url": "communities.php", "checked": false},
+				{"name": "Apply to become Habitat UNI member", "url": "member.php", "checked": false},
+				{"name": "Data and Analytics", "url": "data.php", "checked": false}
 			]
 		},
 		{
 			"title": "What we do",
 			"items": [
-				{"name": "What we do", "url": "what-we-do.html", "checked": false},
-				{"name": "Planning and design", "url": "planning-and-design.html", "checked": false},
-				{"name": "Promoting safe, inclusive and accessible public space", "url": "promoting.html", "checked": false},
-				{"name": "Programmes and Projects", "url": "programmes.html", "checked": false},
-				{"name": "SDG Cities", "url": "sdg.html", "checked": false}
+				{"name": "What we do", "url": "what-we-do.php", "checked": false},
+				{"name": "Planning and design", "url": "planning-and-design.php", "checked": false},
+				{"name": "Promoting safe, inclusive and accessible public space", "url": "promoting.php", "checked": false},
+				{"name": "Programmes and Projects", "url": "programmes.php", "checked": false},
+				{"name": "SDG Cities", "url": "sdg.php", "checked": false}
 			]
 		},
 		{
 			"title": "Who we are",
 			"items": [
-				{"name": "Who we are", "url": "who-we-are.html", "checked": false},
-				{"name": "Leadership", "url": "leadership.html", "checked": false},
-				{"name": "About us", "url": "about-us.html", "checked": false},
-				{"name": "Accountability and Transparency", "url": "accountability-and-transparency.html", "checked": false},
-				{"name": "Policies and procedures", "url": "policies-and-procedures.html", "checked": false},
-				{"name": "New Urban Agenda", "url": "new-urban-agenda.html", "checked": false},
-				{"name": "Donors and Funding", "url": "donors.html", "checked": false},
-				{"name": "FAQ", "url": "faq.html", "checked": false},
-				{"name": "Governance", "url": "governance.html", "checked": false},
-				{"name": "Executive Board", "url": "board.html", "checked": false},
-				{"name": "2024 First Session of the Executive Board", "url": "first-session.html", "checked": false},
-				{"name": "Committee of Permanent Representatives", "url": "committe.html", "checked": false},
-				{"name": "United Nations Habitat Assembly", "url": "assembly.html", "checked": false}
+				{"name": "Who we are", "url": "who-we-are.php", "checked": false},
+				{"name": "Leadership", "url": "leadership.php", "checked": false},
+				{"name": "About us", "url": "about-us.php", "checked": false},
+				{"name": "Accountability and Transparency", "url": "accountability-and-transparency.php", "checked": false},
+				{"name": "Policies and procedures", "url": "policies-and-procedures.php", "checked": false},
+				{"name": "New Urban Agenda", "url": "new-urban-agenda.php", "checked": false},
+				{"name": "Donors and Funding", "url": "donors.php", "checked": false},
+				{"name": "FAQ", "url": "faq.php", "checked": false},
+				{"name": "Governance", "url": "governance.php", "checked": false},
+				{"name": "Executive Board", "url": "board.php", "checked": false},
+				{"name": "2024 First Session of the Executive Board", "url": "first-session.php", "checked": false},
+				{"name": "Committee of Permanent Representatives", "url": "committe.php", "checked": false},
+				{"name": "United Nations Habitat Assembly", "url": "assembly.php", "checked": false}
 			]
 		},
 		{
 			"title": "Where we are",
 			"items": [
-				{"name": "Asia and the Pacific Region", "url": "asia.html", "checked": false},
-				{"name": "Geneva", "url": "geneva.html", "checked": false},
-				{"name": "Lebanon", "url": "lebanon.html", "checked": false},
-				{"name": "Spain", "url": "spain.html", "checked": false},
-				{"name": "Where we are", "url": "where-we-are.html", "checked": false}
+				{"name": "Asia and the Pacific Region", "url": "asia.php", "checked": false},
+				{"name": "Geneva", "url": "geneva.php", "checked": false},
+				{"name": "Lebanon", "url": "lebanon.php", "checked": false},
+				{"name": "Spain", "url": "spain.php", "checked": false},
+				{"name": "Where we are", "url": "where-we-are.php", "checked": false}
 			]
 		},
 		{
 			"title": "Events",
 			"items": [
-				{"name": "Events", "url": "events.html", "checked": false},
-				{"name": "Single event", "url": "event.html", "checked": false}
+				{"name": "Events", "url": "events.php", "checked": false},
+				{"name": "Single event", "url": "event.php", "checked": false}
 			]
 		}
 	]

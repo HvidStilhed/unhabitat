@@ -1,0 +1,79 @@
+extends ../components/header/header.pug
+
+block content
+	-
+		var title = 'Sections'
+		var breadcrumbs = [
+			{title: title, url: ''},
+		]
+
+	+breadcrumbs(breadcrumbs)
+
+	main
+		.container
+			section.areas.areas_carousel.section
+				<div class="h5 mb-16">Sustainable Development Goals</div>
+				<div class="areas__carousel-text">
+					<div class="row">
+						<div class="col-4">
+							<h2 class="h1">No poverty</h2>
+						</div>
+						<div class="col-1"></div>
+						<div class="col-6">
+							<div class="quote">
+								<p>With humanity becoming increasingly urban, trends indicate poverty is also becoming increasingly urban. Sustainable urbanization improves the lives of people in human settlements around the world and increases prosperity.</p>
+							</div>
+						</div>
+						<div class="col-1"></div>
+					</div>
+					<div class="row">
+						<div class="col-4">
+							<h2 class="h1">Good health and well-being</h2>
+						</div>
+						<div class="col-1"></div>
+						<div class="col-6">
+							<div class="quote">
+								<p>As the UN focal point for sustainable urbanization and human settlements, UN-Habitat is the custodian agency for 9 of the 15 indicators under SDG 11 and supports the monitoring and reporting of 4 indicators in other goals.</p>
+							</div>
+						</div>
+						<div class="col-1"></div>
+					</div>
+				</div>
+				<div class="areas__carousel">
+					<div class="areas__carousel-item">
+						<img src="img/icons/challenge-1.svg" alt="">
+					</div>
+					<div class="areas__carousel-item">
+						<img src="img/icons/challenge-3.svg" alt="">
+					</div>
+					<div class="areas__carousel-item">
+						<img src="img/icons/challenge-6.svg" alt="">
+					</div>
+					<div class="areas__carousel-item">
+						<img src="img/icons/challenge-7.svg" alt="">
+					</div>
+					<div class="areas__carousel-item">
+						<img src="img/icons/challenge-8.svg" alt="">
+					</div>
+					<div class="areas__carousel-item">
+						<img src="img/icons/challenge-9.svg" alt="">
+					</div>
+					<div class="areas__carousel-item">
+						<img src="img/icons/challenge-11.svg" alt="">
+					</div>
+					<div class="areas__carousel-item">
+						<img src="img/icons/challenge-12.svg" alt="">
+					</div>
+					<div class="areas__carousel-item">
+						<img src="img/icons/challenge-13.svg" alt="">
+					</div>
+					<div class="areas__carousel-item">
+						<img src="img/icons/challenge-14.svg" alt="">
+					</div>
+					<div class="areas__carousel-item">
+						<img src="img/icons/challenge-17.svg" alt="">
+					</div>
+				</div>
+
+		+news({section: true, title: 'News', category: 'News', grid: true})
+		+news({section: true, title: 'Statements'})

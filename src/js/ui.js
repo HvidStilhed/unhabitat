@@ -105,7 +105,7 @@ jQuery(document).ready(function() {
         dropdownAutoWidth: true
     })
 
-    jQuery('.donate__form-select, #edit-donate-to').select2({
+    jQuery('.donate__form-select, select[id^=edit-donate-to]').select2({
         placeholder: 'Donate to',
         minimumResultsForSearch: -1
     })

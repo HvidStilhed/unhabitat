@@ -1,0 +1,268 @@
+extends ../components/header/header.pug
+
+block content
+	-
+		var title = 'Donate now'
+		var breadcrumbs = [
+			{title: 'Get Involved', url: '/'},
+			{title: title, url: ''},
+		]
+		var date = 'September 27th, 2023'
+		var news = [
+			'Low - and middle-income countries the targets of a new innovation partnership',
+			'UN-Habitat builds urban resilience in Mozambican town',
+			'Meet the 2023 UN-Habitat Scroll of Honour winners: Dubai Municipality, United Arab Emirates',
+			'UN-Habitat and UNEP join hands to help officials strengthen climate resilience',
+			'Meet the 2023 UN-Habitat Scroll of Honour winners: Fundo Imobiliário Comunitário para Aluguel, São Paulo, Brazil',
+			'Meet the 2023 UN-Habitat Scroll of Honour winners: Fundación ProEmpleo, Mexico City, Mexico',
+			'UN-Habitat and the Olympic movement getting sporty in cities',
+			'Meet the 2023 UN-Habitat Scroll of Honour winners: Ecovironment, Sierra Leone',
+			'Meet the 2023 UN-Habitat Scroll of Honour winners: Assembleia de Moradores, Braga, Portugal',
+			'Meet our winners: portraits of the 2023 Scroll of Honour Awardees',
+			'World Habitat Day 2023 to focus on resilience and recovery',
+			'Urban resilience takes centre stage at Africa climate meetings',
+		]
+
+	+breadcrumbs(breadcrumbs)
+
+	<main>
+		<article>
+			<div class="page__header page__header_background">
+				<div class="container">
+					<div class="page__background" style="background-image: url('img/photos/donate.jpg')"></div>
+					<h1 class="hero">Donate now</h1>
+					<div class="page__subtitle h4">Humanitarian respons</div>
+					<div class="page__header-description">
+						<div class="page__header-text">
+							<p>Ac id ultricies pellentesque at purus blandit aliquam nisi. Erat morbi mi at bibendum tempus sed ac risus sed. Tellus blandit ac massa luctus amet tempus sit lectus. Ornare nunc cras venenatis volutpat adipiscing vel. Leo sagittis consequat fermentum convallis vitae est cras porta sit.</p>
+							<p>Tortor imperdiet et pulvinar et sollicitudin. Posuere curabitur non sed parturient dolor bibendum odio elit amet. Maecenas in quis dignissim lorem blandit sagittis cursus. Eget volutpat at ac quam tellus morbi.</p>
+							<a href="#" class="page__header-link button button_white">FAQ</a>
+							<a href="#" class="page__header-link button button_white">Donors and Funding</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="unhauthorize-donate contextual-region" data-drupal-selector="unhauthorize-donate" id="block-unhauthorize-authorise-donate">
+			.container
+				<h2>Donate online</h2>
+				<div data-contextual-id="context_block:context=test_authorise&amp;reaction_id=blocks&amp;block_id=55ee722b-fd51-4e5c-acf0-618b1117fb52:langcode=en" data-contextual-token="LOLeNw3O_-LWOS3ftJzmqPwkYkZfMUOwfLM4_4FGphk" data-drupal-ajax-container="" data-once="contextual-render" class="contextual">
+					<button class="trigger focusable visually-hidden" type="button" aria-pressed="false">Open Donate online configuration options</button>
+					<ul class="contextual-links" hidden="">
+					<li><a href="/admin/structure/context/test_authorise/reaction/blocks/blocks/edit/55ee722b-fd51-4e5c-acf0-618b1117fb52?destination=/unhauthorize/test">Configure block</a></li>
+					<li><a href="/admin/structure/context/test_authorise/reaction/blocks/delete/55ee722b-fd51-4e5c-acf0-618b1117fb52?reaction_id=blocks&amp;destination=/unhauthorize/test">Remove block from context</a></li>
+					</ul>
+				</div>
+				<div class="form-donate-wrapper">
+					<form action="/unhauthorize/test" method="post" id="unhauthorize-donate" accept-charset="UTF-8">
+					<fieldset data-drupal-selector="edit-donate-type" id="edit-donate-type--wrapper" class="fieldgroup form-composite required js-form-item form-item js-form-wrapper form-wrapper" required="required" aria-required="true">
+						<legend>
+						<span class="fieldset-legend js-form-required form-required">Choose your donation</span>
+						</legend>
+						<div class="fieldset-wrapper">
+						<div id="edit-donate-type">
+							<div class="js-form-item form-item js-form-type-radio form-item-donate-type js-form-item-donate-type">
+							<input data-drupal-selector="edit-donate-type-donate-monthly" type="radio" id="edit-donate-type-donate-monthly" name="donate_type" value="donate_monthly" checked="checked" class="form-radio">
+							<label for="edit-donate-type-donate-monthly" class="option">Donate monthly</label>
+							</div>
+							<div class="js-form-item form-item js-form-type-radio form-item-donate-type js-form-item-donate-type">
+							<input data-drupal-selector="edit-donate-type-donate-one-time" type="radio" id="edit-donate-type-donate-one-time" name="donate_type" value="donate_one_time" class="form-radio">
+							<label for="edit-donate-type-donate-one-time" class="option">Donate one time</label>
+							</div>
+						</div>
+						</div>
+					</fieldset>
+					<div class="js-form-item form-item js-form-type-number form-item-donate-value js-form-item-donate-value">
+						<label for="edit-donate-value">Donation amount</label>
+						<input placeholder="Amount (U.S. dollars)" data-drupal-selector="edit-donate-value" type="number" id="edit-donate-value" name="donate_value" value="" step="1" class="form-number">
+					</div>
+					<fieldset data-drupal-selector="edit-donate-value-radios" id="edit-donate-value-radios--wrapper" class="fieldgroup form-composite js-form-item form-item js-form-wrapper form-wrapper">
+						<legend>
+						<span class="fieldset-legend"></span>
+						</legend>
+						<div class="fieldset-wrapper">
+						<div id="edit-donate-value-radios">
+							<div class="js-form-item form-item js-form-type-radio form-item-donate-value-radios js-form-item-donate-value-radios">
+							<input data-drupal-selector="edit-donate-value-radios-25" type="radio" id="edit-donate-value-radios-25" name="donate_value_radios" value="25" class="form-radio">
+							<label for="edit-donate-value-radios-25" class="option">$25</label>
+							</div>
+							<div class="js-form-item form-item js-form-type-radio form-item-donate-value-radios js-form-item-donate-value-radios">
+							<input data-drupal-selector="edit-donate-value-radios-50" type="radio" id="edit-donate-value-radios-50" name="donate_value_radios" value="50" class="form-radio">
+							<label for="edit-donate-value-radios-50" class="option">$50</label>
+							</div>
+							<div class="js-form-item form-item js-form-type-radio form-item-donate-value-radios js-form-item-donate-value-radios">
+							<input data-drupal-selector="edit-donate-value-radios-100" type="radio" id="edit-donate-value-radios-100" name="donate_value_radios" value="100" class="form-radio">
+							<label for="edit-donate-value-radios-100" class="option">$100</label>
+							</div>
+							<div class="js-form-item form-item js-form-type-radio form-item-donate-value-radios js-form-item-donate-value-radios">
+							<input data-drupal-selector="edit-donate-value-radios-200" type="radio" id="edit-donate-value-radios-200" name="donate_value_radios" value="200" class="form-radio">
+							<label for="edit-donate-value-radios-200" class="option">$200</label>
+							</div>
+						</div>
+						</div>
+					</fieldset>
+					<div class="js-form-item form-item js-form-type-select form-item-donate-to js-form-item-donate-to">
+						<label for="edit-donate-to" class="js-form-required form-required"></label>
+						<select placeholder="Donate to" data-drupal-selector="edit-donate-to" id="edit-donate-to" name="donate_to" class="form-select required" required="required" aria-required="true">
+						<option value="" selected="selected">- Select -</option>
+						<option value="option_1">Option 1</option>
+						<option value="option_2">Option 2</option>
+						<option value="option_3">Option 3</option>
+						</select>
+					</div>
+					<div class="js-form-item form-item js-form-type-email form-item-donate-email js-form-item-donate-email">
+						<label for="edit-donate-email" class="js-form-required form-required"></label>
+						<input placeholder="Email" data-drupal-selector="edit-donate-email" type="email" id="edit-donate-email" name="donate_email" value="" size="60" maxlength="254" class="form-email required" required="required" aria-required="true">
+					</div>
+					<div class="js-form-item form-item js-form-type-textfield form-item-donate-first-name js-form-item-donate-first-name">
+						<label for="edit-donate-first-name" class="js-form-required form-required"></label>
+						<input placeholder="First Name" data-drupal-selector="edit-donate-first-name" type="text" id="edit-donate-first-name" name="donate_first_name" value="" size="60" maxlength="128" class="form-text required" required="required" aria-required="true">
+					</div>
+					<div class="js-form-item form-item js-form-type-textfield form-item-donate-last-name js-form-item-donate-last-name">
+						<label for="edit-donate-last-name" class="js-form-required form-required"></label>
+						<input placeholder="Last Name" data-drupal-selector="edit-donate-last-name" type="text" id="edit-donate-last-name" name="donate_last_name" value="" size="60" maxlength="128" class="form-text required" required="required" aria-required="true">
+					</div>
+					<div class="js-form-item form-item js-form-type-checkbox form-item-subscribe js-form-item-subscribe">
+						<input data-drupal-selector="edit-subscribe" type="checkbox" id="edit-subscribe" name="subscribe" value="1" class="form-checkbox">
+						<label for="edit-subscribe" class="option">I would like UN-Habitat to keep me updated with the latest news</label>
+					</div>
+					<div id="edit-donate" class="js-form-item form-item js-form-type-item form-item-donate js-form-item-donate form-no-label">
+						<button type="button" class="AcceptUI" data-billingaddressoptions="{&quot;show&quot;:false, &quot;required&quot;:false}" data-apiloginid="8C3Lc3mK" data-clientkey="2645vAaj3t59E7AaqV247TLB45M4mdWspJALqS8ZpcXmrAB3nD758rx6e2gjKyX7" data-acceptuiformbtntxt="Submit" data-acceptuiformheadertxt="Card Information" data-paymentoptions="{&quot;showCreditCard&quot;: true, &quot;showBankAccount&quot;: true}" data-responsehandler="responseHandler">Donate</button>
+					</div>
+					<input data-drupal-selector="edit-submit" type="submit" id="edit-submit" name="donate-from-submit" value="Submit" class="button js-form-submit form-submit">
+					<input id="dataDescriptor" data-drupal-selector="edit-datadescriptor" type="hidden" name="dataDescriptor" value="">
+					<input id="dataValue" data-drupal-selector="edit-datavalue" type="hidden" name="dataValue" value="">
+					<input autocomplete="off" data-drupal-selector="form-rjass6xzpor8-shu38q1odstxxxzgnxd2sqk2ulgdmq" type="hidden" name="form_build_id" value="form-RJaSS6xzPOR8-sHU38q1odsTxXxZgnXD2SQK2ULGDmQ">
+					<input data-drupal-selector="edit-unhauthorize-donate-form-token" type="hidden" name="form_token" value="5xv7at_3f7t-Ve7yESrlieD5EpOFDDla3z5V8MtD-8Q">
+					<input data-drupal-selector="edit-unhauthorize-donate" type="hidden" name="form_id" value="unhauthorize_donate">
+					</form>
+				</div>
+				</div>
+			<div class="container">
+				<section class="section">
+					<h2 class="section__title h2">Fundraising campaigns</h2>
+					<div class="campaigns">
+						<div class="campaigns__item">
+							<div class="campaigns__item-thumbnail" style="background-image: url('img/photos/campaigns.jpg')"></div>
+							<div class="campaigns__item-content">
+								<h3 class="campaigns__item-title h3">Campaign name</h3>
+								<div class="campaigns__item-footer">
+									<div class="campaigns__item-text">
+										<p>Integer et euismod cursus elit nunc magna auctor et turpis. Tristique eu ullamcorper tellus maecenas amet tincidunt. Eget neque facilisis leo duis adipiscing placerat ut sodales. Enim quisque eget cras tortor platea. Nulla at ut vehicula massa consectetur ligula dictum purus. Maecenas mattis gravida enim faucibus. Integer enim magna eleifend a condimentum sit amet id morbi.</p>
+									</div>
+									<a href="#" class="campaigns__item-link button">Learn more</a>
+								</div>
+							</div>
+						</div>
+						<div class="campaigns__item">
+							<div class="campaigns__item-thumbnail" style="background-image: url('img/photos/campaigns.jpg')"></div>
+							<div class="campaigns__item-content">
+								<h3 class="campaigns__item-title h3">Campaign name</h3>
+								<div class="campaigns__item-footer">
+									<div class="campaigns__item-text">
+										<p>Integer et euismod cursus elit nunc magna auctor et turpis. Tristique eu ullamcorper tellus maecenas amet tincidunt. Eget neque facilisis leo duis adipiscing placerat ut sodales. Enim quisque eget cras tortor platea. Nulla at ut vehicula massa consectetur ligula dictum purus. Maecenas mattis gravida enim faucibus. Integer enim magna eleifend a condimentum sit amet id morbi.</p>
+									</div>
+									<a href="#" class="campaigns__item-link button">Learn more</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+			<div class="container">
+				<section class="statements section mb-0">
+					<h2 class="section__title h2">Annual reports</h2>
+					<div class="statements__item">
+						<div class="statements__item-content">
+							<div class="statements__item-title">
+								<h4 class="h4">Acquisition Update</h4>
+							</div>
+							<div class="statements__item-download">
+								<a href="#" class="statements__item-button button button_download button_small button_black">English</a>
+								<a href="#" class="statements__item-button button button_download button_small button_black">Español</a>
+								<a href="#" class="statements__item-button button button_download button_small button_black">Français</a>
+								<a href="#" class="statements__item-button button button_download button_small button_black">العربية</a>
+								<a href="#" class="statements__item-button button button_download button_small button_black">中文</a>
+							</div>
+						</div>
+					</div>
+					<div class="statements__item">
+						<div class="statements__item-content">
+							<div class="statements__item-title">
+								<h4 class="h4">Acquisition Update</h4>
+							</div>
+							<div class="statements__item-download">
+								<a href="#" class="statements__item-button button button_download button_small button_black">English</a>
+								<a href="#" class="statements__item-button button button_download button_small button_black">Español</a>
+								<a href="#" class="statements__item-button button button_download button_small button_black">Français</a>
+								<a href="#" class="statements__item-button button button_download button_small button_black">العربية</a>
+								<a href="#" class="statements__item-button button button_download button_small button_black">中文</a>
+							</div>
+						</div>
+					</div>
+					<div class="statements__item">
+						<div class="statements__item-content">
+							<div class="statements__item-title">
+								<h4 class="h4">Acquisition Update</h4>
+							</div>
+							<div class="statements__item-download">
+								<a href="#" class="statements__item-button button button_download button_small button_black">English</a>
+								<a href="#" class="statements__item-button button button_download button_small button_black">Español</a>
+								<a href="#" class="statements__item-button button button_download button_small button_black">Français</a>
+								<a href="#" class="statements__item-button button button_download button_small button_black">العربية</a>
+								<a href="#" class="statements__item-button button button_download button_small button_black">中文</a>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+			<div class="container">
+				<section class="statements section mb-0">
+					<h2 class="section__title h2">Acquisition updates</h2>
+					<div class="statements__item">
+						<div class="statements__item-content">
+							<div class="statements__item-title">
+								<h4 class="h4">Financial Statement</h4>
+							</div>
+							<div class="statements__item-download">
+								<a href="#" class="statements__item-button button button_download button_small button_black">English</a>
+								<a href="#" class="statements__item-button button button_download button_small button_black">Español</a>
+								<a href="#" class="statements__item-button button button_download button_small button_black">Français</a>
+								<a href="#" class="statements__item-button button button_download button_small button_black">العربية</a>
+								<a href="#" class="statements__item-button button button_download button_small button_black">中文</a>
+							</div>
+						</div>
+					</div>
+					<div class="statements__item">
+						<div class="statements__item-content">
+							<div class="statements__item-title">
+								<h4 class="h4">Financial Statement</h4>
+							</div>
+							<div class="statements__item-download">
+								<a href="#" class="statements__item-button button button_download button_small button_black">English</a>
+								<a href="#" class="statements__item-button button button_download button_small button_black">Español</a>
+								<a href="#" class="statements__item-button button button_download button_small button_black">Français</a>
+								<a href="#" class="statements__item-button button button_download button_small button_black">العربية</a>
+								<a href="#" class="statements__item-button button button_download button_small button_black">中文</a>
+							</div>
+						</div>
+					</div>
+					<div class="statements__item">
+						<div class="statements__item-content">
+							<div class="statements__item-title">
+								<h4 class="h4">Financial Statement</h4>
+							</div>
+							<div class="statements__item-download">
+								<a href="#" class="statements__item-button button button_download button_small button_black">English</a>
+								<a href="#" class="statements__item-button button button_download button_small button_black">Español</a>
+								<a href="#" class="statements__item-button button button_download button_small button_black">Français</a>
+								<a href="#" class="statements__item-button button button_download button_small button_black">العربية</a>
+								<a href="#" class="statements__item-button button button_download button_small button_black">中文</a>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</article>
+		+news({section: true, title: 'News', category: 'News', grid: true})
+		+news({section: true, title: 'Stories', category: 'Story', grid: true})
+	</main>

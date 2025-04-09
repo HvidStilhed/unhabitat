@@ -1,0 +1,125 @@
+@use '../../sass/variables' as *
+
+.news-section
+	margin-bottom: 64px
+
+	.row
+		display: grid
+		grid-template-columns: 1fr 1fr 1fr 1fr
+		margin: 0
+		gap: calc(var(--space-default) * 2)
+
+	&--grid
+		display: grid
+		grid-template-columns: 1fr 3fr
+
+		.row
+			grid-template-columns: 1fr 1fr 1fr
+			gap: calc(var(--space-small) * 3)
+
+		.section__header
+			flex-direction: column
+			justify-content: flex-start
+			align-items: flex-start
+
+			.section__link
+				margin-top: calc(var(--space-small) * 1.5)
+				margin-left: calc(var(--space-default) * -1)
+
+				&:hover
+					margin-left: 0
+
+		.news-section__item
+			color: var(--white)
+			padding: calc(var(--space-small) * 3)
+			height: 486px
+			justify-content: flex-end
+
+			&:before
+				content: ''
+				position: absolute
+				z-index: 1
+				width: 100%
+				height: 100%
+				left: 0
+				top: 0
+				background: var(--black)
+				opacity: .7
+				transition-duration: .3s
+
+			&:hover
+				&:before
+					opacity: .4
+
+				.news-section__item-content
+					transform: translateY(0)
+
+				.news-section__item-title
+					color: var(--white)
+
+			&-content
+				transform: translateY(calc(var(--space-small) * 9))
+
+	&__title
+		margin-bottom: 32px
+	&__item
+		text-decoration: none
+		color: var(--eerie-black-80)
+		position: relative
+		width: 100%
+		padding: 0
+		display: flex
+		flex-direction: column
+		align-items: flex-start
+		overflow: hidden
+
+		&:hover
+			.news-section__item-title
+				color: var(--process-cyan)
+
+		&:last-child
+			@media (max-width: 1199px) and (min-width: 992px)
+				display: none
+		&-title
+			transition-duration: .3s
+		&-thumbnail
+			height: 100%
+			width: 100%
+			left: 0
+			top: 0
+			position: absolute
+
+			background-size: cover
+			background-position: center
+
+		&-link
+			margin-top: calc(var(--space-default) * 2)
+
+		&-content
+			position: relative
+			z-index: 2
+			transition-duration: .3s
+
+		&-date
+			margin-bottom: 8px
+
+		&-category
+			position: absolute
+			z-index: 2
+			left: calc(var(--space-small) * 3)
+			top: calc(var(--space-small) * 3)
+			text-transform: uppercase
+			font-size: 14px
+			font-weight: 600
+
+	@media (max-width: 1199px)
+		.row
+			grid-template-columns: 1fr 1fr 1fr
+
+	@media (max-width: 991px)
+		.row
+			grid-template-columns: 1fr 1fr
+
+	@media (max-width: 767px)
+		.row
+			grid-template-columns: 1fr
