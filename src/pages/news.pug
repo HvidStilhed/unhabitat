@@ -1,0 +1,16 @@
+extends ../components/header/header.pug
+
+block content
+	-
+		var title = 'News'
+		var breadcrumbs = [
+			{title: 'Media', url: '/'},
+			{title: title, url: ''},
+		]
+
+	+breadcrumbs(breadcrumbs)
+
+	main
+		+page-header(title, '', {filter: true})
+		+search
+		+news({section: false, thumbnail: true})

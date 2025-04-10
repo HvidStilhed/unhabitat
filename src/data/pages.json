@@ -9,7 +9,7 @@
 				{"name": "Press Releases", "url": "press-releases.html", "checked": true},
 				{"name": "Press Release", "url": "press-release.html", "checked": true},
 				{"name": "Stories", "url": "stories.html", "checked": true},
-				{"name": "News", "url": "news.php", "checked": false},
+				{"name": "News", "url": "news.html", "checked": true},
 				{"name": "Media", "url": "media.php", "checked": false},
 				{"name": "News template (old)", "url": "news-template_old.php", "checked": false},
 				{"name": "News template (new)", "url": "news-template_new.php", "checked": false}
