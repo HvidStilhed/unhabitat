@@ -10,7 +10,7 @@
 				{"name": "Press Release", "url": "press-release.html", "checked": true},
 				{"name": "Stories", "url": "stories.html", "checked": true},
 				{"name": "News", "url": "news.html", "checked": true},
-				{"name": "Media", "url": "media.php", "checked": false},
+				{"name": "Media", "url": "media.html", "checked": false},
 				{"name": "News template (old)", "url": "news-template_old.php", "checked": false},
 				{"name": "News template (new)", "url": "news-template_new.php", "checked": false}
 			]
@@ -18,15 +18,15 @@
 		{
 			"title": "Get involved",
 			"items": [
-				{"name": "Careers", "url": "careers.php", "checked": false},
-				{"name": "United Nations Volunteers", "url": "volunteers.php", "checked": false},
-				{"name": "Junior professional officers", "url": "officers.php", "checked": false},
-				{"name": "Calls for proposals", "url": "calls-proposals.php", "checked": false},
-				{"name": "Calls for expressions of interest", "url": "calls-interest.php", "checked": false},
-				{"name": "African Clean Cities Platform Associate Members", "url": "members.php", "checked": false},
-				{"name": "Donate now", "url": "donate.php", "checked": false},
+				{"name": "Careers", "url": "careers.html", "checked": false},
+				{"name": "United Nations Volunteers", "url": "volunteers.html", "checked": false},
+				{"name": "Junior professional officers", "url": "officers.html", "checked": false},
+				{"name": "Calls for proposals", "url": "calls-proposals.html", "checked": false},
+				{"name": "Calls for expressions of interest", "url": "calls-interest.html", "checked": false},
+				{"name": "African Clean Cities Platform Associate Members", "url": "members.html", "checked": false},
+				{"name": "Donate now", "url": "donate.html", "checked": false},
 				{"name": "Thank you for the donation!", "url": "thanks.php", "checked": false},
-				{"name": "Contact us", "url": "contact-us.php", "checked": false}
+				{"name": "Contact us", "url": "contact-us.html", "checked": false}
 			]
 		},
 		{
@@ -76,7 +76,7 @@
 				{"name": "Executive Board", "url": "board.php", "checked": false},
 				{"name": "2024 First Session of the Executive Board", "url": "first-session.php", "checked": false},
 				{"name": "Committee of Permanent Representatives", "url": "committe.php", "checked": false},
-				{"name": "United Nations Habitat Assembly", "url": "assembly.php", "checked": false}
+				{"name": "United Nations Habitat Assembly", "url": "assembly.html", "checked": false}
 			]
 		},
 		{

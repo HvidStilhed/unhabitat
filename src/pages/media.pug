@@ -1,0 +1,114 @@
+extends ../components/header/header.pug
+
+block content
+	-
+		var title = 'Media'
+		var breadcrumbs = [
+			{title: title, url: ''},
+		]
+		var featured = [
+			'Vision, Scenario Building, and Action Plan for the city of New Damietta',
+			'Kakuma Regeneration Strategy',
+			'Status Report on the Achievement of Goal 11 in Palestine',
+			'Policy Legislation and Governance Section Annual Report 2022'
+		]
+		var contactsLeft = {
+			title: 'Contact',
+			text: 'Are you a journalist interested in UN-Habitat? Contact our communications team.',
+			personName: 'Katerina Bezgachina',
+			personPost: 'Chief of Communication',
+			email: 'katerina.bezgachina@un.org'
+		}
+		var contactsRight = {
+			title: 'Social Media',
+			text: 'Connect with us on Social Media for the latest developments in sustainable urbanization'
+		}
+
+	+breadcrumbs(breadcrumbs)
+
+	main
+		+page-header(title)
+
+		.container
+			.featured.section
+				.section__header
+					.section__title.quote Featured
+					a.section__link(href="#") see all
+				.featured__items
+					each item, index in featured
+						a.featured__item(href="#")
+							.featured__item-thumbnail(style=`background-image: url('img/photos/featured-${index + 1}.webp')`)
+							.featured__item-title= item
+
+		.container
+			.events.events_banner.mb-32
+				.events__item
+					.events__item-header
+						.events__item-title New Urban Agenda
+						.events__item-date
+							time(datetime="January 15th, 2025") January 15th, 2025
+					.events__item-footer
+						.events__item-text In the light of the analytical work and the exchanges carried out during the first part of the UPIMC programme in Damietta Governorate
+						a.button.button_white(href="#") Explore
+					.events__item-background(style="background-image: url('img/photos/banner.webp')")
+
+		+news({section: true, title: 'News', category: 'News', grid: true, thumbnail: true})
+		+news({section: true, title: 'Stories', category: 'Story', grid: true, thumbnail: true})
+		+news({section: true, title: 'Statements', grid: true, thumbnail: false})
+		+news({section: true, title: 'Speeches', grid: true, thumbnail: false})
+		+news({section: true, title: 'Press Releases', grid: true, thumbnail: false})
+		+contacts(contactsLeft, contactsRight, {social: true})
+
+		<div class="container">
+			<section class="shorts shorts_section section mb-0">
+				<div class="section__header">
+					<h2 class="h2 section__title">Shorts</h2>
+					<a href="#" class="section__link">see all</a>
+				</div>
+				<div class="row">
+					<article class="shorts__item">
+						<div class="shorts__item-background" style="background-image: url('img/photos/shorts_background-1.jpg')"></div>
+						<div class="shorts__item-thumbnail" style="background-image: url('img/photos/shorts-1.jpg')"></div>
+						<div class="shorts__item-content">
+							<div class="shorts__item-category">Topic</div>
+							<h4 class="h4 shorts__item-title">Et odio pharetra diam at neque. Volutpat nisl amet.</h4>
+						</div>
+					</article>
+					<article class="shorts__item">
+						<div class="shorts__item-background">
+							<video class="shorts__item-video" muted playsinline loop>
+								<source src="img/videos/shorts_background-2.mp4" type="video/mp4">
+								<source src="img/videos/shorts_background-2.webm" type="video/webm">
+							</video>
+						</div>
+						<div class="shorts__item-thumbnail" style="background-image: url('img/photos/shorts-2.jpg')"></div>
+						<div class="shorts__item-content">
+							<div class="shorts__item-category">Topic</div>
+							<h4 class="h4 shorts__item-title">Rutrum viverra ipsum morbi ac eros tincidunt in. Non.</h4>
+						</div>
+					</article>
+					<article class="shorts__item">
+						<div class="shorts__item-background shorts__item-background_overlay-off shorts__item-background_bice-blue"></div>
+						<div class="shorts__item-thumbnail" style="background-image: url('img/photos/shorts-3.jpg')"></div>
+						<div class="shorts__item-content">
+							<h4 class="h4 shorts__item-title">In lectus augue habitasse amet enim non</h4>
+						</div>
+					</article>
+					<article class="shorts__item">
+						<div class="shorts__item-background" style="background-image: url('img/photos/shorts_background-3.jpg')"></div>
+						<div class="shorts__item-thumbnail" style="background-image: url('img/photos/shorts-4.jpg')"></div>
+						<div class="shorts__item-content">
+							<h4 class="h4 shorts__item-title">Neque lorem tincidunt dignissim imperdiet sed.</h4>
+						</div>
+					</article>
+					<article class="shorts__item">
+						<div class="shorts__item-background" style="background-image: url('img/photos/shorts_background-4.jpg')"></div>
+						<div class="shorts__item-thumbnail" style="background-image: url('img/photos/shorts-5.jpg')"></div>
+						<div class="shorts__item-content">
+							<div class="shorts__item-category">Topic</div>
+							<h4 class="h4 shorts__item-title">Turpis morbi fusce pharetra nulla neque orci gravida.</h4>
+						</div>
+					</article>
+				</div>
+			</section>
+		</div>

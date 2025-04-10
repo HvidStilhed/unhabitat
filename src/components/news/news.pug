@@ -58,7 +58,7 @@ mixin news-inner(item, index, date, category, thumbnail)
 	if category
 		.news-section__item-category= category
 	if thumbnail
-		.news-section__item-thumbnail(style=`background-image: url('img/photos/stories-${index + 1}.jpg')`)
+		.news-section__item-thumbnail(style=`background-image: url('img/photos/stories-${Math.floor(Math.random() * 12) + 1}.jpg')`)
 	.news-section__item-content
 		.news-section__item-date.small
 			time(datetime=date)= date

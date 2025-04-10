@@ -7,6 +7,17 @@ block content
 			{title: 'Media', url: '/'},
 			{title: title, url: ''},
 		]
+		var contactsLeft = {
+			title: 'Contact',
+			text: 'Are you a journalist interested in UN-Habitat? Contact our communications team.',
+			personName: 'Katerina Bezgachina',
+			personPost: 'Chief of Communication',
+			email: 'katerina.bezgachina@un.org'
+		}
+		var contactsRight = {
+			title: 'Social Media',
+			text: 'Connect with us on Social Media for the latest developments in sustainable urbanization'
+		}
 
 	+breadcrumbs(breadcrumbs)
 
@@ -14,3 +25,4 @@ block content
 		+page-header(title, '', {filter: true})
 		+search
 		+news({section: false, thumbnail: true})
+		+contacts(contactsLeft, contactsRight, {social: true})
