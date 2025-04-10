@@ -46,9 +46,6 @@
 			.news-section__item-title
 				color: var(--process-cyan)
 
-		&:last-child
-			@media (max-width: 1199px) and (min-width: 992px)
-				display: none
 		&-title
 			transition-duration: .3s
 		&-thumbnail
@@ -121,6 +118,19 @@
 			grid-template-columns: 1fr 1fr 1fr
 
 	@media (max-width: 991px)
+		&--grid
+			display: flex
+			flex-direction: column
+
+			.section__header
+				display: flex
+				flex-direction: row
+				justify-content: space-between
+
+			.row
+				.news-section__item:last-child
+					display: none
+
 		.row
 			grid-template-columns: 1fr 1fr
 

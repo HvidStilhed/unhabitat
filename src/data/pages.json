@@ -11,8 +11,8 @@
 				{"name": "Stories", "url": "stories.html", "checked": true},
 				{"name": "News", "url": "news.html", "checked": true},
 				{"name": "Media", "url": "media.html", "checked": false},
-				{"name": "News template (old)", "url": "news-template_old.php", "checked": false},
-				{"name": "News template (new)", "url": "news-template_new.php", "checked": false}
+				{"name": "News template (old)", "url": "news-template_old.html", "checked": true},
+				{"name": "News template (new)", "url": "news-template_new.html", "checked": true}
 			]
 		},
 		{

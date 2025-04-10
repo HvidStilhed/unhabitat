@@ -619,8 +619,6 @@ figcaption
         text-decoration: none
         color: $eerie_black_60
         border-bottom: 1px solid $platinum
-        @include mq-max($lg)
-            margin-bottom: calc(var(--space-small) * 3)
         &:hover
             .statements__item-title
                 color: $eerie_black
@@ -668,6 +666,10 @@ figcaption
         margin-left: 16px
     &__button
         margin-top: 32px
+
+    @include mq-max($md)
+        &__item-download
+            margin-top: var(--space-default)
 
 // Tag
 .tag
@@ -1998,10 +2000,38 @@ figcaption
         @media (max-width: 991px)
             width: 100%
             margin-bottom: 48px
+            display: grid
+            grid-template-columns: auto 1fr
+            grid-template-rows: auto auto
+            grid-template-areas: "img title" "img subtitle"
+            align-items: start
+
+            .quote-2cols__thumbnail
+                align-self: start
+                grid-area: img
+                margin-bottom: 0
+                margin-right: calc(var(--space-default) * 2)
+
+            .quote-2cols__title
+                grid-area: title
+                align-self: end
+                margin-bottom: var(--space-small)
+            
+            .h5
+                grid-area: subtitle
+                align-self: start
 
     .col-9
         @media (max-width: 991px)
             width: 100%
+
+    @include mq-max($md)
+        .col-4
+            display: block
+
+            .quote-2cols__thumbnail
+                margin-right: 0
+                margin-bottom: var(--space-default)
 
 // Colored list
 .colored-list
@@ -3635,6 +3665,8 @@ html[dir="rtl"]
 
 .unhauthorize-donate
     margin-bottom: 64px
+    margin-left: auto
+    margin-right: auto
     h2
         margin-bottom: 24px
         font-size: 36px
