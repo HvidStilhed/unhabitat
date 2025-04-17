@@ -6,6 +6,12 @@ block content
 		var breadcrumbs = [
 			{title: title, url: ''},
 		]
+		var featured = [
+			'Vision, Scenario Building, and Action Plan for the city of New Damietta',
+			'Kakuma Regeneration Strategy',
+			'Status Report on the Achievement of Goal 11 in Palestine',
+			'Policy Legislation and Governance Section Annual Report 2022'
+		]
 
 	+breadcrumbs(breadcrumbs)
 
@@ -77,3 +83,51 @@ block content
 
 		+news({section: true, title: 'News', category: 'News', grid: true, thumbnail: true})
 		+news({section: true, title: 'Statements', grid: true, thumbnail: false})
+
+		.container
+			.events.events--rounded.events_banner.section
+				.events__item
+					.events__item-category.events__item-category--large.h3 New Urban Agenda
+					.events__item-content
+						.events__item-header
+							.events__item-date
+								time(datetime="July 7—9 , 2023") July 7—9 , 2023
+								| Barcelona
+							.tag.tag_small.tag_arena UN-Habitat Arena
+						.events__item-footer
+							.events__item-title.h2 Smart City Expo World Congress
+							a.button.button_white(href="#") Explore
+					.events__item-background(style="background-image: url('img/photos/banner.webp')")
+
+		.container
+			.events.events_banner.section
+				.events__item
+					.events__item-category.h3 UNH Learn
+					.events__item-content
+						.events__item-header
+							.events__item-date
+								time(datetime="July 7—9 , 2023") July 7—9 , 2023
+								| Barcelona
+							.tag.tag_small.tag_arena UN-Habitat Arena
+						.events__item-footer
+							.events__item-title.h2 Smart City Expo World Congress
+							a.button.button_white(href="#") Explore
+					.events__item-background.events__item-background--video
+						video.events__item-video(autoplay="" muted="" playsinline="" loop="")
+							source(src="img/videos/events-2.mp4" type="video/mp4")
+							source(src="img/videos/events-2.webm" type="video/webm")
+
+		.container
+			.featured.section
+				.section__header
+					.section__title.quote Featured
+					a.section__link(href="#") see all
+				.featured__items
+					each item, index in featured
+						if index === 0
+							a.featured__item.featured__item_no-picture(href="#")
+								.featured__item-title= item
+						else
+							a.featured__item(href="#")
+								.featured__item-thumbnail(style=`background-image: url('img/photos/featured-${index + 1}.webp')`)
+								.featured__item-title= item

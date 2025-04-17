@@ -1,0 +1,166 @@
+@use '../../sass/variables' as *
+
+:root
+	--un-black: #17191b
+	--un-blue: #00b2e3
+	--un-gray: #dfdfdf
+	--container-width: 1440px
+	--container-padding: 0 16px
+	--spacing-base: 16px
+
+	@media (min-width: 768px)
+		--container-padding: 0 32px
+
+@keyframes slider_text
+	0%
+		opacity: 1
+		transform: translateY(0)
+	100%
+		opacity: 0
+		transform: translateY(calc(-100% - var(--spacing-base) * 3))
+
+.un-slider-wrap
+	margin-top: calc(var(--spacing-base) * 7.5)
+	padding-top: calc(var(--spacing-base) * 3)
+	position: relative
+	height: calc(640px + 47px)
+	overflow: hidden
+
+	&:before
+		content: ''
+		top: 0
+		position: absolute
+		display: block
+		width: calc(var(--container-width) - (var(--spacing-base) * 4))
+		left: calc((100% - (var(--container-width) - (var(--spacing-base) * 4))) / 2)
+		border-top: 1px solid var(--un-gray)
+
+	&.animated
+		.un-slider-text
+			animation: slider_text 1s ease-in forwards
+		
+.un-slider
+	margin-top: calc(var(--space-small) * 5)
+	margin-bottom: calc(var(--spacing-base) * 4)
+	box-sizing: border-box
+	overflow: hidden
+	opacity: 0
+
+	&:hover
+		.flickity-button
+			opacity: 1
+
+	&__item
+		width: 85%
+		max-width: 1200px
+		height: 600px
+		background-size: cover
+		background-position: center
+		border-radius: 32px
+		margin-right: 24px
+		position: relative
+
+		&:before
+			content: ''
+			position: absolute
+			width: 100%
+			height: 100%
+			opacity: 0
+			background: var(--white)
+
+		&:not(.is-selected)
+			&:before
+				opacity: .65
+
+	&-text
+		font:
+			size: 120px
+			weight: 700
+		text-align: center
+		line-height: 110%
+		width: 900px
+		max-width: 100%
+		margin: auto
+		transition-duration: 2s
+
+	&-title
+		margin-top: calc(var(--space-default) * 2)
+		opacity: 0
+
+	.flickity-button
+		height: 100%
+		padding: 0
+		width: 120px
+		top: 0
+		margin: 0
+		background-repeat: no-repeat
+		background-position: center
+		transition: opacity 0.3s ease
+		transform: none
+		display: flex
+		transition-duration: .3s
+		align-items: center
+		justify-content: center
+		box-shadow: none !important
+		outline: none
+
+		&::after
+			content: none
+
+		&::before
+			content: ''
+			position: absolute
+			width: 20px
+			height: 40px
+			background-size: cover
+			background-position: center
+
+		&.previous
+			background: linear-gradient(270deg, rgba(0, 87, 227, 0) 0%, rgba(0, 87, 227, 0.7) 100%)
+			left: 7.5%
+			border-radius: 32px 0 0 32px
+			
+			&::before
+				background-image: url('../img/icons/slider-left.svg')
+
+		&.next
+			background: linear-gradient(90deg, rgba(0, 87, 227, 0) 0%, rgba(0, 87, 227, 0.7) 100%)
+			right: 7.5%
+			border-radius: 0 32px 32px 0
+
+			&::before
+				background-image: url('../img/icons/slider-right.svg')
+
+		svg
+			display: none
+
+	@media (min-width: 1430px)
+		.flickity-button
+			&.previous
+				left: calc((100% - 1200px) / 2)
+
+			&.next
+				right: calc((100% - 1200px) / 2)
+
+	@media (min-width: 992px)
+		margin-bottom: calc(var(--spacing-base) * 5)
+
+	@media (min-width: 1366px)
+		.flickity-button
+			opacity: 0
+
+	@media (max-width: 767px)
+		padding: var(--container-padding)
+
+		&__item
+			width: 100%
+			height: 400px
+		
+		.flickity-button
+			width: 40px
+
+			&.previous
+				left: var(--spacing-base)
+
+			&.next
+				right: var(--spacing-base)

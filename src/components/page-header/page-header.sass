@@ -57,6 +57,123 @@
 		.page__title
 			width: 100%
 			margin-bottom: 64px
+
+	&--homepage
+		height: 100vh
+		padding-left: calc(var(--space-default) * 2)
+		padding-right: calc(var(--space-default) * 2)
+		padding-bottom: calc(var(--space-small) * 10)
+		display: flex
+		overflow: hidden
+		flex-direction: column
+		justify-content: space-between
+
+		&.animated
+			.page__background
+				animation: bg_scale 2s linear forwards
+				&:before
+					animation: bg_overlay 1.5s forwards
+
+			.page__header-title-item:before
+				animation: words 1s linear forwards
+
+		.page__header-description
+			width: 230px
+			margin-top: 0
+			font:
+				size: 32px
+				weight: 600
+			text-transform: uppercase
+			line-height: 120%
+			letter-spacing: 6.4px
+
+		.page__header-title
+			font:
+				size: 112px
+				weight: 800
+			text-transform: uppercase
+			display: flex
+			flex-direction: column
+			line-height: 112px
+
+			&-item
+				overflow: hidden
+
+				&:before
+					transition-duration: 1s
+					display: block
+
+				&:first-child:before
+					content: 'en'
+				&:nth-child(2):before
+					content: 'route'
+				&:last-child:before
+					content: 'to Baku'
+
+		.page__header-video-wrap
+			width: 164px
+			height: 164px
+			overflow: hidden
+			border-radius: 100%
+			position: absolute
+			top: 0
+			left: 0
+			transform: translate(-100%, -100%) scale(0)
+			transform-origin: center
+			transition-duration: .5s
+			box-shadow: 0 0 10px 10px transparent
+
+		.page__header-video
+			height: 100%
+			transform: translateX(calc(((100% - 164px) / 2)  * -1))
+
+		.page__header-footer
+			display: flex
+			align-items: flex-end
+			justify-content: space-between
+			padding-right: 150px
+
+		.page__header-link
+			color: var(--white)
+			position: relative
+			margin-top: 0
+			display: flex
+			flex-direction: column
+			text-decoration: none
+			font-weight: 600
+			padding-top: calc(var(--space-small) * 3)
+
+			&:hover
+				.page__header-video-wrap
+					transform: translate(-100%, -100%) scale(1)
+					animation: shadow 1s forwards
+					animation-delay: 1s
+
+				.page__header-link-small:after
+					width: 56px
+
+			&-small
+				line-height: 120%
+				display: flex
+				position: absolute
+				top: 0
+				white-space: nowrap
+				align-items: center
+				margin-bottom: calc(var(--space-small) / 2)
+
+				&:after
+					content: ''
+					transition-duration: .5s
+					width: 0
+					height: 16px
+					background-position: right center
+					background-image: url('../img/icons/arrow_right_long.svg')
+					margin-left: calc(var(--space-default) * 2)
+
+			&-large
+				font-size: 32px
+				line-height: 100%
+
 	&-tag
 		@media (min-width: 1200px)
 			margin-right: 100px

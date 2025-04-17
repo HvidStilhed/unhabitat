@@ -15,6 +15,29 @@
         opacity: .5
         transform: translate(0, 15px)
 
+@keyframes shadow
+    0%
+        box-shadow: 0 0 10px 10px transparent
+    100%
+        box-shadow: 0 0 10px 10px #0057E3B2
+
+@keyframes bg_overlay
+    0%
+        opacity: .5
+    100%
+        opacity: .3
+
+@keyframes bg_scale
+    0%
+        transform: scale(1.15)
+    100%
+        transform: scale(1)
+
+@keyframes words
+    0%
+        transform: translateY(100%)
+    100%
+        transform: translateY(0)
 
 // Reset
 *
@@ -215,6 +238,10 @@ body
         .authorize-success-notice
             color: $white
             padding-top: 200px
+
+        .page__header
+            &--homepage
+                padding-top: calc(var(--header-height) + (var(--space-small) * 5))
     
     &__subtitle
         margin-top: 16px
@@ -440,6 +467,10 @@ figcaption
 
     font-size: 12px
     line-height: 16px
+
+.text-large
+    font-size: 32px
+    line-height: 150%
 
 // Inputs
 .text-input
@@ -1242,15 +1273,17 @@ figcaption
 // Events
 .events
     color: $white
+    border-radius: 32px
+    overflow: hidden
     &_banner,
+    &_banner-small
+        .button
+            min-width: 120px
     &_banner-small
         .events__item-title
             width: auto
             flex: 1
             padding-right: 24px
-        .button
-            min-width: 120px
-    &_banner-small
         .events__item 
             height: auto
             padding: 24px
@@ -1294,19 +1327,27 @@ figcaption
                 background: $process_cyan
                 &:before
                     content: none
-            &:before
-                content: ''
-                opacity: .2
 
-                width: 100%
-                height: 100%
+                .events__item-title
+                    width: 50%
+                    max-width: 100%
+                    flex: 1
+                    padding-right: 24px
 
-                top: 0
-                left: 0
-                z-index: 1
-                position: absolute
+            &--video
+                &:before
+                    content: ''
+                    opacity: .2
 
-                background: $black
+                    width: 100%
+                    height: 100%
+
+                    top: 0
+                    left: 0
+                    z-index: 1
+                    position: absolute
+
+                    background: $black
 
         &-video
             min-width: 100%
@@ -1341,6 +1382,14 @@ figcaption
             max-width: 100%
             a
                 color: $white
+        &-category--large
+            font:
+                size: 112px
+                weight: 600
+            line-height: 100%
+            max-width: 70%
+            text-transform: uppercase
+            padding-right: 0
         .button
             @media (max-width: 767px)
                 margin-top: 24px
@@ -1378,41 +1427,6 @@ figcaption
         &:disabled
             opacity: 0
 
-    &_banner
-        .events__item
-            &-header
-                align-items: flex-start
-                justify-content: space-between
-
-            &-footer
-                align-items: center
-
-            &-header,
-            &-footer
-                position: relative
-                z-index: 2
-
-            &-title
-                font:
-                    size: 112px
-                    weight: 600
-                line-height: 100%
-                max-width: 70%
-                text-transform: uppercase
-                padding-right: 0
-
-            &-date
-                margin-right: 0
-                font-size: 12px
-
-            &-background
-                border-radius: 32px
-                overflow: hidden
-
-            &-text
-                width: 460px
-                max-width: 100%
-
     @media (max-width: 991px)
         &_banner-small
             .events__item-footer
@@ -1444,8 +1458,6 @@ figcaption
     &__row
         display: flex
         flex-wrap: wrap
-
-        margin-bottom: 32px
     &__item
         color: $eerie_black
         text-decoration: none
@@ -2075,9 +2087,7 @@ figcaption
             min-height: 660px
 
 // Featured
-.featured
-    margin-bottom: calc(var(--space-default) * 2)
-    
+.featured    
     &__items
         display: grid
         grid-template-columns: 1fr 1fr 1fr 1fr
@@ -3990,3 +4000,6 @@ html[dir="rtl"]
 
         &:visited
             color: var(--bice-blue)
+
+.main-header
+    height: 100vh

@@ -1,1 +1,29 @@
-include ../components/header/header.pug
+extends ../components/header/header.pug
+
+block content
+	main
+		article
+			.page__header.page__header--homepage.page__header_background
+				.page__background(style="background-image: url('img/photos/main-bg.webp')")
+				.page__header-description World Urban Forum 2026
+				.page__header-footer
+					.page__header-title
+						span.page__header-title-item
+						span.page__header-title-item
+						span.page__header-title-item
+					a.page__header-link(href="#")
+						.page__header-link-small WUF12 Cairo
+						.page__header-link-large How it was
+						.page__header-video-wrap
+							video.page__header-video(autoplay="" muted="" playsinline="" loop="")
+								source(src="img/videos/main-header.mp4" type="video/mp4")
+								source(src="img/videos/main-header.webm" type="video/webm")
+
+			.container
+				.section
+					.row
+						.col-7
+							.text-large
+								p UN-Habitat promotes transformative change in cities and human settlements through knowledge, policy advice, technical assistance and collaborative action to leave no one and no place behind.
+
+			+slider
