@@ -85,13 +85,26 @@ block content
 		+news({section: true, title: 'Statements', grid: true, thumbnail: false})
 
 		.container
-			.events.events--rounded.events_banner.section
+			.events.events_banner.section
+				.events__item
+					.events__item-content
+						.events__item-header
+							.events__item-category.events__item-category--large.h3 New Urban Agenda
+							.events__item-date.small
+								time(datetime="January 15th, 2025") January 15th, 2025
+						.events__item-footer
+							.events__item-title In the light of the analytical work and the exchanges carried out during the first part of the UPIMC programme in Damietta Governorate
+							a.button.button_white(href="#") Explore
+					.events__item-background(style="background-image: url('img/photos/banner.webp')")
+
+		.container
+			.events.section
 				.events__item
 					.events__item-category.events__item-category--large.h3 New Urban Agenda
 					.events__item-content
 						.events__item-header
 							.events__item-date
-								time(datetime="July 7—9 , 2023") July 7—9 , 2023
+								time(datetime="July 7—9 , 2023") July 7—9 , 2023 
 								| Barcelona
 							.tag.tag_small.tag_arena UN-Habitat Arena
 						.events__item-footer
@@ -100,7 +113,7 @@ block content
 					.events__item-background(style="background-image: url('img/photos/banner.webp')")
 
 		.container
-			.events.events_banner.section
+			.events.section
 				.events__item
 					.events__item-category.h3 UNH Learn
 					.events__item-content

@@ -72,6 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let flkty = new Flickity('.un-slider', {
             pageDots: false,
             wrapAround: true,
+            selectedAttraction: 0.006,
         });
 
         function flktyButtons(flkty) {
@@ -116,26 +117,45 @@ window.addEventListener('scroll', function() {
     function showSlider() {
         let ScrollPos = this.scrollY
         const section = document.querySelector('.un-slider-wrap')
-        const sectionPos = section.offsetTop
-        const sectionText = document.querySelector('.un-slider-text')
-        const sectionTitle = document.querySelector('.un-slider-title')
-        
-        if ((ScrollPos + 200) >= sectionPos) {
-            section.classList.add('animated')
 
-            if (!sectionTitle.classList.contains('animated')) {
-                sectionTitle.animate(
-                    [
-                        {opacity: 0, transform: `translateY(0)`},
-                        {opacity: 1, transform: `translateY(${sectionText.offsetHeight * -1}px)`}
-                    ],
-                    {
-                        duration: 1000,
-                        easing: 'ease-in',
-                        fill: 'forwards'
-                    }
-                )
-                sectionTitle.classList.add('animated')
+        if (section) {
+            const sectionPos = section.offsetTop
+            const sectionText = document.querySelector('.un-slider-text')
+            const sectionTitle = document.querySelector('.un-slider-title')
+            const sectionSlider = document.querySelector('.un-slider')
+            
+            if ((ScrollPos + (window.innerHeight / 2)) >= sectionPos) {
+                section.classList.add('animated')
+    
+                if (!sectionTitle.classList.contains('animated')) {
+                    sectionTitle.animate(
+                        [
+                            {opacity: 0, transform: `translateY(0)`},
+                            {opacity: 1, transform: `translateY(${sectionText.offsetHeight * -1}px)`}
+                        ],
+                        {
+                            duration: 1000,
+                            easing: 'ease-in',
+                            fill: 'forwards'
+                        }
+                    )
+                    sectionTitle.classList.add('animated')
+                }
+
+                if (!sectionSlider.classList.contains('animated')) {
+                    sectionSlider.animate(
+                        [
+                            {opacity: 0, transform: `translateY(0)`},
+                            {opacity: 1, transform: `translateY(${sectionText.offsetHeight * -1}px)`}
+                        ],
+                        {
+                            duration: 1000,
+                            easing: 'ease-in',
+                            fill: 'forwards'
+                        }
+                    )
+                    sectionSlider.classList.add('animated')
+                }
             }
         }
     }

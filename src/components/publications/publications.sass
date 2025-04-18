@@ -1,0 +1,51 @@
+@use '../../sass/variables' as *
+
+.publications
+    margin-bottom: 32px
+    &__item
+        text-decoration: none
+        color: $eerie_black
+        transition-duration: .3s
+        margin-bottom: 32px
+        display: flex
+        flex-direction: column
+        &:hover
+            color: $process_cyan
+        &-thumbnail
+            height: 486px
+            margin-bottom: 16px
+            background-size: cover
+            background-position: center
+            width: 100%
+            @media (max-width: 767px)
+                height: 555px
+        &-header
+            display: flex
+            align-items: center
+            margin-bottom: 8px
+        &-title
+            @media (max-width: 767px)
+                overflow: hidden
+                display: -webkit-box
+                -webkit-line-clamp: 3
+                -webkit-box-orient: vertical
+        .tag
+            margin-right: 16px
+        .small
+            color: $eerie_black
+    .show-more,
+    .pager
+        margin-top: 0
+    .col-3
+        &:last-child
+            @media (max-width: 1199px)
+                display: none
+            @media (max-width: 991px)
+                display: block
+        @media (max-width: 1199px)
+            width: 33.3333333333%
+        @media (max-width: 991px)
+            width: 50%
+
+        @media (max-width: 767px)
+            width: 100%

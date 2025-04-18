@@ -1,0 +1,167 @@
+extends ../components/header/header.pug
+
+block content
+	-
+		var title = 'First Session of the Executive Board 2024'
+		var breadcrumbs = [
+			{title: 'Who we are', url: '/'},
+			{title: 'Governance', url: '/'},
+			{title: title, url: ''},
+		]
+
+	+breadcrumbs(breadcrumbs)
+
+	<main>
+		<article>
+			<div class="page__header page__header_background page__header_slim">
+				<div class="container">
+					<div class="page__header-row">
+						<div class="page__background page__background_bice-blue"></div>
+						<h1 class="page__title hero">First Session of the Executive Board 2024</h1>
+						<div class="page__header-content">
+							<div class="page__header-tag tag tag_large tag_event">Event</div>
+							<div class="page__header-date quote"><time datetime="">6–8 May, 2024</time></div>
+							<p>Nairobi, Kenya</p>
+							<div class="page__header-nav">
+								<div class="page__header-nav-thumbnail" style="background-image: url('img/photos/board.jpg')"></div>
+								<a href="#" class="page__header-nav-link">First session of 2024 of the Executive Board</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="navigation tab-controls section row">
+					<div class="navigation__item active tab-controls__button col-4" data-target="notification" data-type="navigation">Notification and Provisional Agenda</div>
+					<div class="navigation__item tab-controls__button col-4" data-target="documents" data-type="navigation">
+						| Documents
+						<div class="navigation__item-text">
+							ul
+								<li>Pre-Session documents</li>
+								<li>Draft decisions</li>
+								<li>In-session documents</li>
+								<li>Post Session documents</li>
+						</div>
+					</div>
+					<div class="navigation__item tab-controls__button col-4" data-target="information" data-type="navigation">Information note for Participants</div>
+					<div class="navigation__item tab-controls__button col-6" data-target="statements" data-type="navigation">Statements</div>
+					<div class="navigation__item tab-controls__button col-6" data-target="journal" data-type="navigation">Daily Journal</div>
+				</div>
+			</div>
+			<div class="tab-content active" data-target="notification" data-type="navigation">
+				<div class="container">
+					<section class="statements section">
+						<h2 class="section__title h2">Notification by the Executive Director</h2>
+						<div class="statements__item">
+							<div class="statements__item-thumbnail" style="background-image: url('img/photos/press-1.jpg')"></div>
+							<div class="statements__item-content">
+								<div class="statements__item-date"><time>26 September 2023</time></div>
+								<div class="statements__item-title">
+									<h4 class="statements__item-title h4">UN-Habitat receives generous support from the Government of the Netherlands to initiate policy dialogue on the Land Legal Framework Reform and Secure Tenure Rights for internally displaced Iraqis</h4>
+								</div>
+								<div class="statements__item-download">
+									<a href="#" class="statements__item-button button button_download button_small button_black">English</a>
+								</div>
+							</div>
+						</div>
+						<div class="statements__item">
+							<div class="statements__item-thumbnail" style="background-image: url('img/photos/press-2.jpg')"></div>
+							<div class="statements__item-content">
+								<div class="statements__item-date"><time>26 September 2023</time></div>
+								<div class="statements__item-title">
+									<h4 class="statements__item-title h4">Media advisory on the World Cities Day 2023 and zero-waste initiatives briefing</h4>
+								</div>
+								<div class="statements__item-download">
+									<a href="#" class="statements__item-button button button_download button_small button_black">English</a>
+								</div>
+							</div>
+						</div>
+						<div class="statements__item">
+							<div class="statements__item-thumbnail" style="background-image: url('img/photos/press-3.jpg')"></div>
+							<div class="statements__item-content">
+								<div class="statements__item-date"><time>26 September 2023</time></div>
+								<div class="statements__item-title">
+									<h4 class="statements__item-title h4">The United Nations and the Government of Japan inaugurate recently rehabilitated Markazouna Community Centre in Tripoli</h4>
+								</div>
+								<div class="statements__item-download">
+									<a href="#" class="statements__item-button button button_download button_small button_black">English</a>
+								</div>
+							</div>
+						</div>
+						<div class="statements__item">
+							<div class="statements__item-thumbnail" style="background-image: url('img/photos/press-4.jpg')"></div>
+							<div class="statements__item-content">
+								<div class="statements__item-date"><time>26 September 2023</time></div>
+								<div class="statements__item-title">
+									<h4 class="statements__item-title h4">023 UN-Habitat Scroll of Honour Award winners announced</h4>
+								</div>
+								<div class="statements__item-download">
+									<a href="#" class="statements__item-button button button_download button_small button_black">English</a>
+								</div>
+							</div>
+						</div>
+						<div class="statements__item">
+							<div class="statements__item-thumbnail" style="background-image: url('img/photos/press-5.jpg')"></div>
+							<div class="statements__item-content">
+								<div class="statements__item-date"><time>26 September 2023</time></div>
+								<div class="statements__item-title">
+									<h4 class="statements__item-title h4">UN-Habitat in Tunisia moderates a panel on 'The Cities of the Future' as part of the “Youth Future Zone” Symposium organised by the ministry of Youth and Sports and the National Youth Observatory</h4>
+								</div>
+								<div class="statements__item-download">
+									<a href="#" class="statements__item-button button button_download button_small button_black">English</a>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+				<div class="container">
+					<section class="statements section">
+						<h2 class="section__title h2">Proposed Provisional Agenda</h2>
+						<div class="statements__item">
+							<div class="statements__item-content">
+								<div class="statements__item-date"><time>March 29, 2021</time></div>
+								<div class="statements__item-title">
+									<h4 class="h4">Proposed Provisional Agenda</h4>
+								</div>
+								<div class="statements__item-download">
+									<a href="#" class="statements__item-button button button_download button_small button_black">English</a>
+									<a href="#" class="statements__item-button button button_download button_small button_black">Español</a>
+									<a href="#" class="statements__item-button button button_download button_small button_black">Français</a>
+									<a href="#" class="statements__item-button button button_download button_small button_black">العربية</a>
+									<a href="#" class="statements__item-button button button_download button_small button_black">中文</a>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+			<div class="tab-content" data-target="information" data-type="navigation">
+				<div class="container">
+					<div class="page__info section">
+						<div class="page__info-item">
+							<div class="col-4">
+								<h2 class="h2">Programme</h2>
+							</div>
+							<div class="col-1"></div>
+							<div class="col-3">
+								<a href="#" class="pdf-link">Programme at a Glance</a>
+							</div>
+							<div class="col-3">
+								<a href="#" class="pdf-link">Detailed Programme</a>
+							</div>
+						</div>
+						<div class="page__info-item">
+							<div class="col-4">
+								<h2 class="section__title h2">Information for participants</h2>
+								<a href="#" class="pdf-link">Proposed Provisisonal Agenda</a>
+							</div>
+							<div class="col-1"></div>
+							<div class="col-7">
+								<p>The first session of the UN-Habitat Assembly took place from 27 — 31 May 2019, at the headquarters of UN-Habitat in Nairobi. During the first session, the Assembly adopted its rules of procedure and endorsed the rules of procedure of the Executive Board. Five resolutions were adopted, covering a range of topics, including on: safer cities; capacity building for implementing the New Urban Agenda; achieving gender equality through UN-Habitat’s work to support inclusive, safe, resilient and sustainable cities and human settlements; enhancing urban rural linkages for sustainable urbanization, and on UN-Habitat’s Strategic Plan 2020-2023. In addition, the Assembly also adopted a decision on transitional arrangements towards the new governance structure of UN-Habitat. The Assembly concluded its five days of discussions with a Ministerial Declaration recognizing that the unprecedented rate of urbanization constitutes both a challenge and an opportunity. The report of the first session of the UN-Habitat Assembly can be found here.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</article>
+	</main>

@@ -19,11 +19,19 @@
 		opacity: 0
 		transform: translateY(calc(-100% - var(--spacing-base) * 3))
 
+@keyframes slider_title
+	0%
+		margin-top: calc(var(--space-default) * 4)
+		margin-bottom: calc(var(--space-default) * 12)
+	100%
+		margin-top: 0
+		margin-bottom: 0
+
 .un-slider-wrap
 	margin-top: calc(var(--spacing-base) * 7.5)
 	padding-top: calc(var(--spacing-base) * 3)
 	position: relative
-	height: calc(640px + 47px)
+	height: calc(640px + (var(--space-default) * 11))
 	overflow: hidden
 
 	&:before
@@ -59,18 +67,42 @@
 		border-radius: 32px
 		margin-right: 24px
 		position: relative
+		padding: calc(var(--space-small) * 3) calc(var(--space-default) * 2) calc(var(--space-default) * 3)
+		color: var(--white)
+		overflow: hidden
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+		opacity: .10
+		transition: opacity 1s ease
 
-		&:before
-			content: ''
-			position: absolute
-			width: 100%
-			height: 100%
-			opacity: 0
-			background: var(--white)
+		&.is-selected
+			opacity: 1
 
-		&:not(.is-selected)
-			&:before
-				opacity: .65
+		&-title
+			font:
+				size: 56px
+				weight: 600
+			line-height: 64px
+			text-transform: uppercase
+			width: 70%
+
+		&-title,
+		&-footer
+			position: relative
+
+		&-subtitle
+			font:
+				size: 22px
+				weight: 600
+			margin-bottom: var(--space-default)
+			text-transform: uppercase
+
+		&-cols
+			display: grid
+			grid-template-columns: 1fr 1fr 1fr
+			gap: calc(var(--space-default) * 2)
+			margin-right: calc(var(--space-default) * 2)  
 
 	&-text
 		font:
@@ -84,8 +116,10 @@
 		transition-duration: 2s
 
 	&-title
-		margin-top: calc(var(--space-default) * 2)
 		opacity: 0
+
+		&.animated
+			animation: slider_title 1s ease-in forwards
 
 	.flickity-button
 		height: 100%

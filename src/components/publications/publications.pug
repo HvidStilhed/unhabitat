@@ -1,0 +1,38 @@
+mixin publications
+	-
+		var data = [
+			{
+				category: 'Annual report',
+				title: 'Sustainable Urbanization in Commonwealth Countries'
+			},
+			{
+				category: 'Summary Report',
+				title: 'Ministerial meeting on Urbanization and Climate Change at COP28 Summary Report'
+			},
+			{
+				category: 'Analysis',
+				title: 'Heritopolis working papers – Volume 1'
+			},
+			{
+				category: 'TOOLKITS, MANUALS AND GUIDES',
+				title: 'Global Public Space Toolkit: From Global Principles to Local Policies and Practice'
+			},
+		]
+	.container
+		section.highlighted.section
+			.section__header
+				h2.section__title.h2 Publications
+				a.section__link(href="#") see all
+			.highlighted__row
+				each item, index in data
+					article.highlighted__item
+						.highlighted__item-header
+							.highlighted__item-category= item.category
+							.tag.tag_small.tag_language English
+							.highlighted__item-thumbnail(style=`background-image: url('../img/photos/highlighted-${index + 1}.jpg')`)
+						.highlighted__item-date
+							time(datetime="3 April, 2022") 3 April, 2022
+						.highlighted__item-title.h5= item.title
+						.highlighted__item-links
+							a.highlighted__item-link.button.button_download.button_small.button_black(href="#") Download
+							a.highlighted__item-link.button.button_small(href="#") Read more

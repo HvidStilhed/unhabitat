@@ -1,0 +1,64 @@
+@use '../../sass/variables' as *
+
+.recommendation
+    position: relative
+    &__items
+        .recommendation__item
+            margin: 0
+            width: calc(33.3333333333% - 22px)
+            &:not(:last-child)
+                margin-right: 32px
+    &__item
+        border: 1px solid $platinum
+        padding: 24px
+        min-height: 100%
+        width: calc(33.3333333333% - 32px)
+        margin: 0 16px
+        text-decoration: none
+        color: var(--eerie-black)
+        transition-duration: .3s
+
+        &:hover
+            background: var(--bice-blue)
+            color: var(--white)
+
+        &-header
+            display: flex
+            justify-content: flex-end
+            margin-bottom: 48px
+        &-number
+            flex: 1
+            font-size: 14px
+            font-weight: 500
+            color: $eerie_black_40
+    .flickity-button
+        width: 101px
+        height: 16px
+        top: -65px
+        transform: none
+        &.next
+            right: 0
+            background-image: url('../img/icons/arrow_right_long_black.svg')
+        &.previous
+            right: 117px
+            left: auto
+            background-image: url('../img/icons/arrow_left_long_black.svg')
+        svg
+            display: none
+
+    @media (max-width: 991px)
+        &__items
+            .recommendation__item
+                width: calc(50% - 22px)
+
+    @media (max-width: 767px)
+        &__items
+            .recommendation__item
+                width: 100%
+
+        .section__title
+            width: 360px
+            max-width: 100%
+
+        .flickity-button
+            top: -110px

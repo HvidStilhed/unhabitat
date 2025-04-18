@@ -829,62 +829,6 @@ figcaption
     > a
         text-decoration: none
 
-// Recommendation
-.recommendation
-    position: relative
-    &__items
-        .recommendation__item
-            margin: 0
-            width: calc(33.3333333333% - 22px)
-            &:not(:last-child)
-                margin-right: 32px
-    &__item
-        border: 1px solid $platinum
-        padding: 24px
-        min-height: 100%
-        width: calc(33.3333333333% - 32px)
-        margin: 0 16px
-        &-header
-            display: flex
-            justify-content: flex-end
-            margin-bottom: 48px
-        &-number
-            flex: 1
-            font-size: 14px
-            font-weight: 500
-            color: $eerie_black_40
-    .flickity-button
-        width: 101px
-        height: 16px
-        top: -65px
-        transform: none
-        &.next
-            right: 0
-            background-image: url('../img/icons/arrow_right_long_black.svg')
-        &.previous
-            right: 117px
-            left: auto
-            background-image: url('../img/icons/arrow_left_long_black.svg')
-        svg
-            display: none
-
-    @media (max-width: 991px)
-        &__items
-            .recommendation__item
-                width: calc(50% - 22px)
-
-    @media (max-width: 767px)
-        &__items
-            .recommendation__item
-                width: 100%
-
-        .section__title
-            width: 360px
-            max-width: 100%
-
-        .flickity-button
-            top: -110px
-
 // Cards
 .cards
     &_small
@@ -1279,26 +1223,38 @@ figcaption
     &_banner-small
         .button
             min-width: 120px
-    &_banner-small
-        .events__item-title
-            width: auto
-            flex: 1
-            padding-right: 24px
-        .events__item 
-            height: auto
-            padding: 24px
-        .events__item-title
-            width: 50%
-            max-width: 100%
-            @media (max-width: 767px)
-                width: 100%
-                padding-right: 0
-                margin-bottom: 24px
-        .events__item-footer
-            align-items: center
-            @media (max-width: 767px)
+    &_banner
+        .events__item
+            &-content
+                display: flex
                 flex-direction: column
+                justify-content: space-between
+                height: 100%
+
+            &-header
+                justify-content: space-between
                 align-items: flex-start
+
+        &-small
+            .events__item-title
+                width: auto
+                flex: 1
+                padding-right: 24px
+            .events__item 
+                height: auto
+                padding: 24px
+            .events__item-title
+                width: 50%
+                max-width: 100%
+                @media (max-width: 767px)
+                    width: 100%
+                    padding-right: 0
+                    margin-bottom: 24px
+            .events__item-footer
+                align-items: center
+                @media (max-width: 767px)
+                    flex-direction: column
+                    align-items: flex-start
     &__item
         width: 100%
         height: 540px
@@ -1312,6 +1268,11 @@ figcaption
         position: relative
         @media (max-width: 767px)
             padding: 16px 16px 32px
+
+        &:hover
+            .events__item-background:after
+                opacity: 1
+
         &-background
             top: 0
             left: 0
@@ -1323,6 +1284,16 @@ figcaption
 
             background-size: cover
             background-position: center
+
+            &:after
+                content: ''
+                position: absolute
+                width: 100%
+                height: 100%
+                background: linear-gradient(180deg, rgba(162, 255, 244, 0) 0%, rgba(0, 87, 227, 0.7) 100%)
+                opacity: 0
+                transition-duration: .5s
+
             &_process-cyan
                 background: $process_cyan
                 &:before
@@ -1357,6 +1328,7 @@ figcaption
         &-content
             z-index: 2
             position: relative
+
         &-header
             display: flex
             align-items: center
@@ -1366,6 +1338,7 @@ figcaption
                 flex-direction: column
                 align-items: flex-start
         &-footer
+            width: 100%
             display: flex
             align-items: flex-end
             justify-content: space-between
@@ -1382,14 +1355,16 @@ figcaption
             max-width: 100%
             a
                 color: $white
-        &-category--large
-            font:
-                size: 112px
-                weight: 600
-            line-height: 100%
-            max-width: 70%
-            text-transform: uppercase
-            padding-right: 0
+                
+        &-category
+            &--large
+                font:
+                    size: 112px
+                    weight: 600
+                line-height: 100%
+                max-width: 70%
+                text-transform: uppercase
+                padding-right: 0
         .button
             @media (max-width: 767px)
                 margin-top: 24px
@@ -2621,16 +2596,17 @@ figcaption
             color: $white
             background: $process_cyan
 
-        &-list
-            margin: 0
-            padding: 0
-            list-style-type: none
-            li
-                margin-top: 12px
+        &-text
+            ul
+                margin: 0
+                padding: 0
+                list-style-type: none
+                li
+                    margin-top: 12px
 
-                font-size: 14px
-                font-weight: 500
-                line-height: 20px
+                    font-size: 14px
+                    font-weight: 500
+                    line-height: 20px
     .flickity-slider
         .navigation__item
             border-top: 1px solid $platinum
@@ -3034,57 +3010,6 @@ figcaption
     &__description
         font-size: 14px
         font-weight: 500
-
-// Publications
-.publications
-    margin-bottom: 32px
-    &__item
-        text-decoration: none
-        color: $eerie_black
-        transition-duration: .3s
-        margin-bottom: 32px
-        display: flex
-        flex-direction: column
-        &:hover
-            color: $process_cyan
-        &-thumbnail
-            height: 486px
-            margin-bottom: 16px
-            background-size: cover
-            background-position: center
-            width: 100%
-            @media (max-width: 767px)
-                height: 555px
-        &-header
-            display: flex
-            align-items: center
-            margin-bottom: 8px
-        &-title
-            @media (max-width: 767px)
-                overflow: hidden
-                display: -webkit-box
-                -webkit-line-clamp: 3
-                -webkit-box-orient: vertical
-        .tag
-            margin-right: 16px
-        .small
-            color: $eerie_black
-    .show-more,
-    .pager
-        margin-top: 0
-    .col-3
-        &:last-child
-            @media (max-width: 1199px)
-                display: none
-            @media (max-width: 991px)
-                display: block
-        @media (max-width: 1199px)
-            width: 33.3333333333%
-        @media (max-width: 991px)
-            width: 50%
-
-        @media (max-width: 767px)
-            width: 100%
 
 // Lecture header
 .lecture-header
